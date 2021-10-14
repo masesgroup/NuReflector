@@ -1,0 +1,132 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: MASES.NuReflector
+  name: MASES.NuReflector
+  href: api/MASES.NuReflector.html
+  commentId: N:MASES.NuReflector
+  fullName: MASES.NuReflector
+  nameWithType: MASES.NuReflector
+- uid: MASES.NuReflector.Reflector
+  name: Reflector
+  href: api/MASES.NuReflector.Reflector.html
+  commentId: T:MASES.NuReflector.Reflector
+  fullName: MASES.NuReflector.Reflector
+  nameWithType: Reflector
+- uid: MASES.NuReflector.Reflector.CLIParam
+  name: Reflector.CLIParam
+  href: api/MASES.NuReflector.Reflector.CLIParam.html
+  commentId: T:MASES.NuReflector.Reflector.CLIParam
+  fullName: MASES.NuReflector.Reflector.CLIParam
+  nameWithType: Reflector.CLIParam
+- uid: MASES.NuReflector.Reflector.CLIParam.CommonSourceFolder
+  name: CommonSourceFolder
+  href: api/MASES.NuReflector.Reflector.CLIParam.html#MASES_NuReflector_Reflector_CLIParam_CommonSourceFolder
+  commentId: F:MASES.NuReflector.Reflector.CLIParam.CommonSourceFolder
+  fullName: MASES.NuReflector.Reflector.CLIParam.CommonSourceFolder
+  nameWithType: Reflector.CLIParam.CommonSourceFolder
+- uid: MASES.NuReflector.Reflector.CLIParam.NuGetFeed
+  name: NuGetFeed
+  href: api/MASES.NuReflector.Reflector.CLIParam.html#MASES_NuReflector_Reflector_CLIParam_NuGetFeed
+  commentId: F:MASES.NuReflector.Reflector.CLIParam.NuGetFeed
+  fullName: MASES.NuReflector.Reflector.CLIParam.NuGetFeed
+  nameWithType: Reflector.CLIParam.NuGetFeed
+- uid: MASES.NuReflector.Reflector.CLIParam.PackageId
+  name: PackageId
+  href: api/MASES.NuReflector.Reflector.CLIParam.html#MASES_NuReflector_Reflector_CLIParam_PackageId
+  commentId: F:MASES.NuReflector.Reflector.CLIParam.PackageId
+  fullName: MASES.NuReflector.Reflector.CLIParam.PackageId
+  nameWithType: Reflector.CLIParam.PackageId
+- uid: MASES.NuReflector.Reflector.CLIParam.PackagesFile
+  name: PackagesFile
+  href: api/MASES.NuReflector.Reflector.CLIParam.html#MASES_NuReflector_Reflector_CLIParam_PackagesFile
+  commentId: F:MASES.NuReflector.Reflector.CLIParam.PackagesFile
+  fullName: MASES.NuReflector.Reflector.CLIParam.PackagesFile
+  nameWithType: Reflector.CLIParam.PackagesFile
+- uid: MASES.NuReflector.Reflector.CLIParam.PackageVersion
+  name: PackageVersion
+  href: api/MASES.NuReflector.Reflector.CLIParam.html#MASES_NuReflector_Reflector_CLIParam_PackageVersion
+  commentId: F:MASES.NuReflector.Reflector.CLIParam.PackageVersion
+  fullName: MASES.NuReflector.Reflector.CLIParam.PackageVersion
+  nameWithType: Reflector.CLIParam.PackageVersion
+- uid: MASES.NuReflector.Reflector.CLIParam.POMProjectTemplateFile
+  name: POMProjectTemplateFile
+  href: api/MASES.NuReflector.Reflector.CLIParam.html#MASES_NuReflector_Reflector_CLIParam_POMProjectTemplateFile
+  commentId: F:MASES.NuReflector.Reflector.CLIParam.POMProjectTemplateFile
+  fullName: MASES.NuReflector.Reflector.CLIParam.POMProjectTemplateFile
+  nameWithType: Reflector.CLIParam.POMProjectTemplateFile
+- uid: MASES.NuReflector.Reflector.CLIParam.POMStaging
+  name: POMStaging
+  href: api/MASES.NuReflector.Reflector.CLIParam.html#MASES_NuReflector_Reflector_CLIParam_POMStaging
+  commentId: F:MASES.NuReflector.Reflector.CLIParam.POMStaging
+  fullName: MASES.NuReflector.Reflector.CLIParam.POMStaging
+  nameWithType: Reflector.CLIParam.POMStaging
+- uid: MASES.NuReflector.Reflector.CLIParam.POMTemplateFile
+  name: POMTemplateFile
+  href: api/MASES.NuReflector.Reflector.CLIParam.html#MASES_NuReflector_Reflector_CLIParam_POMTemplateFile
+  commentId: F:MASES.NuReflector.Reflector.CLIParam.POMTemplateFile
+  fullName: MASES.NuReflector.Reflector.CLIParam.POMTemplateFile
+  nameWithType: Reflector.CLIParam.POMTemplateFile
+- uid: MASES.NuReflector.Reflector.CLIParam.PreRelease
+  name: PreRelease
+  href: api/MASES.NuReflector.Reflector.CLIParam.html#MASES_NuReflector_Reflector_CLIParam_PreRelease
+  commentId: F:MASES.NuReflector.Reflector.CLIParam.PreRelease
+  fullName: MASES.NuReflector.Reflector.CLIParam.PreRelease
+  nameWithType: Reflector.CLIParam.PreRelease
+- uid: MASES.NuReflector.Reflector.Execute(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)
+  name: Execute(String, String, String, String, String, String, Boolean)
+  href: api/MASES.NuReflector.Reflector.html#MASES_NuReflector_Reflector_Execute_System_String_System_String_System_String_System_String_System_String_System_String_System_Boolean_
+  commentId: M:MASES.NuReflector.Reflector.Execute(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)
+  fullName: MASES.NuReflector.Reflector.Execute(System.String, System.String, System.String, System.String, System.String, System.String, System.Boolean)
+  nameWithType: Reflector.Execute(String, String, String, String, String, String, Boolean)
+- uid: MASES.NuReflector.Reflector.Execute(System.String[])
+  name: Execute(String[])
+  href: api/MASES.NuReflector.Reflector.html#MASES_NuReflector_Reflector_Execute_System_String___
+  commentId: M:MASES.NuReflector.Reflector.Execute(System.String[])
+  name.vb: Execute(String())
+  fullName: MASES.NuReflector.Reflector.Execute(System.String[])
+  fullName.vb: MASES.NuReflector.Reflector.Execute(System.String())
+  nameWithType: Reflector.Execute(String[])
+  nameWithType.vb: Reflector.Execute(String())
+- uid: MASES.NuReflector.Reflector.Execute*
+  name: Execute
+  href: api/MASES.NuReflector.Reflector.html#MASES_NuReflector_Reflector_Execute_
+  commentId: Overload:MASES.NuReflector.Reflector.Execute
+  isSpec: "True"
+  fullName: MASES.NuReflector.Reflector.Execute
+  nameWithType: Reflector.Execute
+- uid: MASES.NuReflector.Reflector.GetArgumentHelp
+  name: GetArgumentHelp()
+  href: api/MASES.NuReflector.Reflector.html#MASES_NuReflector_Reflector_GetArgumentHelp
+  commentId: M:MASES.NuReflector.Reflector.GetArgumentHelp
+  fullName: MASES.NuReflector.Reflector.GetArgumentHelp()
+  nameWithType: Reflector.GetArgumentHelp()
+- uid: MASES.NuReflector.Reflector.GetArgumentHelp*
+  name: GetArgumentHelp
+  href: api/MASES.NuReflector.Reflector.html#MASES_NuReflector_Reflector_GetArgumentHelp_
+  commentId: Overload:MASES.NuReflector.Reflector.GetArgumentHelp
+  isSpec: "True"
+  fullName: MASES.NuReflector.Reflector.GetArgumentHelp
+  nameWithType: Reflector.GetArgumentHelp
+- uid: MASES.NuReflector.Reflector.Parser
+  name: Parser
+  href: api/MASES.NuReflector.Reflector.html#MASES_NuReflector_Reflector_Parser
+  commentId: F:MASES.NuReflector.Reflector.Parser
+  fullName: MASES.NuReflector.Reflector.Parser
+  nameWithType: Reflector.Parser
+- uid: MASES.NuReflector.Reflector.SetHandler(MASES.JCOReflectorEngine.appendToConsoleHandler,System.EventHandler{MASES.JCOReflectorEngine.EndOperationEventArgs})
+  name: SetHandler(appendToConsoleHandler, EventHandler<EndOperationEventArgs>)
+  href: api/MASES.NuReflector.Reflector.html#MASES_NuReflector_Reflector_SetHandler_MASES_JCOReflectorEngine_appendToConsoleHandler_System_EventHandler_MASES_JCOReflectorEngine_EndOperationEventArgs__
+  commentId: M:MASES.NuReflector.Reflector.SetHandler(MASES.JCOReflectorEngine.appendToConsoleHandler,System.EventHandler{MASES.JCOReflectorEngine.EndOperationEventArgs})
+  name.vb: SetHandler(appendToConsoleHandler, EventHandler(Of EndOperationEventArgs))
+  fullName: MASES.NuReflector.Reflector.SetHandler(MASES.JCOReflectorEngine.appendToConsoleHandler, System.EventHandler<MASES.JCOReflectorEngine.EndOperationEventArgs>)
+  fullName.vb: MASES.NuReflector.Reflector.SetHandler(MASES.JCOReflectorEngine.appendToConsoleHandler, System.EventHandler(Of MASES.JCOReflectorEngine.EndOperationEventArgs))
+  nameWithType: Reflector.SetHandler(appendToConsoleHandler, EventHandler<EndOperationEventArgs>)
+  nameWithType.vb: Reflector.SetHandler(appendToConsoleHandler, EventHandler(Of EndOperationEventArgs))
+- uid: MASES.NuReflector.Reflector.SetHandler*
+  name: SetHandler
+  href: api/MASES.NuReflector.Reflector.html#MASES_NuReflector_Reflector_SetHandler_
+  commentId: Overload:MASES.NuReflector.Reflector.SetHandler
+  isSpec: "True"
+  fullName: MASES.NuReflector.Reflector.SetHandler
+  nameWithType: Reflector.SetHandler
