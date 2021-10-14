@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net461;net5.0</TargetFrameworks>
+    <RootNamespace>MASES.NuReflectorCLI</RootNamespace>
+    <OutputPath>..\..\bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' != 'net461'">
+    <DefineConstants>$(DefineConstants);NET_CORE;</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NuReflector\NuReflector.csproj" />
+  </ItemGroup>
+
+</Project>
