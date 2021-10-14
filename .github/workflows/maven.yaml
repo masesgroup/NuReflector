@@ -42,7 +42,7 @@ jobs:
             echo "::set-output name=run_job::true"
             break
           fi
-          if [[ $file == "netreflected/"* ]]; then
+          if [[ $file == "netreflected/*.xml"* ]]; then
             echo "This file is under the directory 'netreflected/'."
             echo "::set-output name=run_job::true"
             break
