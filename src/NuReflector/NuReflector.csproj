@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>MASES.NuReflector</AssemblyName>
+    <RootNamespace>MASES.NuReflector</RootNamespace>
+    <Title>NuReflector - a reflector engine for NuGet packages</Title>
+    <Description>NuReflector - a reflector engine for NuGet packages</Description>
+    <Copyright>Copyright ©  MASES s.r.l. 2021</Copyright>
+    <Owners>MASES s.r.l.</Owners>
+    <Authors>MASES s.r.l.</Authors>
+    <Company>MASES s.r.l.</Company>
+    <Version>1.0.0.0</Version>
+    <Product>NuReflector</Product>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <TargetFrameworks>net461;net5.0</TargetFrameworks>
+    <OutputPath>..\..\bin\</OutputPath>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseUrl>https://github.com/masesgroup/NuReflector/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/masesgroup/NuReflector/</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/masesgroup/masesgroup.github.io/master/assets/images/mases_logo_short.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/masesgroup/NuReflector</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/masesgroup/NuReflector/releases</PackageReleaseNotes>
+    <PackageTags>jvm-enabled-language kotlin java scala reflection dotnet clr netcore bridge jcobridge class framework csharp nuget</PackageTags>
+    <PackageId>MASES.NuReflector</PackageId>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Common\NuReflector.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' != 'net461'">
+    <DefineConstants>$(DefineConstants);NET_CORE;</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="defaultParentPOM.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="defaultParentPOM.template" />
+    <EmbeddedResource Include="defaultPOM.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Common\NuReflector.snk" Link="NuReflector.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MASES.JCOReflectorEngine" Version="1.7.1" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="NuGet.Protocol" Version="5.11.0" />
+  </ItemGroup>
+</Project>
