@@ -102,7 +102,7 @@ jobs:
 
       - name: Publish net5.0 to Apache Maven Central
         shell: bash
-        run: mvn --file ./netreflected/src/net5.0.xml --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy
+        run: mvn --file ./netreflected/net5.0.xml --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
@@ -110,7 +110,7 @@ jobs:
 
       - name: Publish net461 to Apache Maven Central
         shell: bash
-        run: mvn --file ./netreflected/src/net461.xml --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy
+        run: mvn --file ./netreflected/net461.xml --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
