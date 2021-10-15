@@ -7,7 +7,9 @@
   <groupId>com.masesgroup</groupId>
   <artifactId>mases.cliparser_net461</artifactId>
   <name>mases.cliparser</name>
-  <description>CLIParser - a parser for command line interface</description>
+  <description>The original version of the package, and description below, is available at the following address: https://www.nuget.org/packages/mases.cliparser/2.1.2.0
+CLIParser - a parser for command line interface
+</description>
   <url>https://github.com/masesgroup/NuReflector</url>
   <version>2.1.2.0-SNAPSHOT</version>
 
@@ -211,7 +213,7 @@
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net461</artifactId>
-      <version>1.7.1.0</version>
+      <version>1.7.2.0</version>
     </dependency>
 
   </dependencies>
