@@ -73,12 +73,12 @@
 <p>This project adheres to the Contributor <a href="CODE_OF_CONDUCT.md">Covenant code of conduct</a>. By participating, you are expected to uphold this code. Please report unacceptable behavior to coc_reporting@masesgroup.com.</p>
 <h2 id="maven-artifacts-versioning-limitation">Maven artifacts versioning limitation</h2>
 <p>Considering the following facts:</p>
-<ul>
-<li>Packages available on NuGet.org does not change if the version is the same. So in principle Maven artifacts can use the same version of NuGet packages.</li>
-<li>Maven packages are generated using the Java classes reflected from JCOReflector engine. Even if NuGet package does not change, applying different versions, or options, of JCOReflector engine on the NuGet package assemblies, the reflected classes can be different.</li>
-<li>Public Maven repositories does not accept to republish artifacts with the same version.</li>
-</ul>
-<p>The Maven artifacts are produced as SNAPSHOT, until we found a way to publish different Maven artifacts in <em>Release</em> mode considering both NuGet package version and JCOReflector version.
+<ol>
+<li>Packages available on NuGet.org does not change if the version is the same. So in principle Maven artifacts could use the same version of NuGet packages.</li>
+<li>Maven packages are generated using the Java classes reflected from JCOReflector engine. Stating from point 1, even if NuGet package content does not change, applying different versions, or options, of JCOReflector engine on the NuGet package assemblies, the reflected classes could be different.</li>
+<li>Different Java classes associated to Maven package produce different artifacts, but public Maven repositories does not accept to republish artifacts with the same version.</li>
+</ol>
+<p>The actual implementation generates <strong>SNAPSHOT</strong> Maven artifacts, until we found a way to publish different Maven artifacts in <em>Release</em> mode considering both NuGet package version and JCOReflector version.
 The actual behavior is:</p>
 <ul>
 <li>The Maven package version has the same NuGet package version;</li>
@@ -96,7 +96,7 @@ To effectively use each Maven artifact the final user must accept the license as
 If there is any infringment of copyright report an issue.</p>
 <h3 id="documentation">Documentation</h3>
 <p>The documentation available in the generated POM and therein in the published artifact is read from the original NuGet package.
-The engine try at the best to report, in all ways, the source of any text used outside the one introduced from the engine itself.</p>
+The engine try, at its best, to report, in all ways, the source of any text read from the NuGet package.</p>
 <p>The javadoc produced from the engine can be incorrect due to a constraint in JCOReflector engine.</p>
 </article>
           </div>
