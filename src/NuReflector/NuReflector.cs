@@ -225,13 +225,13 @@ namespace MASES.NuReflector
             StringBuilder sb = new StringBuilder();
             foreach (var item in parsedPackages)
             {
-                sb.AppendLine(string.Format(InternalConst.POM.POMModuleTemplate, item.ToLowerInvariant() + "_" + InternalConst.Framework.RuntimeFolder + ".xml"));
+                sb.AppendLine(string.Format(InternalConst.POM.POMModuleTemplate, item.ToLowerInvariant() + "_" + JobManager.RuntimeFolder + ".xml"));
             }
             var pomProjectTemplate = File.ReadAllText(pomProjectTemplateFile);
             var pomProject = pomProjectTemplate.Replace(InternalConst.POM.POM_ADDITIONAL_MODULES_PLACEHOLDER, sb.ToString())
-                                               .Replace(InternalConst.POM.POM_PARENT_NAME_PLACEHOLDER, InternalConst.Framework.RuntimeFolder + " Master Project")
-                                               .Replace(InternalConst.POM.POM_ARTIFACTID_PLACEHOLDER, InternalConst.Framework.RuntimeFolder);
-            var pomProjectName = Path.Combine(sourceFolder, InternalConst.Framework.RuntimeFolder + ".xml");
+                                               .Replace(InternalConst.POM.POM_PARENT_NAME_PLACEHOLDER, JobManager.RuntimeFolder + " Master Project")
+                                               .Replace(InternalConst.POM.POM_ARTIFACTID_PLACEHOLDER, JobManager.RuntimeFolder);
+            var pomProjectName = Path.Combine(sourceFolder, JobManager.RuntimeFolder + ".xml");
             File.WriteAllText(pomProjectName, pomProject);
             appendToConsole($"Master POM created in {pomProjectName}");
         }
@@ -244,13 +244,13 @@ namespace MASES.NuReflector
                 StringBuilder sb = new StringBuilder();
                 foreach (var item in parsedPackages)
                 {
-                    sb.AppendLine(string.Format(InternalConst.POM.POMModuleTemplate, item.ToFolder() + "/src/" + InternalConst.Framework.RuntimeFolder + ".xml"));
+                    sb.AppendLine(string.Format(InternalConst.POM.POMModuleTemplate, item.ToFolder() + "/src/" + JobManager.RuntimeFolder + ".xml"));
                 }
                 var pomProjectTemplate = File.ReadAllText(pomProjectTemplateFile);
                 var pomProject = pomProjectTemplate.Replace(InternalConst.POM.POM_ADDITIONAL_MODULES_PLACEHOLDER, sb.ToString())
-                                                   .Replace(InternalConst.POM.POM_PARENT_NAME_PLACEHOLDER, packageId + " " + InternalConst.Framework.RuntimeFolder + " Master Project")
+                                                   .Replace(InternalConst.POM.POM_PARENT_NAME_PLACEHOLDER, packageId + " " + JobManager.RuntimeFolder + " Master Project")
                                                    .Replace(InternalConst.POM.POM_ARTIFACTID_PLACEHOLDER, packageId.ToLowerInvariant());
-                var pomProjectName = Path.Combine(sourceFolder, packageId.ToLowerInvariant() + "_" + InternalConst.Framework.RuntimeFolder + ".xml");
+                var pomProjectName = Path.Combine(sourceFolder, packageId.ToLowerInvariant() + "_" + JobManager.RuntimeFolder + ".xml");
                 File.WriteAllText(pomProjectName, pomProject);
                 appendToConsole($"Master package POM created in {pomProjectName}");
                 return true;
@@ -277,7 +277,7 @@ namespace MASES.NuReflector
 #if NET5_0_OR_GREATER
                                 || framework.Framework == InternalConst.Framework.NetStandardRuntime // .NETStandard fallback to .NET 5
 #endif
-                                || (framework.Framework == InternalConst.Framework.Runtime && framework.Version >= InternalConst.Framework.Version);
+                                || (framework.Framework == JobManager.RuntimeName && framework.Version >= InternalConst.Framework.Version);
         }
 
         static string ToFolder(string packageId, NuGetVersion packageVersion)
@@ -298,7 +298,7 @@ namespace MASES.NuReflector
             internal readonly string SourceFolder = null;
             readonly ReflectorEventArgs reflectArg = null;
             readonly POMBuilderEventArgs POMArg = null;
-            readonly string ReflectorEngineVersion = typeof(JobManager).Assembly.GetName().Version.ToString();
+            readonly string ReflectorEngineVersion = JobManager.EngineVersion.ToString();
 
             public static bool Execute(IList<PackageIdentity> parsedPackaged, string sourceFolder, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
             {
@@ -335,7 +335,7 @@ namespace MASES.NuReflector
                     POMType = POMType.Extension,
                     POMStagingType = Staging,
                     AvoidJCOReflectorFolder = true,
-                    POMArtifactId = packageId.ToLowerInvariant() + "_" + InternalConst.Framework.RuntimeFolder,
+                    POMArtifactId = packageId.ToLowerInvariant() + "_" + JobManager.RuntimeFolder,
                     POMName = packageId.ToLowerInvariant(),
                     POMFileName = pomTemplateFile
                 };
@@ -435,7 +435,7 @@ namespace MASES.NuReflector
                                         {
                                             dependencies.AppendLine(string.Format(InternalConst.POM.POMDependencyTemplate,
                                                                                   packItem.Id.ToLowerInvariant(),
-                                                                                  InternalConst.Framework.RuntimeFolder,
+                                                                                  JobManager.RuntimeFolder,
                                                                                   nuVersion.Version.ToString() + (Staging == POMStagingType.Release ? string.Empty : "-SNAPSHOT")));
                                         }
                                     }
@@ -487,7 +487,7 @@ namespace MASES.NuReflector
 
                         if (cleanupFolder)
                         {
-                            var folderToDelete = Path.Combine(destFolder, "src", InternalConst.Framework.RuntimeFolder);
+                            var folderToDelete = Path.Combine(destFolder, "src", JobManager.RuntimeFolder);
                             if (Directory.Exists(folderToDelete))
                             {
                                 try
@@ -496,7 +496,7 @@ namespace MASES.NuReflector
                                 }
                                 catch (Exception e)
                                 {
-                                    appendToConsole($"Failed to remove package folder {folderToDelete}");
+                                    appendToConsole($"Failed to remove package folder {folderToDelete}: {e.Message}");
                                 }
                             }
                         }

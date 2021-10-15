@@ -60,18 +60,12 @@ namespace MASES.CLIParser
 
 #if NET_CORE
 #if NET5_0
-            public const string Runtime = ".NETCoreApp";
             public static Version Version = new Version(5, 0, 0);
-            public const string RuntimeFolder = "net5.0";
 #else
-            public const string Runtime = ".NETCoreApp";
             public static Version Version = new Version(3, 1, 0);
-            public const string RuntimeFolder = "netcoreapp3.1";
 #endif
 #else
-            public const string Runtime = ".NETFramework";
             public static Version Version = new Version(4, 5, 0);
-            public const string RuntimeFolder = "net461";
 #endif
         }
     }

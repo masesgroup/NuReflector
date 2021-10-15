@@ -154,7 +154,7 @@ POM_SOURCEDIRECTORIES_PLACEHOLDER
             <link>https://www.jcobridge.com/api-java</link>
           </links>
           <quiet>true</quiet>
-          <source>8</source>
+          <source>POM_JDK_TARGET</source>
           <additionalDependencies>
             <additionalDependency>
               <groupId>JCOBridge</groupId>
