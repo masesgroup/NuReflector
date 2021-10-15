@@ -560,11 +560,21 @@ namespace MASES.NuReflector
 
                         POMArg.SourceFolder = destFolder;
                         POMArg.POMVersion = packageVersion.Version.ToString();
-                        POMArg.POMDescription = packageReader.NuspecReader.GetDescription().Replace("\"", "&quot;")
-                                                                                           .Replace("'", "&apos;")
-                                                                                           .Replace("<", "&lt;")
-                                                                                           .Replace(">", "&gt;")
-                                                                                           .Replace("&", "&amp;");
+
+                        var desc = packageReader.NuspecReader.GetDescription();
+                        StringBuilder descBuilder = new StringBuilder(string.Format(InternalConst.POM.POMDescriptionTemplate,
+                                                                                        InternalConst.DefaultSite,
+                                                                                        packageId.ToLowerInvariant(),
+                                                                                        packageVersion.Version.ToString()));
+                        if (!string.IsNullOrEmpty(desc))
+                        {
+                            descBuilder.AppendLine(desc.Replace("\"", "&quot;")
+                                                       .Replace("'", "&apos;")
+                                                       .Replace("<", "&lt;")
+                                                       .Replace(">", "&gt;")
+                                                       .Replace("&", "&amp;"));
+                        }
+                        POMArg.POMDescription = descBuilder.ToString();
                         POMArg.POMAdditionalDependencies = dependencies.ToString();
 
                         JobManager.RunJob(POMArg, true);
