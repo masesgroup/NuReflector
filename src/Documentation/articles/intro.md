@@ -8,11 +8,11 @@ This project adheres to the Contributor [Covenant code of conduct](CODE_OF_CONDU
 
 Considering the following facts:
 
-- Packages available on NuGet.org does not change if the version is the same. So in principle Maven artifacts can use the same version of NuGet packages.
-- Maven packages are generated using the Java classes reflected from JCOReflector engine. Even if NuGet package does not change, applying different versions, or options, of JCOReflector engine on the NuGet package assemblies, the reflected classes can be different.
-- Public Maven repositories does not accept to republish artifacts with the same version.
+1. Packages available on NuGet.org does not change if the version is the same. So in principle Maven artifacts could use the same version of NuGet packages.
+2. Maven packages are generated using the Java classes reflected from JCOReflector engine. Stating from point 1, even if NuGet package content does not change, applying different versions, or options, of JCOReflector engine on the NuGet package assemblies, the reflected classes could be different.
+3. Different Java classes associated to Maven package produce different artifacts, but public Maven repositories does not accept to republish artifacts with the same version.
 
-The Maven artifacts are produced as SNAPSHOT, until we found a way to publish different Maven artifacts in _Release_ mode considering both NuGet package version and JCOReflector version.
+The actual implementation generates **SNAPSHOT** Maven artifacts, until we found a way to publish different Maven artifacts in _Release_ mode considering both NuGet package version and JCOReflector version.
 The actual behavior is:
 - The Maven package version has the same NuGet package version;
 - The dependency within the POM stores the JCOReflector version used;
@@ -36,6 +36,6 @@ If there is any infringment of copyright report an issue.
 ### Documentation
 
 The documentation available in the generated POM and therein in the published artifact is read from the original NuGet package.
-The engine try at the best to report, in all ways, the source of any text used outside the one introduced from the engine itself.
+The engine try, at its best, to report, in all ways, the source of any text read from the NuGet package.
 
 The javadoc produced from the engine can be incorrect due to a constraint in JCOReflector engine.
