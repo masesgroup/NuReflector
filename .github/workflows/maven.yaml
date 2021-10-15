@@ -75,6 +75,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
+      - name: Compile to get local resources
+        run: |
+          dotnet build --no-incremental --framework net5.0 src\NuReflector.sln
+          dotnet build --no-incremental --framework net461 src\NuReflector.sln
+
       - name: Install gpg secret key
         run: |
           cat <(echo -e "${{ secrets.MAVEN_GPG_PRIVATE_KEY }}") | gpg --batch --import
