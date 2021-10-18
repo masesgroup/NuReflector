@@ -67,6 +67,7 @@ namespace MASES.NuReflector
 
         static Reflector()
         {
+            JobManager.ErrorReporting = ErrorReportingType.Both;
             JobManager.SetHandler(appendToConsole, endOperation);
             arguments = prepareArguments();
             Parser.Add(arguments);
