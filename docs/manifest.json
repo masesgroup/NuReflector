@@ -114,12 +114,15 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "Db7dUOkHlZBn1DTcmuUmvrIgQsaSc7DmZwt/YR74DQQ="
+          "hash": "dAQHp+bFyrc2r5cN5o56cNhf5cj6ldywgzw04jzfIno="
         }
       },
       "is_incremental": false,

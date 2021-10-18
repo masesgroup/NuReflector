@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Welcome to CLI Parser | CLI Parser website </title>
+    <title>Welcome to NuReflector | CLI Parser website </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Welcome to CLI Parser | CLI Parser website ">
+    <meta name="title" content="Welcome to NuReflector | CLI Parser website ">
     <meta name="generator" content="docfx 2.58.4.0">
     
     <link rel="shortcut icon" href="favicon.ico">
@@ -60,16 +60,37 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="welcome-to-cli-parser">Welcome to <strong>CLI Parser</strong></h1>
+<h1 id="welcome-to-nureflector">Welcome to NuReflector</h1>
 
-<p>A library to manage command-line arguments in a simple way. It was an internal MASES project, now it is available to anyone.</p>
-<p>This project adheres to the Contributor <a href="https://github.com/masesgroup/DataDistributionManager/blob/master/CODE_OF_CONDUCT.md">Covenant code of conduct</a>. By participating, you are expected to uphold this code. Please report unacceptable behavior to coc_reporting@masesgroup.com.</p>
-<h2 id="scope-of-the-project">Scope of the project</h2>
-<p>This project aims to create a library to help to manage CLI parameters.</p>
-<h2 id="actual-state">Actual state</h2>
+<p>Engine to produce Maven artifacts from NuGet packages. It is based on <a href="https://github.com/masesgroup/JCOReflector">JCOReflector</a>.</p>
+<p>This project adheres to the Contributor <a href="CODE_OF_CONDUCT.md">Covenant code of conduct</a>. By participating, you are expected to uphold this code. Please report unacceptable behavior to coc_reporting@masesgroup.com.</p>
+<h2 id="maven-artifacts-versioning-limitation">Maven artifacts versioning limitation</h2>
+<p>Considering the following facts:</p>
+<ol>
+<li>Packages available on NuGet.org does not change if the version is the same. So in principle Maven artifacts could use the same version of NuGet packages.</li>
+<li>Maven packages are generated using the Java classes reflected from JCOReflector engine. Stating from point 1, even if NuGet package content does not change, applying different versions, or options, of JCOReflector engine on the NuGet package assemblies, the reflected classes could be different.</li>
+<li>Different Java classes associated to Maven package produce different artifacts, but public Maven repositories does not accept to republish artifacts with the same version.</li>
+</ol>
+<p>The actual implementation generates <strong>SNAPSHOT</strong> Maven artifacts, until we found a way to publish different Maven artifacts in <em>Release</em> mode considering both NuGet package version and JCOReflector version.
+The actual behavior is:</p>
 <ul>
-<li>It can be used from .NET</li>
+<li>The Maven package version has the same NuGet package version;</li>
+<li>The dependency within the POM stores the JCOReflector version used;</li>
+<li>The file JCOReflectorOptions.java under org.mases.jcobridge.netreflection namespace stores the options used.</li>
 </ul>
+<h2 id="important-notes-on-packages"><strong>Important notes</strong> on packages</h2>
+<p>Read below chapters carefully.</p>
+<h3 id="maven-artifact-requirement-for-runtime">Maven artifact requirement for runtime</h3>
+<p><strong>The artifacts themself do not install the associated NuGet packages. The final user must downloads separately the NuGet packages and make assemblies available to the engine.</strong></p>
+<h3 id="copyright-notice">Copyright notice</h3>
+<p>Source code, Maven POM and artifacts published are generated starting from public nuget packages available on <a href="https://nuget.org">NuGet.org</a>.
+<strong>All trademarks, product names, and company names or logos are the property of their respective owners.</strong>
+To effectively use each Maven artifact the final user must accept the license associated to the reflected NuGet package.
+If there is any infringment of copyright report an issue.</p>
+<h3 id="documentation">Documentation</h3>
+<p>The documentation available in the generated POM and therein in the published artifact is read from the original NuGet package.
+The engine try, at its best, to report, in all ways, the source of any text read from the NuGet package.</p>
+<p>The javadoc produced from the engine can be incorrect due to a constraint in JCOReflector engine.</p>
 </article>
           </div>
           
