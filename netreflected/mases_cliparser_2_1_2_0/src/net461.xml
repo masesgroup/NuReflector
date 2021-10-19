@@ -100,7 +100,7 @@ CLIParser - a parser for command line interface
         <configuration>
           <compilerArgs>
             <arg>-cp</arg>
-            <arg>${originalClassPath};${basedir}/../../../bin/net461/JCOBridge.jar</arg>
+            <arg>${originalClassPath}${path.separator}${basedir}/../../../bin/net461/JCOBridge.jar</arg>
           </compilerArgs>
         </configuration>
       </plugin>
