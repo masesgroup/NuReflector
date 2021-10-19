@@ -17,7 +17,7 @@ jobs:
     name: Check changed files
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     outputs:
-      run_job: ${{ steps.check_files.outputs.run_job }} || ${{ steps.check_nightly_commit.outputs.run_job }}
+      run_job: ${{ steps.check_files.outputs.run_job || steps.check_nightly_commit.outputs.run_job }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
