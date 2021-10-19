@@ -7,7 +7,7 @@ name: CI_NIGHTLYBUILD
 on:
   schedule:
   # * is a special character in YAML so you have to quote this string
-  - cron:  '25 * * * *'
+  - cron:  '0 2 * * *'
 
 # This workflow contains two jobs called "build_windows"
 jobs:
