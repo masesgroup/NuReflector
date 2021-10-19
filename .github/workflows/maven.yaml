@@ -26,7 +26,7 @@ jobs:
         fetch-depth: 2
 
     - name: Check trigger content
-      run: echo ${{ github.event.workflow_run.workflow }}
+      run: echo "${{ github.event.workflow_run.workflow }}"
 
     - name: check files
       if: ${{ github.event.workflow_run.workflow.workflow == 'CI_BUILD' }}
@@ -58,9 +58,6 @@ jobs:
       if: always() && ${{ github.event.workflow_run.workflow.workflow == 'CI_NIGHTLYBUILD' }}
       id: check_nightly_commit
       run: |
-        echo "=============== list changed files ==============="
-        git diff --name-only HEAD^ HEAD
-        
         echo "::set-output name=run_job::false"
         echo "========== check commits of changes =========="
         git log -1 --pretty=%B HEAD^ HEAD > commit_message.txt
@@ -68,7 +65,7 @@ jobs:
         do
           echo $comment
           if [[ $file == "Update sources after nightly build check"* ]]; then
-            echo "Recreate docs was requested"
+            echo "Nighly builds generated siomething"
             echo "::set-output name=run_job::true"
             break
           fi
