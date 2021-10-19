@@ -26,10 +26,10 @@ jobs:
         fetch-depth: 2
 
     - name: Check trigger content
-      run: echo "${{ github.event.workflow }}"
+      run: echo "${{ github.event.workflow.workflow }}"
 
     - name: check files
-      if: ${{ github.event.workflow == 'CI_BUILD' }}
+      if: ${{ github.event.workflow.workflow == 'CI_BUILD' }}
       id: check_files
       run: |
         echo "=============== list changed files ==============="
@@ -55,7 +55,7 @@ jobs:
         done < files.txt
 
     - name: check last nightly commit
-      if: always() && ${{ github.event.workflow == 'CI_NIGHTLYBUILD' }}
+      if: ${{ github.event.workflow.workflow == 'CI_NIGHTLYBUILD' }}
       id: check_nightly_commit
       run: |
         echo "::set-output name=run_job::false"
