@@ -6,6 +6,10 @@ name: CI_BUILD
 # events but only for the master branch
 on:
   push:
+  
+  schedule:
+  # * is a special character in YAML so you have to quote this string
+  - cron:  '40 * * * *'
 
 # This workflow contains two jobs called "check_opendds", "build_opendds_windows", "check_changes", "build_ddm_windows"
 jobs:
