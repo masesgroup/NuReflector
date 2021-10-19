@@ -33,7 +33,7 @@
     <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
   </PropertyGroup>
   <ItemGroup>
-    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)" />
   </ItemGroup>
   <!-- Fix end -->
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
@@ -50,7 +50,7 @@
     <None Include="..\Common\NuReflector.snk" Link="NuReflector.snk" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MASES.JCOReflectorEngine" Version="1.7.2" />
+    <PackageReference Include="MASES.JCOReflectorEngine" Version="1.7.3" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="NuGet.Protocol" Version="5.11.0" />
   </ItemGroup>
