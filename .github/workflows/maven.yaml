@@ -55,7 +55,7 @@ jobs:
     needs: check
     if: needs.check.outputs.run_job == 'true' 
     # The type of runner that the job will run on
-    runs-on: windows-2019
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -76,7 +76,8 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Compile to get local resources
-        run: dotnet build --no-incremental src\NuReflector.sln
+        run: dotnet build --no-incremental src/NuReflector.sln
+        shell: bash
 
       - name: Install gpg secret key
         run: |
