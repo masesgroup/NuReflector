@@ -98,7 +98,7 @@
         <configuration>
           <compilerArgs>
             <arg>-cp</arg>
-            <arg>${originalClassPath};${basedir}/../../../bin/POM_RUNTIME_PLACEHOLDER/JCOBridge.jar</arg>
+            <arg>${originalClassPath}${path.separator}${basedir}/../../../bin/POM_RUNTIME_PLACEHOLDER/JCOBridge.jar</arg>
           </compilerArgs>
         </configuration>
       </plugin>
