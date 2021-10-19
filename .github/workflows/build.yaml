@@ -9,9 +9,9 @@ on:
   
   schedule:
   # * is a special character in YAML so you have to quote this string
-  - cron:  '40 * * * *'
+  - cron:  '50 * * * *'
 
-# This workflow contains two jobs called "check_opendds", "build_opendds_windows", "check_changes", "build_ddm_windows"
+# This workflow contains two jobs called "check_changes", "build_windows"
 jobs:
   # Verify if a build is needed
   check_changes:
