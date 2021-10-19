@@ -31,7 +31,7 @@ jobs:
       run: echo "$GITHUB_CONTEXT"
 
     - name: check files
-      if: ${{ github.event.workflow.workflow == 'CI_BUILD' }}
+      if: ${{ github.event.workflow.name == 'CI_BUILD' }}
       id: check_files
       run: |
         echo "=============== list changed files ==============="
@@ -57,7 +57,7 @@ jobs:
         done < files.txt
 
     - name: check last nightly commit
-      if: ${{ github.event.workflow.workflow == 'CI_NIGHTLYBUILD' }}
+      if: ${{ github.event.workflow.name == 'CI_NIGHTLYBUILD' }}
       id: check_nightly_commit
       run: |
         echo "::set-output name=run_job::false"
