@@ -6,7 +6,7 @@ name: CI_MAVEN
 # events but only for the master branch
 on:
   workflow_run:
-    workflows: ["CI_BUILD"]
+    workflows: ["CI_BUILD"], ["CI_NIGHTLYBUILD"]
     branches: [master]
     types: 
       - completed

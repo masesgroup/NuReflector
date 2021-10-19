@@ -6,10 +6,6 @@ name: CI_BUILD
 # events but only for the master branch
 on:
   push:
-  
-  schedule:
-  # * is a special character in YAML so you have to quote this string
-  - cron:  '50 * * * *'
 
 # This workflow contains two jobs called "check_changes", "build_windows"
 jobs:
@@ -47,7 +43,7 @@ jobs:
       - name: Get run_build_windows
         run: echo "The selected run_build_windows is ${{ steps.check_files.outputs.run_build_windows }}"
 
-  # Now run "build_ddm_windows"
+  # Now run "build_windows"
   build_windows:
     needs: check_changes
     if: "always() && needs.check_changes.outputs.run_build_windows == 'true'"
