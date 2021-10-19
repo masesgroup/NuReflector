@@ -100,7 +100,7 @@ CLIParser - a parser for command line interface
         <configuration>
           <compilerArgs>
             <arg>-cp</arg>
-            <arg>${originalClassPath};${basedir}/../../../bin/net461/JCOBridge.jar</arg>
+            <arg>${originalClassPath};${basedir}/../../../bin/net5.0/JCOBridge.jar</arg>
           </compilerArgs>
         </configuration>
       </plugin>
@@ -213,7 +213,7 @@ CLIParser - a parser for command line interface
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net5.0</artifactId>
-      <version>1.7.2.0</version>
+      <version>1.7.3.0</version>
     </dependency>
 
   </dependencies>
