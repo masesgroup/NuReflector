@@ -17,7 +17,7 @@ jobs:
     name: Check changed files
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     outputs:
-      run_job: ${{ steps.check_files.outputs.run_job }}
+      run_job: ${{ steps.check_files.outputs.run_job }} || ${{ steps.check_nightly_commit.outputs.run_job }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -26,6 +26,7 @@ jobs:
         fetch-depth: 2
 
     - name: check files
+      if: ${{ github.event.workflow_run.workflow == 'CI_BUILD' }}
       id: check_files
       run: |
         echo "=============== list changed files ==============="
@@ -38,7 +39,7 @@ jobs:
         do
           echo $file
           if [[ $file == ".github/workflows/maven.yaml"* ]]; then
-            echo "Recreate docs was requested"
+            echo "Recreate Maven was requested"
             echo "::set-output name=run_job::true"
             break
           fi
@@ -49,6 +50,26 @@ jobs:
           fi
         echo "This files are not in a source directory no action required"
         done < files.txt
+
+    - name: check last nightly commit
+      if: ${{ github.event.workflow_run.workflow == 'CI_NIGHTLYBUILD' }}
+      id: check_nightly_commit
+      run: |
+        echo "=============== list changed files ==============="
+        git diff --name-only HEAD^ HEAD
+        
+        echo "::set-output name=run_job::false"
+        echo "========== check commits of changes =========="
+        git log -1 --pretty=%B HEAD^ HEAD > commit_message.txt
+        while IFS= read -r comment
+        do
+          echo $comment
+          if [[ $file == "Update sources after nightly build check"* ]]; then
+            echo "Recreate docs was requested"
+            echo "::set-output name=run_job::true"
+            break
+          fi
+        done < commit_message.txt
 
   # This workflow contains a single job called "build"
   build_maven:
