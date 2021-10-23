@@ -6,7 +6,7 @@ name: CI_MAVEN
 # events but only for the master branch
 on:
   workflow_run:
-    workflows: ["CI_BUILD", "CI_NIGHTLYBUILD"]
+    workflows: ["CI_BUILD", "CI_WEEKLYBUILD"]
     branches: [master]
     types: 
       - completed
@@ -57,7 +57,7 @@ jobs:
         done < files.txt
 
     - name: check last nightly commit
-      if: ${{ github.event.workflow.name == 'CI_NIGHTLYBUILD' }}
+      if: ${{ github.event.workflow.name == 'CI_WEEKLYBUILD' }}
       id: check_nightly_commit
       run: |
         echo "::set-output name=run_job::false"
