@@ -11,7 +11,7 @@
   <name>MASES.CLIParser net461 Master Project</name>
 
   <modules>
-    <module>mases_cliparser_2_1_2_0/src/net461.xml</module>
+    <module>mases_cliparser_2_2_0_0/src/net461.xml</module>
 
   </modules>
 
