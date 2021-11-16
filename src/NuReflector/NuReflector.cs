@@ -37,7 +37,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace MASES.NuReflector
 {
@@ -275,8 +274,8 @@ namespace MASES.NuReflector
         static bool checkFramework(this NuGetFramework framework)
         {
             return framework == NuGetFramework.AnyFramework
-#if NET5_0_OR_GREATER
-                                || framework.Framework == InternalConst.Framework.NetStandardRuntime // .NETStandard fallback to .NET 5
+#if NET6_0_OR_GREATER
+                                || framework.Framework == InternalConst.Framework.NetStandardRuntime // .NETStandard fallback to .NET 6
 #endif
                                 || (framework.Framework == JobManager.RuntimeName && framework.Version >= InternalConst.Framework.Version);
         }
@@ -460,11 +459,16 @@ namespace MASES.NuReflector
                             pkgStored = JsonConvert.DeserializeObject<PackageDefinition>(content);
                             if (pkgStored.ReflectorEngineVersion == ReflectorEngineVersion 
                                 && packageVersion.Version <= Version.Parse(pkgStored.PackageVersion)
-#if NET5_0_OR_GREATER
+#if NETCOREAPP3_1
+#error Not supported due to missing JCOReflector Maven Artifact
+#elif NET5_0
                                 && pkgStored.Net5Done
-#endif
-#if NET40_OR_GREATER
+#elif NET6_0
+                                && pkgStored.Net6Done
+#elif NETFRAMEWORK
                                 && pkgStored.NetFrameworkDone
+#else
+#error Unable to identify .NET engine
 #endif
                                 )
                             {
@@ -473,11 +477,16 @@ namespace MASES.NuReflector
                             }
 
                             if (pkgStored.ReflectorEngineVersion != ReflectorEngineVersion
-#if NET5_0_OR_GREATER
+#if NETCOREAPP3_1
+#error Not supported due to missing JCOReflector Maven Artifact
+#elif NET5_0
                                 && pkgStored.Net5Done
-#endif
-#if NET40_OR_GREATER
+#elif NET6_0
+                                && pkgStored.Net6Done
+#elif NETFRAMEWORK
                                 && pkgStored.NetFrameworkDone
+#else
+#error Unable to identify .NET engine
 #endif
                                 )
                             {
@@ -538,13 +547,17 @@ namespace MASES.NuReflector
                             JobManager.RunJob(reflectArg, true);
 
                             pkgStored.ReflectorEngineVersion = ReflectorEngineVersion;
-#if NET5_0_OR_GREATER
+#if NETCOREAPP3_1
+#error Not supported due to missing JCOReflector Maven Artifact
+#elif NET5_0
                             pkgStored.Net5Done = true;
-#endif
-#if NET40_OR_GREATER
+#elif NET6_0
+                            pkgStored.Net6Done = true;
+#elif NETFRAMEWORK
                             pkgStored.NetFrameworkDone = true;
+#else
+#error Unable to identify .NET engine
 #endif
-
                             var packageIdentity = JsonConvert.SerializeObject(pkgStored);
 
                             if (!Directory.Exists(reflectArg.SourceFolder))

@@ -8,18 +8,18 @@
     <Owners>MASES s.r.l.</Owners>
     <Authors>MASES s.r.l.</Authors>
     <Company>MASES s.r.l.</Company>
-    <Version>1.0.0.0</Version>
+    <Version>1.1.0.0</Version>
     <Product>NuReflector</Product>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <TargetFrameworks>net461;net5.0</TargetFrameworks>
+    <TargetFrameworks>net461;net5.0;net6.0</TargetFrameworks>
     <OutputPath>..\..\bin\</OutputPath>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>https://github.com/masesgroup/NuReflector/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/masesgroup/NuReflector/</PackageProjectUrl>
-    <PackageIconUrl>https://www.jcobridge.com/wp-content/uploads/2019/03/Logo.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/masesgroup/NuReflector</RepositoryUrl>
     <PackageReleaseNotes>https://github.com/masesgroup/NuReflector/releases</PackageReleaseNotes>
+    <PackageLicense>LICENSE</PackageLicense>
+    <PackageIcon>JCOB128x128.png</PackageIcon>
     <PackageTags>jvm-enabled-language kotlin java scala reflection dotnet clr netcore bridge jcobridge class framework csharp nuget</PackageTags>
     <PackageId>MASES.NuReflector</PackageId>
     <IncludeSymbols>true</IncludeSymbols>
@@ -39,19 +39,18 @@
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' != 'net461'">
-    <DefineConstants>$(DefineConstants);NET_CORE;</DefineConstants>
-  </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="defaultParentPOM.template" />
     <EmbeddedResource Include="defaultPOM.template" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="..\Common\JCOB128x128.png" Pack="true" PackagePath="" />
     <None Include="..\Common\NuReflector.snk" Link="NuReflector.snk" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MASES.JCOReflectorEngine" Version="1.7.3" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="NuGet.Protocol" Version="5.11.0" />
+    <PackageReference Include="MASES.JCOReflectorEngine" Version="1.8.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="NuGet.Protocol" Version="6.0.0" />
   </ItemGroup>
 </Project>

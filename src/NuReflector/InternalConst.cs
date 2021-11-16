@@ -57,15 +57,16 @@ namespace MASES.CLIParser
             public const string All = "All";
 
             public const string NetStandardRuntime = ".NETStandard";
-
-#if NET_CORE
-#if NET5_0
-            public static Version Version = new Version(5, 0, 0);
-#else
+#if NETCOREAPP3_1
             public static Version Version = new Version(3, 1, 0);
-#endif
-#else
+#elif NET5_0
+            public static Version Version = new Version(5, 0, 0);
+#elif NET6_0
+            public static Version Version = new Version(6, 0, 0);
+#elif NETFRAMEWORK
             public static Version Version = new Version(4, 5, 0);
+#else
+#error Unable to identify .NET engine
 #endif
         }
     }
