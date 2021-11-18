@@ -25,7 +25,6 @@
 using MASES.JCOReflectorEngine;
 using MASES.NuReflector;
 using System;
-using System.Threading.Tasks;
 
 namespace MASES.NuReflectorCLI
 {
@@ -34,15 +33,16 @@ namespace MASES.NuReflectorCLI
         static void showHelp(string errorString = null)
         {
             var assembly = typeof(Program).Assembly;
-
-#if !NET_CORE
+#if NETCOREAPP3_1
+            var title = "NuReflector CLI - CLI interface for NuReflector Engine (.NET Core)";
+#elif NET5_0
+            var title = "NuReflector CLI - CLI interface for NuReflector Engine (.NET 5)";
+#elif NET6_0
+            var title = "NuReflector CLI - CLI interface for NuReflector Engine (.NET 6)";
+#elif NETFRAMEWORK
             var title = "NuReflector CLI - CLI interface for NuReflector Engine (.NET Framework)";
 #else
-#if NET5_0
-            var title = "NuReflector CLI - CLI interface for NuReflector Engine (.NET 5)";
-#else
-            var title = "NuReflector CLI - CLI interface for NuReflector Engine (.NET Core)";
-#endif
+#error Unable to identify .NET engine
 #endif
 
             Console.WriteLine(title + " - Version " + assembly.GetName().Version.ToString());
@@ -54,7 +54,6 @@ namespace MASES.NuReflectorCLI
             }
             Console.WriteLine();
             Console.WriteLine(Reflector.GetArgumentHelp());
-
         }
 
         static void Main(string[] args)

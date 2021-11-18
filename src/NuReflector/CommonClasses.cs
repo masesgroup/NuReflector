@@ -28,7 +28,7 @@ namespace MASES.NuReflector
     {
         public PackageDefinition()
         {
-            NetFrameworkDone = Net5Done = false;
+            NetFrameworkDone = Net5Done = Net6Done = false;
         }
         public string PackageId;
         public string PackageVersion;
@@ -36,6 +36,7 @@ namespace MASES.NuReflector
         public string ReflectorEngineVersion;
         public bool NetFrameworkDone;
         public bool Net5Done;
+        public bool Net6Done;
     }
 
     class PackagesDefinition
