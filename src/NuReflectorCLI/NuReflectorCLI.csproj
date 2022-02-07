@@ -5,7 +5,7 @@
     <RootNamespace>MASES.NuReflectorCLI</RootNamespace>
     <Title>NuReflector CLI - CLI interface for NuReflector Engine</Title>
     <Description>NuReflector CLI - CLI interface for NuReflector Engine</Description>
-    <Copyright>Copyright ©  MASES s.r.l. 2021</Copyright>
+    <Copyright>Copyright ©  MASES s.r.l. 2022</Copyright>
     <Authors>MASES s.r.l.</Authors>
     <Company>MASES s.r.l.</Company>
     <Version>1.2.0.0</Version>
