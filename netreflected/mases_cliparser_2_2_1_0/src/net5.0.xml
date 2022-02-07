@@ -122,6 +122,7 @@ CLIParser - a parser for command line interface
             <configuration>
               <sources>
                 <source>./net5.0/jcoreflectorgenerated</source>
+                <source>./net5.0/mases.cliparser_version_2.2.1.0_culture_neutral_publickeytoken_7118d5b7df69acf1</source>
 
               </sources>
             </configuration>
@@ -162,7 +163,7 @@ CLIParser - a parser for command line interface
             <additionalDependency>
               <groupId>JCOBridge</groupId>
               <artifactId>JCOBridge</artifactId>
-              <version>2.4.3</version>
+              <version>2.4.6</version>
             </additionalDependency>
           </additionalDependencies>
         </configuration>
@@ -212,7 +213,7 @@ CLIParser - a parser for command line interface
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net5.0</artifactId>
-      <version>1.8.2.0</version>
+      <version>1.8.3.0</version>
     </dependency>
 
   </dependencies>
