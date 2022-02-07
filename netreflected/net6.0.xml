@@ -11,6 +11,7 @@
   <name>net6.0 Master Project</name>
 
   <modules>
+    <module>mases.cliparser_net6.0.xml</module>
 
   </modules>
 

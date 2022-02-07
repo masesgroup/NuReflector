@@ -5,11 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.masesgroup</groupId>
-  <artifactId>POM_ARTIFACTID_PLACEHOLDER</artifactId>
-  <name>POM_NAME_PLACEHOLDER</name>
-  <description>POM_DESCRIPTION_PLACEHOLDER</description>
+  <artifactId>mases.cliparser_net6.0</artifactId>
+  <name>mases.cliparser</name>
+  <description>The original version of the package, and description below, is available at the following address: https://www.nuget.org/packages/mases.cliparser/2.2.1.0
+CLIParser - a parser for command line interface
+</description>
   <url>https://github.com/masesgroup/NuReflector</url>
-  <version>POM_VERSION_PLACEHOLDER</version>
+  <version>2.2.1.0-SNAPSHOT</version>
 
   <licenses>
     <license>
@@ -36,8 +38,8 @@
     </developer>
   </developers>
   <properties>
-    <maven.compiler.source>POM_JDK_TARGET</maven.compiler.source>
-    <maven.compiler.target>POM_JDK_TARGET</maven.compiler.target>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
     <classpathfile>${basedir}/classpathfile.classpath</classpathfile>
   </properties>
   <distributionManagement>
@@ -98,7 +100,7 @@
         <configuration>
           <compilerArgs>
             <arg>-cp</arg>
-            <arg>${originalClassPath}${path.separator}${basedir}/../../../bin/POM_RUNTIME_PLACEHOLDER/JCOBridge.jar</arg>
+            <arg>${originalClassPath}${path.separator}${basedir}/../../../bin/net6.0/JCOBridge.jar</arg>
           </compilerArgs>
         </configuration>
       </plugin>
@@ -119,7 +121,8 @@
             </goals>
             <configuration>
               <sources>
-POM_SOURCEDIRECTORIES_PLACEHOLDER
+                <source>./net6.0/jcoreflectorgenerated</source>
+
               </sources>
             </configuration>
           </execution>
@@ -154,7 +157,7 @@ POM_SOURCEDIRECTORIES_PLACEHOLDER
             <link>https://www.jcobridge.com/api-java</link>
           </links>
           <quiet>true</quiet>
-          <source>POM_JDK_TARGET</source>
+          <source>8</source>
           <additionalDependencies>
             <additionalDependency>
               <groupId>JCOBridge</groupId>
@@ -208,9 +211,9 @@ POM_SOURCEDIRECTORIES_PLACEHOLDER
   <dependencies>
     <dependency>
       <groupId>com.masesgroup</groupId>
-      <artifactId>jcoreflector_POM_RUNTIME_PLACEHOLDER</artifactId>
-      <version>POM_JCOREFLECTOR_VERSION_PLACEHOLDER</version>
+      <artifactId>jcoreflector_net6.0</artifactId>
+      <version>1.8.3.0</version>
     </dependency>
-POM_ADDITIONAL_DEPENDENCIES_PLACEHOLDER
+
   </dependencies>
 </project>

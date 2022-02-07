@@ -8,10 +8,10 @@
   <artifactId>mases.cliparser</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
-  <name>MASES.CLIParser net461 Master Project</name>
+  <name>MASES.CLIParser net6.0 Master Project</name>
 
   <modules>
-    <module>mases_cliparser_2_2_1_0/src/net461.xml</module>
+    <module>mases_cliparser_2_2_1_0/src/net6.0.xml</module>
 
   </modules>
 
