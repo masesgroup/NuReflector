@@ -4,6 +4,24 @@ Engine to produce Maven artifacts from NuGet packages. It is based on [JCOReflec
 
 This project adheres to the Contributor [Covenant code of conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to coc_reporting@masesgroup.com.
 
+## Runtime engine
+
+NuReflector uses [JCOReflector](https://github.com/masesgroup/JCOReflector), and indeed [JCOBridge](https://www.jcobridge.com) with its [features](https://www.jcobridge.com/features/), to obtain many benefits:
+* **Cyber-security**: 
+  * [JVM](https://en.wikipedia.org/wiki/Java_virtual_machine) and [CLR, or CoreCLR,](https://en.wikipedia.org/wiki/Common_Language_Runtime) runs in the same process, but are insulated from each other;
+  * JCOBridge does not make any code injection into CLR or JVM;
+  * JCOBridge does not use any other communication mechanism than JNI;
+  * JVM inherently inherits the cyber-security levels of running .NET (CLR); 
+* **Direct access the CLR from any JVM application**: 
+  * No need to learn new APIs: we try to expose the same .NET APIs in Java style;
+  * No extra validation cycle: bug fix, improvements, new features are immediately available;
+  * Documentation is shared.
+
+Have a look at the following resources:
+- [Release notes](https://www.jcobridge.com/release-notes/)
+- [Commercial info](https://www.jcobridge.com/pricing/)
+- [![JCOBridge nuget](https://img.shields.io/nuget/v/MASES.JCOBridge)](https://www.nuget.org/packages/MASES.JCOBridge)
+
 ## Maven artifacts versioning limitation
 
 Considering the following facts:
