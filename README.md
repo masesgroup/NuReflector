@@ -1,8 +1,23 @@
 # Welcome to NuReflector
 
+[![CI_BUILD](https://github.com/masesgroup/NuReflector/actions/workflows/build.yaml/badge.svg)](https://github.com/masesgroup/NuReflector/actions/workflows/build.yaml) [![CI_MAVEN](https://github.com/masesgroup/NuReflector/actions/workflows/maven.yaml/badge.svg)](https://github.com/masesgroup/NuReflector/actions/workflows/maven.yaml) [![CI_PULLREQUEST](https://github.com/masesgroup/NuReflector/actions/workflows/pullrequest.yaml/badge.svg)](https://github.com/masesgroup/NuReflector/actions/workflows/pullrequest.yaml) [![CI_RELEASE](https://github.com/masesgroup/NuReflector/actions/workflows/release.yaml/badge.svg)](https://github.com/masesgroup/NuReflector/actions/workflows/release.yaml) [![CI_WEEKLYBUILD](https://github.com/masesgroup/NuReflector/actions/workflows/weekly_build.yaml/badge.svg)](https://github.com/masesgroup/NuReflector/actions/workflows/weekly_build.yaml)
+
+|NuReflector | NuReflectorCLI |
+|---	|---	|
+|[![NuReflector nuget](https://img.shields.io/nuget/v/MASES.NuReflector)](https://www.nuget.org/packages/MASES.NuReflector) [![downloads](https://img.shields.io/nuget/dt/MASES.NuReflector)](https://www.nuget.org/packages/MASES.NuReflector) | [![NuReflectorCLI nuget](https://img.shields.io/nuget/v/MASES.NuReflectorCLI)](https://www.nuget.org/packages/MASES.NuReflectorCLI) [![downloads](https://img.shields.io/nuget/dt/MASES.NuReflectorCLI)](https://www.nuget.org/packages/MASES.NuReflectorCLI) |
+
 Engine to produce Maven artifacts from NuGet packages. It is based on [JCOReflector](https://github.com/masesgroup/JCOReflector).
 
 This project adheres to the Contributor [Covenant code of conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to coc_reporting@masesgroup.com.
+
+## Scope of the project
+
+This project aims to create a set of Maven artifacts to direct access, from a JVM, all the features available in the corresponding NuGet package.
+
+The approach gives more than one benefit:
+* all implemented features are availables at no extra implementation costs;
+* avoids any third party communication protocol implementation;
+* Documentation is shared.
 
 ## Runtime engine
 

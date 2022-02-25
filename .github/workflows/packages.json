@@ -1,1 +1,1 @@
-{Packages: [{"PackageId":"MASES.CLIParser"}]}
+{Packages: [{"PackageId":"MASES.CLIParser"},{"PackageId":"Newtonsoft.Json"}]}
