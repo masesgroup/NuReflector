@@ -1,1 +1,16 @@
-{Packages: [{"PackageId":"MASES.CLIParser"},{"PackageId":"Newtonsoft.Json"}]}
+{Packages: [{"PackageId":"MASES.CLIParser"},
+			{"PackageId":"Microsoft.Extensions.Primitives"},
+			{"PackageId":"Microsoft.Extensions.Options"},
+			{"PackageId":"Newtonsoft.Json"},
+			{"PackageId":"Pomelo.EntityFrameworkCore.MySql"},
+			{"PackageId":"Npgsql.EntityFrameworkCore.PostgreSQL"},
+			{"PackageId":"Microsoft.EntityFrameworkCore.Sqlite"},
+			{"PackageId":"Microsoft.EntityFrameworkCore.InMemory"},
+			{"PackageId":"Microsoft.EntityFrameworkCore.SqlServer"},
+			{"PackageId":"Serilog.Sinks.Seq"},
+			{"PackageId":"Serilog.Sinks.Elasticsearch"},
+			{"PackageId":"AutoFixture.AutoMoq"},
+			{"PackageId":"Autofac.Extras.Moq"},
+			{"PackageId":"Npgsql.EntityFrameworkCore.PostgreSQL"},
+		   ]
+}
