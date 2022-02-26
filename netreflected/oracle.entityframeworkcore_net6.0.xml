@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.masesgroup</groupId>
+  <artifactId>oracle.entityframeworkcore</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>Oracle.EntityFrameworkCore net6.0 Master Project</name>
+
+  <modules>
+    <module>microsoft_entityframeworkcore_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>system_runtime_compilerservices_unsafe_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_primitives_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_caching_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_dependencyinjection_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_logging_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_options_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_caching_memory_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_dependencyinjection_6_0_0_0/src/net6.0.xml</module>
+    <module>system_diagnostics_diagnosticsource_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_logging_6_0_0_0/src/net6.0.xml</module>
+    <module>system_collections_immutable_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_entityframeworkcore_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_configuration_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_entityframeworkcore_relational_6_0_0_0/src/net6.0.xml</module>
+    <module>system_security_cryptography_protecteddata_6_0_0_0/src/net6.0.xml</module>
+    <module>system_security_accesscontrol_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_win32_systemevents_6_0_0_0/src/net6.0.xml</module>
+    <module>system_drawing_common_6_0_0_0/src/net6.0.xml</module>
+    <module>system_windows_extensions_6_0_0_0/src/net6.0.xml</module>
+    <module>system_security_permissions_6_0_0_0/src/net6.0.xml</module>
+    <module>system_configuration_configurationmanager_6_0_0_0/src/net6.0.xml</module>
+    <module>system_diagnostics_performancecounter_6_0_0_0/src/net6.0.xml</module>
+    <module>system_buffers_4_5_1_0/src/net6.0.xml</module>
+    <module>system_numerics_vectors_4_4_0_0/src/net6.0.xml</module>
+    <module>system_runtime_compilerservices_unsafe_4_5_3_0/src/net6.0.xml</module>
+    <module>system_memory_4_5_4_0/src/net6.0.xml</module>
+    <module>system_security_principal_windows_5_0_0_0/src/net6.0.xml</module>
+    <module>system_security_accesscontrol_5_0_0_0/src/net6.0.xml</module>
+    <module>system_io_filesystem_accesscontrol_5_0_0_0/src/net6.0.xml</module>
+    <module>system_security_permissions_5_0_0_0/src/net6.0.xml</module>
+    <module>system_directoryservices_5_0_0_0/src/net6.0.xml</module>
+    <module>system_directoryservices_protocols_5_0_1_0/src/net6.0.xml</module>
+    <module>system_text_encodings_web_6_0_0_0/src/net6.0.xml</module>
+    <module>system_text_json_6_0_0_0/src/net6.0.xml</module>
+    <module>oracle_manageddataaccess_core_3_21_50_0/src/net6.0.xml</module>
+    <module>oracle_entityframeworkcore_6_21_5_0/src/net6.0.xml</module>
+
+  </modules>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <name>Central Repository OSSRH</name>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+</project>

@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.masesgroup</groupId>
+  <artifactId>microsoft.azure.functions.worker</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>Microsoft.Azure.Functions.Worker net5.0 Master Project</name>
+
+  <modules>
+    <module>azure_core_1_10_0_0/src/net5.0.xml</module>
+    <module>microsoft_azure_functions_worker_core_1_4_0_0/src/net5.0.xml</module>
+    <module>grpc_net_common_2_37_0_0/src/net5.0.xml</module>
+    <module>grpc_net_client_2_37_0_0/src/net5.0.xml</module>
+    <module>grpc_net_clientfactory_2_37_0_0/src/net5.0.xml</module>
+    <module>microsoft_azure_functions_worker_grpc_1_3_1_0/src/net5.0.xml</module>
+    <module>microsoft_azure_functions_worker_1_6_0_0/src/net5.0.xml</module>
+
+  </modules>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <name>Central Repository OSSRH</name>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+</project>

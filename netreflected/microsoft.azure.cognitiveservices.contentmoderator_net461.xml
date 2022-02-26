@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.masesgroup</groupId>
+  <artifactId>microsoft.azure.cognitiveservices.contentmoderator</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>Microsoft.Azure.CognitiveServices.ContentModerator net461 Master Project</name>
+
+  <modules>
+    <module>microsoft_rest_clientruntime_2_3_18_0/src/net461.xml</module>
+    <module>microsoft_rest_clientruntime_2_3_17_0/src/net461.xml</module>
+    <module>microsoft_rest_clientruntime_azure_3_3_18_0/src/net461.xml</module>
+    <module>microsoft_azure_cognitiveservices_contentmoderator_2_0_0_0/src/net461.xml</module>
+
+  </modules>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <name>Central Repository OSSRH</name>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+</project>
