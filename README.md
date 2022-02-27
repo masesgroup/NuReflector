@@ -1,8 +1,41 @@
 # Welcome to NuReflector
 
+[![CI_BUILD](https://github.com/masesgroup/NuReflector/actions/workflows/build.yaml/badge.svg)](https://github.com/masesgroup/NuReflector/actions/workflows/build.yaml) [![CI_MAVEN](https://github.com/masesgroup/NuReflector/actions/workflows/maven.yaml/badge.svg)](https://github.com/masesgroup/NuReflector/actions/workflows/maven.yaml) [![CI_PULLREQUEST](https://github.com/masesgroup/NuReflector/actions/workflows/pullrequest.yaml/badge.svg)](https://github.com/masesgroup/NuReflector/actions/workflows/pullrequest.yaml) [![CI_RELEASE](https://github.com/masesgroup/NuReflector/actions/workflows/release.yaml/badge.svg)](https://github.com/masesgroup/NuReflector/actions/workflows/release.yaml) [![CI_WEEKLYBUILD](https://github.com/masesgroup/NuReflector/actions/workflows/weekly_build.yaml/badge.svg)](https://github.com/masesgroup/NuReflector/actions/workflows/weekly_build.yaml)
+
+|NuReflector | NuReflectorCLI |
+|---	|---	|
+|[![NuReflector nuget](https://img.shields.io/nuget/v/MASES.NuReflector)](https://www.nuget.org/packages/MASES.NuReflector) [![downloads](https://img.shields.io/nuget/dt/MASES.NuReflector)](https://www.nuget.org/packages/MASES.NuReflector) | [![NuReflectorCLI nuget](https://img.shields.io/nuget/v/MASES.NuReflectorCLI)](https://www.nuget.org/packages/MASES.NuReflectorCLI) [![downloads](https://img.shields.io/nuget/dt/MASES.NuReflectorCLI)](https://www.nuget.org/packages/MASES.NuReflectorCLI) |
+
 Engine to produce Maven artifacts from NuGet packages. It is based on [JCOReflector](https://github.com/masesgroup/JCOReflector).
 
 This project adheres to the Contributor [Covenant code of conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to coc_reporting@masesgroup.com.
+
+## Scope of the project
+
+This project aims to create a set of Maven artifacts to direct access, from a JVM, all the features available in the corresponding NuGet package.
+
+The approach gives more than one benefit:
+* all implemented features are availables at no extra implementation costs;
+* avoids any third party communication protocol implementation;
+* Documentation is shared.
+
+## Runtime engine
+
+NuReflector uses [JCOReflector](https://github.com/masesgroup/JCOReflector), and indeed [JCOBridge](https://www.jcobridge.com) with its [features](https://www.jcobridge.com/features/), to obtain many benefits:
+* **Cyber-security**: 
+  * [JVM](https://en.wikipedia.org/wiki/Java_virtual_machine) and [CLR, or CoreCLR,](https://en.wikipedia.org/wiki/Common_Language_Runtime) runs in the same process, but are insulated from each other;
+  * JCOBridge does not make any code injection into CLR or JVM;
+  * JCOBridge does not use any other communication mechanism than JNI;
+  * JVM inherently inherits the cyber-security levels of running .NET (CLR); 
+* **Direct access the CLR from any JVM application**: 
+  * No need to learn new APIs: we try to expose the same .NET APIs in Java style;
+  * No extra validation cycle: bug fix, improvements, new features are immediately available;
+  * Documentation is shared.
+
+Have a look at the following resources:
+- [Release notes](https://www.jcobridge.com/release-notes/)
+- [Commercial info](https://www.jcobridge.com/pricing/)
+- [![JCOBridge nuget](https://img.shields.io/nuget/v/MASES.JCOBridge)](https://www.nuget.org/packages/MASES.JCOBridge)
 
 ## Maven artifacts versioning limitation
 

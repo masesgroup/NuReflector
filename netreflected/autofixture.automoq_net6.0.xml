@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.masesgroup</groupId>
+  <artifactId>autofixture.automoq</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>AutoFixture.AutoMoq net6.0 Master Project</name>
+
+  <modules>
+    <module>fare_2_1_1_0/src/net6.0.xml</module>
+    <module>system_componentmodel_4_3_0_0/src/net6.0.xml</module>
+    <module>system_linq_4_3_0_0/src/net6.0.xml</module>
+    <module>system_threading_4_3_0_0/src/net6.0.xml</module>
+    <module>system_text_regularexpressions_4_3_0_0/src/net6.0.xml</module>
+    <module>system_componentmodel_annotations_4_3_0_0/src/net6.0.xml</module>
+    <module>autofixture_4_17_0_0/src/net6.0.xml</module>
+    <module>system_appcontext_4_1_0_0/src/net6.0.xml</module>
+    <module>system_threading_4_0_11_0/src/net6.0.xml</module>
+    <module>system_collections_nongeneric_4_0_1_0/src/net6.0.xml</module>
+    <module>system_collections_specialized_4_0_1_0/src/net6.0.xml</module>
+    <module>system_linq_4_1_0_0/src/net6.0.xml</module>
+    <module>system_objectmodel_4_0_12_0/src/net6.0.xml</module>
+    <module>system_reflection_emit_4_0_1_0/src/net6.0.xml</module>
+    <module>system_reflection_emit_ilgeneration_4_0_1_0/src/net6.0.xml</module>
+    <module>system_reflection_emit_lightweight_4_0_1_0/src/net6.0.xml</module>
+    <module>system_reflection_typeextensions_4_1_0_0/src/net6.0.xml</module>
+    <module>system_linq_expressions_4_1_0_0/src/net6.0.xml</module>
+    <module>system_dynamic_runtime_4_0_11_0/src/net6.0.xml</module>
+    <module>system_io_filesystem_primitives_4_0_1_0/src/net6.0.xml</module>
+    <module>system_text_regularexpressions_4_1_0_0/src/net6.0.xml</module>
+    <module>system_threading_tasks_extensions_4_0_0_0/src/net6.0.xml</module>
+    <module>system_xml_readerwriter_4_0_11_0/src/net6.0.xml</module>
+    <module>system_xml_xmldocument_4_0_1_0/src/net6.0.xml</module>
+    <module>system_xml_xmlserializer_4_0_11_0/src/net6.0.xml</module>
+    <module>castle_core_4_0_0_0/src/net6.0.xml</module>
+    <module>system_collections_concurrent_4_0_12_0/src/net6.0.xml</module>
+    <module>system_linq_queryable_4_0_1_0/src/net6.0.xml</module>
+    <module>moq_4_7_0_0/src/net6.0.xml</module>
+    <module>autofixture_automoq_4_17_0_0/src/net6.0.xml</module>
+
+  </modules>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <name>Central Repository OSSRH</name>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+</project>

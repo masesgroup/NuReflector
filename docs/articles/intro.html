@@ -71,6 +71,31 @@
 
 <p>Engine to produce Maven artifacts from NuGet packages. It is based on <a href="https://github.com/masesgroup/JCOReflector">JCOReflector</a>.</p>
 <p>This project adheres to the Contributor <a href="CODE_OF_CONDUCT.md">Covenant code of conduct</a>. By participating, you are expected to uphold this code. Please report unacceptable behavior to coc_reporting@masesgroup.com.</p>
+<h2 id="runtime-engine">Runtime engine</h2>
+<p>NuReflector uses <a href="https://github.com/masesgroup/JCOReflector">JCOReflector</a>, and indeed <a href="https://www.jcobridge.com">JCOBridge</a> with its <a href="https://www.jcobridge.com/features/">features</a>, to obtain many benefits:</p>
+<ul>
+<li><strong>Cyber-security</strong>:
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Java_virtual_machine">JVM</a> and <a href="https://en.wikipedia.org/wiki/Common_Language_Runtime">CLR, or CoreCLR,</a> runs in the same process, but are insulated from each other;</li>
+<li>JCOBridge does not make any code injection into CLR or JVM;</li>
+<li>JCOBridge does not use any other communication mechanism than JNI;</li>
+<li>JVM inherently inherits the cyber-security levels of running .NET (CLR);</li>
+</ul>
+</li>
+<li><strong>Direct access the CLR from any JVM application</strong>:
+<ul>
+<li>No need to learn new APIs: we try to expose the same .NET APIs in Java style;</li>
+<li>No extra validation cycle: bug fix, improvements, new features are immediately available;</li>
+<li>Documentation is shared.</li>
+</ul>
+</li>
+</ul>
+<p>Have a look at the following resources:</p>
+<ul>
+<li><a href="https://www.jcobridge.com/release-notes/">Release notes</a></li>
+<li><a href="https://www.jcobridge.com/pricing/">Commercial info</a></li>
+<li><a href="https://www.nuget.org/packages/MASES.JCOBridge"><img src="https://img.shields.io/nuget/v/MASES.JCOBridge" alt="JCOBridge nuget"></a></li>
+</ul>
 <h2 id="maven-artifacts-versioning-limitation">Maven artifacts versioning limitation</h2>
 <p>Considering the following facts:</p>
 <ol>

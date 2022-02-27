@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.masesgroup</groupId>
+  <artifactId>automapper.collection.entityframework</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>AutoMapper.Collection.EntityFramework net6.0 Master Project</name>
+
+  <modules>
+    <module>microsoft_csharp_4_7_0_0/src/net6.0.xml</module>
+    <module>system_reflection_emit_ilgeneration_4_7_0_0/src/net6.0.xml</module>
+    <module>system_reflection_emit_4_7_0_0/src/net6.0.xml</module>
+    <module>automapper_10_0_0_0/src/net6.0.xml</module>
+    <module>automapper_collection_7_0_1_0/src/net6.0.xml</module>
+    <module>microsoft_csharp_4_5_0_0/src/net6.0.xml</module>
+    <module>system_reflection_emit_4_3_0_0/src/net6.0.xml</module>
+    <module>automapper_7_0_0_0/src/net6.0.xml</module>
+    <module>automapper_extensions_expressionmapping_1_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_csharp_4_6_0_0/src/net6.0.xml</module>
+    <module>system_codedom_4_6_0_0/src/net6.0.xml</module>
+    <module>system_componentmodel_annotations_4_6_0_0/src/net6.0.xml</module>
+    <module>system_buffers_4_4_0_0/src/net6.0.xml</module>
+    <module>system_numerics_vectors_4_4_0_0/src/net6.0.xml</module>
+    <module>system_runtime_compilerservices_unsafe_4_5_2_0/src/net6.0.xml</module>
+    <module>system_memory_4_5_3_0/src/net6.0.xml</module>
+    <module>system_security_cryptography_protecteddata_4_6_0_0/src/net6.0.xml</module>
+    <module>system_security_principal_windows_4_6_0_0/src/net6.0.xml</module>
+    <module>system_security_accesscontrol_4_6_0_0/src/net6.0.xml</module>
+    <module>system_security_permissions_4_6_0_0/src/net6.0.xml</module>
+    <module>system_configuration_configurationmanager_4_6_0_0/src/net6.0.xml</module>
+    <module>system_buffers_4_5_0_0/src/net6.0.xml</module>
+    <module>microsoft_win32_registry_4_6_0_0/src/net6.0.xml</module>
+    <module>system_threading_4_3_0_0/src/net6.0.xml</module>
+    <module>system_collections_concurrent_4_3_0_0/src/net6.0.xml</module>
+    <module>system_diagnostics_diagnosticsource_4_6_0_0/src/net6.0.xml</module>
+    <module>system_runtime_compilerservices_unsafe_4_6_0_0/src/net6.0.xml</module>
+    <module>system_text_encoding_codepages_4_6_0_0/src/net6.0.xml</module>
+    <module>system_data_sqlclient_4_7_0_0/src/net6.0.xml</module>
+    <module>entityframework_6_3_0_0/src/net6.0.xml</module>
+    <module>automapper_collection_entityframework_7_0_1_0/src/net6.0.xml</module>
+
+  </modules>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <name>Central Repository OSSRH</name>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+</project>
