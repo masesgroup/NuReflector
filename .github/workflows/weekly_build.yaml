@@ -32,13 +32,13 @@ jobs:
         run: dotnet build --no-incremental --configuration Release /p:Platform="Any CPU" src\NuReflector.sln
 
       - name: Reflect and Build net5.0 Maven POM files
-        run: dotnet bin\net5.0\NuReflectorCLI.dll -PackagesFile .github\workflows\packages.json
+        run: dotnet bin\net5.0\MASES.NuReflectorCLI.dll -PackagesFile .github\workflows\packages.json
 
       - name: Reflect and Build net6.0 Maven POM files
-        run: dotnet bin\net6.0\NuReflectorCLI.dll -PackagesFile .github\workflows\packages.json
+        run: dotnet bin\net6.0\MASES.NuReflectorCLI.dll -PackagesFile .github\workflows\packages.json
           
       - name: Reflect and Build net461 Maven POM files
-        run: .\bin\net461\NuReflectorCLI -JobType -PackagesFile .github\workflows\packages.json
+        run: .\bin\net461\MASES.NuReflectorCLI -JobType -PackagesFile .github\workflows\packages.json
 
       - name: Commit source changes
         uses: EndBug/add-and-commit@v5
