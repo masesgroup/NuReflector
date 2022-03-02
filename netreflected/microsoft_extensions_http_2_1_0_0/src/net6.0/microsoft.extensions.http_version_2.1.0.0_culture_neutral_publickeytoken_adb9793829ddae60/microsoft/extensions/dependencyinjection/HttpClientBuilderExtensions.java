@@ -148,7 +148,7 @@ public class HttpClientBuilderExtensions extends NetObject  {
     
     // Methods section
     
-    public static IHttpClientBuilder SetHandlerLifetime(IHttpClientBuilder builder, TimeSpan handlerLifetime) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.InvalidOperationException, system.PlatformNotSupportedException, system.ArrayTypeMismatchException, system.IndexOutOfRangeException, system.NotSupportedException, system.globalization.CultureNotFoundException, system.ObjectDisposedException, system.OutOfMemoryException {
+    public static IHttpClientBuilder SetHandlerLifetime(IHttpClientBuilder builder, TimeSpan handlerLifetime) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {

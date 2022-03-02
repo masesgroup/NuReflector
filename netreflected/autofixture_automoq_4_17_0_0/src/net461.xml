@@ -213,7 +213,7 @@ This extension turns AutoFixture into an Auto-Mocking Container. The mock instan
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net461</artifactId>
-      <version>1.8.4.0</version>
+      <version>1.8.5.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

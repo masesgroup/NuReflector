@@ -166,7 +166,7 @@ public class RangeConditionHeaderValue extends NetObject  {
         }
     }
 
-    public RangeConditionHeaderValue(java.lang.String entityTag) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentNullException, system.globalization.CultureNotFoundException, system.InvalidOperationException, system.FormatException {
+    public RangeConditionHeaderValue(java.lang.String entityTag) throws Throwable, system.ArgumentException, system.NotSupportedException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.globalization.CultureNotFoundException, system.FormatException {
         try {
             // add reference to assemblyName.dll file
             addReference(JCOReflector.getUseFullAssemblyName() ? assemblyFullName : assemblyShortName);

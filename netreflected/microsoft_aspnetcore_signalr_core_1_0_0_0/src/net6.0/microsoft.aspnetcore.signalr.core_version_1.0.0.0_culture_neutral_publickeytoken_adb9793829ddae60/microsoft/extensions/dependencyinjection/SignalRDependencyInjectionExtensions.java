@@ -149,7 +149,7 @@ public class SignalRDependencyInjectionExtensions extends NetObject  {
     
     // Methods section
     
-    public static ISignalRServerBuilder AddSignalRCore(IServiceCollection services) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.InvalidOperationException, system.PlatformNotSupportedException, system.ArrayTypeMismatchException, system.IndexOutOfRangeException, system.NotSupportedException, system.ObjectDisposedException, system.RankException, system.FormatException {
+    public static ISignalRServerBuilder AddSignalRCore(IServiceCollection services) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {

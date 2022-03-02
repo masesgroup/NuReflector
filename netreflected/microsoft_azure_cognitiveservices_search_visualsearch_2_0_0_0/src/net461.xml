@@ -122,7 +122,6 @@ This client library provides access to the Microsoft Cognitive Services Image Vi
             <configuration>
               <sources>
                 <source>./net461/jcoreflectorgenerated</source>
-                <source>./net461/microsoft.azure.cognitiveservices.search.visualsearch_version_2.0.0.0_culture_neutral_publickeytoken_31bf3856ad364e35</source>
 
               </sources>
             </configuration>
@@ -213,7 +212,7 @@ This client library provides access to the Microsoft Cognitive Services Image Vi
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net461</artifactId>
-      <version>1.8.4.0</version>
+      <version>1.8.5.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

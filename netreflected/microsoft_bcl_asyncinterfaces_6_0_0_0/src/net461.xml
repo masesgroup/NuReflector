@@ -127,7 +127,6 @@ System.Collections.Generic.IAsyncEnumerator
             <configuration>
               <sources>
                 <source>./net461/jcoreflectorgenerated</source>
-                <source>./net461/microsoft.bcl.asyncinterfaces_version_6.0.0.0_culture_neutral_publickeytoken_cc7b13ffcd2ddd51</source>
 
               </sources>
             </configuration>
@@ -218,7 +217,7 @@ System.Collections.Generic.IAsyncEnumerator
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net461</artifactId>
-      <version>1.8.4.0</version>
+      <version>1.8.5.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

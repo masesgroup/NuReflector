@@ -212,7 +212,7 @@ Microsoft SQL Server database provider for Entity Framework Core.
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net5.0</artifactId>
-      <version>1.8.4.0</version>
+      <version>1.8.5.0</version>
     </dependency>
 
   </dependencies>

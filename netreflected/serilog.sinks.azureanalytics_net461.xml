@@ -11,6 +11,8 @@
   <name>Serilog.Sinks.AzureAnalytics net461 Master Project</name>
 
   <modules>
+    <module>newtonsoft_json_12_0_1_0/src/net461.xml</module>
+    <module>serilog_2_8_0_0/src/net461.xml</module>
     <module>serilog_sinks_azureanalytics_2019_1_20_0/src/net461.xml</module>
 
   </modules>

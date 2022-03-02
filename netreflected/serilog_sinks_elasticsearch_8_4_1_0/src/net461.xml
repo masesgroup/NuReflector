@@ -213,7 +213,7 @@ Package Description
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net461</artifactId>
-      <version>1.8.4.0</version>
+      <version>1.8.5.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
@@ -227,6 +227,11 @@ Package Description
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
+      <artifactId>serilog_net461</artifactId>
+      <version>2.8.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.masesgroup</groupId> 
       <artifactId>serilog.formatting.compact_net461</artifactId>
       <version>1.0.0.0-SNAPSHOT</version>
     </dependency>
@@ -234,6 +239,11 @@ Package Description
       <groupId>com.masesgroup</groupId> 
       <artifactId>serilog.sinks.file_net461</artifactId>
       <version>4.0.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.masesgroup</groupId> 
+      <artifactId>serilog.sinks.periodicbatching_net461</artifactId>
+      <version>2.1.1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

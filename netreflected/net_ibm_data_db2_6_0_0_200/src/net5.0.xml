@@ -212,7 +212,7 @@ IBM Data Server provider for .NET6.	For more details, please visit: https://comm
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net5.0</artifactId>
-      <version>1.8.4.0</version>
+      <version>1.8.5.0</version>
     </dependency>
 
   </dependencies>

@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <PackageType>DotnetTool</PackageType>
     <OutputType>Exe</OutputType>
-    <AssemblyName>NuReflectorCLI</AssemblyName>
+    <AssemblyName>MASES.NuReflectorCLI</AssemblyName>
     <RootNamespace>MASES.NuReflectorCLI</RootNamespace>
     <Title>NuReflector CLI - CLI interface for NuReflector Engine</Title>
     <Description>NuReflector CLI - CLI interface for NuReflector Engine</Description>
@@ -13,20 +14,21 @@
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <TargetFrameworks>net461;net5.0;net6.0</TargetFrameworks>
     <OutputPath>..\..\bin\</OutputPath>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/masesgroup/NuReflector/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/masesgroup/NuReflector</RepositoryUrl>
     <PackageReleaseNotes>https://github.com/masesgroup/NuReflector/releases</PackageReleaseNotes>
     <PackageLicense>LICENSE</PackageLicense>
     <PackageIcon>JCOB128x128.png</PackageIcon>
-    <PackageTags>jvm-enabled-language kotlin java scala reflection dotnet clr netcore bridge jcobridge class framework csharp nuget</PackageTags>
+    <PackageTags>nureflector cli tool jvm-enabled-language kotlin java scala reflection dotnet clr netcore bridge jcobridge class framework csharp nuget</PackageTags>
     <PackageId>MASES.NuReflectorCLI</PackageId>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\Common\NuReflector.snk</AssemblyOriginatorKeyFile>
+    <PackageReadmeFile>index.md</PackageReadmeFile>
   </PropertyGroup>
   <!-- Fix start https://github.com/dotnet/sourcelink/issues/572 -->
   <PropertyGroup>
@@ -41,11 +43,15 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="..\Documentation\index.md" Pack="true" PackagePath="" />
     <None Include="..\Common\JCOB128x128.png" Pack="true" PackagePath="" />
     <None Include="..\Common\NuReflector.snk" Link="NuReflector.snk" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NuReflector\NuReflector.csproj" />
+    <ProjectReference Include="..\NuReflector\NuReflector.csproj">
+      <IncludeAssets>All</IncludeAssets>
+      <PrivateAssets>None</PrivateAssets>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
