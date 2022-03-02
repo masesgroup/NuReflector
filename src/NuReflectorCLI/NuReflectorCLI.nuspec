@@ -24,7 +24,7 @@
         <file src="..\..\LICENSE" target="LICENSE" />
         <file src="..\Common\JCOB128x128.png" target="" />
         <file src="..\Documentation\index.md" target="" />
-        <file src="..\..\..\bin\net5.0\" target="tools\net5.0\any\" />
-        <file src="..\..\..\bin\net6.0\" target="tools\net6.0\any\" />
+        <file src="..\..\bin\net5.0\" target="tools\net5.0\any\" />
+        <file src="..\..\bin\net6.0\" target="tools\net6.0\any\" />
     </files>
 </package>
