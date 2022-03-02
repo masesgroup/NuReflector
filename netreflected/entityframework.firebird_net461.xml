@@ -11,6 +11,7 @@
   <name>EntityFramework.Firebird net461 Master Project</name>
 
   <modules>
+    <module>system_runtime_compilerservices_unsafe_4_5_3_0/src/net461.xml</module>
     <module>system_threading_tasks_extensions_4_5_4_0/src/net461.xml</module>
     <module>firebirdsql_data_firebirdclient_8_5_4_0/src/net461.xml</module>
     <module>entityframework_6_4_4_0/src/net461.xml</module>

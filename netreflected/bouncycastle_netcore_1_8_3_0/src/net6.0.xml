@@ -213,7 +213,7 @@ a BouncyCastle redist package include .Net Framework and .Net Core/ Standard sup
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.4.0</version>
+      <version>1.8.5.0</version>
     </dependency>
 
   </dependencies>

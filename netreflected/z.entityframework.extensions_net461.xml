@@ -11,7 +11,8 @@
   <name>Z.EntityFramework.Extensions net461 Master Project</name>
 
   <modules>
-    <module>z_entityframework_extensions_6_13_12_0/src/net461.xml</module>
+    <module>entityframework_6_0_0_0/src/net461.xml</module>
+    <module>z_entityframework_extensions_6_13_13_0/src/net461.xml</module>
 
   </modules>
 

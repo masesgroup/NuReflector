@@ -127,6 +127,7 @@ This package was built from the source code at https://github.com/aspnet/Extensi
             <configuration>
               <sources>
                 <source>./net6.0/jcoreflectorgenerated</source>
+                <source>./net6.0/microsoft.extensions.primitives_version_2.2.0.0_culture_neutral_publickeytoken_adb9793829ddae60</source>
 
               </sources>
             </configuration>
@@ -217,7 +218,7 @@ This package was built from the source code at https://github.com/aspnet/Extensi
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.4.0</version>
+      <version>1.8.5.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

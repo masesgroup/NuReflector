@@ -12,6 +12,7 @@
 
   <modules>
     <module>serilog_2_10_0_0/src/net461.xml</module>
+    <module>serilog_2_8_0_0/src/net461.xml</module>
     <module>serilog_formatting_compact_1_1_0_0/src/net461.xml</module>
     <module>serilog_sinks_file_4_0_0_0/src/net461.xml</module>
     <module>serilog_2_0_0_0/src/net461.xml</module>

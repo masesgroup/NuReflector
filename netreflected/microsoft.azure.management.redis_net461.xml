@@ -12,6 +12,7 @@
 
   <modules>
     <module>microsoft_rest_clientruntime_2_3_20_0/src/net461.xml</module>
+    <module>microsoft_rest_clientruntime_2_3_19_0/src/net461.xml</module>
     <module>microsoft_rest_clientruntime_azure_3_3_19_0/src/net461.xml</module>
     <module>microsoft_azure_management_redis_8_0_0_0/src/net461.xml</module>
 

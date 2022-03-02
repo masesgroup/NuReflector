@@ -149,7 +149,7 @@ public class MediaTypeHeaderValueComparer extends NetObject  {
     
     // Methods section
     
-    public int Compare(MediaTypeHeaderValue mediaType1, MediaTypeHeaderValue mediaType2) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.globalization.CultureNotFoundException, system.InvalidOperationException, system.IndexOutOfRangeException, system.NotSupportedException {
+    public int Compare(MediaTypeHeaderValue mediaType1, MediaTypeHeaderValue mediaType2) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.globalization.CultureNotFoundException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.NotSupportedException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {

@@ -215,7 +215,7 @@ System.Threading.Tasks.ValueTask&amp;lt;TResult&amp;gt;
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.4.0</version>
+      <version>1.8.5.0</version>
     </dependency>
 
   </dependencies>
