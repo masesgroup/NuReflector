@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	<PackageType>DotnetTool</PackageType>
+    <PackageType>DotnetTool</PackageType>
     <OutputType>Exe</OutputType>
     <AssemblyName>MASES.NuReflectorCLI</AssemblyName>
     <RootNamespace>MASES.NuReflectorCLI</RootNamespace>
@@ -51,7 +51,7 @@
     <ProjectReference Include="..\NuReflector\NuReflector.csproj">
       <IncludeAssets>All</IncludeAssets>
       <PrivateAssets>None</PrivateAssets>
-	</ProjectReference>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />

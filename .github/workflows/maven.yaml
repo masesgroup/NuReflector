@@ -109,7 +109,7 @@ jobs:
            dotnet-version: 6.0.x
 
       - name: Compile to get local resources
-        run: dotnet build --no-incremental --configuration Release /p:Platform="Any CPU" src\NuReflector.sln
+        run: dotnet build --no-incremental --configuration Release /p:Platform="Any CPU" src/NuReflector.sln
 
       - name: Install gpg secret key
         run: |
