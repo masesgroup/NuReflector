@@ -29,6 +29,9 @@
     <AssemblyOriginatorKeyFile>..\Common\NuReflector.snk</AssemblyOriginatorKeyFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net6.0'">
+    <DefineConstants>$(DefineConstants);NETSTARDAND_FALLBACK</DefineConstants>
+  </PropertyGroup>
   <!-- Fix start https://github.com/dotnet/sourcelink/issues/572 -->
   <PropertyGroup>
     <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
