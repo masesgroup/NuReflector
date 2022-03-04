@@ -271,13 +271,15 @@ namespace MASES.NuReflector
             return sb.ToString();
         }
 
-        static bool checkFramework(this NuGetFramework framework)
+        static bool CheckFramework(this NuGetFramework framework)
         {
             return framework == NuGetFramework.AnyFramework
-#if NET6_0_OR_GREATER
+#if NETSTARDAND_FALLBACK
                                 || framework.Framework == InternalConst.Framework.NetStandardRuntime // .NETStandard fallback to .NET 6
 #endif
-                                || (framework.Framework == JobManager.RuntimeName && framework.Version >= InternalConst.Framework.Version);
+                                || (framework.Framework == JobManager.RuntimeName 
+                                    && framework.Version.Major == InternalConst.Framework.Version.Major 
+                                    && framework.Version >= InternalConst.Framework.Version);
         }
 
         static string ToFolder(string packageId, NuGetVersion packageVersion)
@@ -406,7 +408,7 @@ namespace MASES.NuReflector
                         Version version = new Version();
                         foreach (FrameworkSpecificGroup libItem in packageReader.GetLibItems())
                         {
-                            if (libItem.TargetFramework.checkFramework() && libItem.TargetFramework.Version > version)
+                            if (libItem.TargetFramework.CheckFramework() && libItem.TargetFramework.Version > version)
                             {
                                 if (libItem.HasEmptyFolder) continue;
                                 appendToConsole($"Storing temporary {libItem.TargetFramework} of {packageId}:{packageVersion}");
@@ -423,7 +425,7 @@ namespace MASES.NuReflector
 
                         foreach (var depItem in packageReader.GetPackageDependencies())
                         {
-                            if (depItem.TargetFramework.checkFramework() && depItem.TargetFramework.Version == version)
+                            if (depItem.TargetFramework.CheckFramework() && depItem.TargetFramework.Version == version)
                             {
                                 foreach (var packItem in depItem.Packages)
                                 {

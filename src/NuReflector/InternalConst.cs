@@ -24,7 +24,7 @@
 
 using System;
 
-namespace MASES.CLIParser
+namespace MASES.NuReflector
 {
     class InternalConst
     {
