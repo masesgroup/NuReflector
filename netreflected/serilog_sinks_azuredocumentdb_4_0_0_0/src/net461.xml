@@ -220,6 +220,16 @@ Write Serilog events to Azure DocumentDB
       <artifactId>microsoft.azure.documentdb_net461</artifactId>
       <version>2.1.2.0-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>com.masesgroup</groupId> 
+      <artifactId>newtonsoft.json_net461</artifactId>
+      <version>11.0.2.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.masesgroup</groupId> 
+      <artifactId>serilog_net461</artifactId>
+      <version>2.7.1.0-SNAPSHOT</version>
+    </dependency>
 
   </dependencies>
 </project>

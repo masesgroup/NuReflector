@@ -15,6 +15,7 @@
     <module>automapper_collection_7_0_1_0/src/net461.xml</module>
     <module>automapper_7_0_0_0/src/net461.xml</module>
     <module>automapper_extensions_expressionmapping_1_0_0_0/src/net461.xml</module>
+    <module>entityframework_6_1_3_0/src/net461.xml</module>
     <module>automapper_collection_entityframework_7_0_1_0/src/net461.xml</module>
 
   </modules>

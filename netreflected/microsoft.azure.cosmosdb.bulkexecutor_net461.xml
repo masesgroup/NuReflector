@@ -20,6 +20,7 @@
     <module>system_security_cryptography_algorithms_4_3_0_0/src/net461.xml</module>
     <module>system_security_cryptography_x509certificates_4_3_0_0/src/net461.xml</module>
     <module>system_net_http_4_3_4_0/src/net461.xml</module>
+    <module>microsoft_azure_documentdb_2_5_1_0/src/net461.xml</module>
     <module>mongodb_bson_signed_2_4_4_0/src/net461.xml</module>
     <module>system_numerics_vectors_4_5_0_0/src/net461.xml</module>
     <module>microsoft_azure_cosmosdb_bulkexecutor_1_8_9_0/src/net461.xml</module>
