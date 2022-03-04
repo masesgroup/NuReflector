@@ -54,7 +54,7 @@
     <None Include="..\Common\NuReflector.snk" Link="NuReflector.snk" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MASES.JCOReflectorEngine" Version="1.8.5">
+    <PackageReference Include="MASES.JCOReflectorEngine" Version="1.8.6">
         <IncludeAssets>All</IncludeAssets>
         <PrivateAssets>None</PrivateAssets>
     </PackageReference>
