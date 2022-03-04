@@ -221,19 +221,25 @@ namespace MASES.NuReflector
             }
             else throw new ArgumentException("Neighter PackageId nor PackagesFile found in command line.");
 
-            // now build the Maven super project
-            StringBuilder sb = new StringBuilder();
+            // now build the Maven super project and master list of artifacts projects
+            StringBuilder sbPOM = new StringBuilder();
+            StringBuilder sbArtifacts = new StringBuilder();
             foreach (var item in parsedPackages)
             {
-                sb.AppendLine(string.Format(InternalConst.POM.POMModuleTemplate, item.ToLowerInvariant() + "_" + JobManager.RuntimeFolder + ".xml"));
+                var module = item.ToLowerInvariant() + "_" + JobManager.RuntimeFolder + ".xml";
+                sbPOM.AppendLine(string.Format(InternalConst.POM.POMModuleTemplate, module));
+                sbArtifacts.AppendFormat("{0} ", module);
             }
             var pomProjectTemplate = File.ReadAllText(pomProjectTemplateFile);
-            var pomProject = pomProjectTemplate.Replace(InternalConst.POM.POM_ADDITIONAL_MODULES_PLACEHOLDER, sb.ToString())
+            var pomProject = pomProjectTemplate.Replace(InternalConst.POM.POM_ADDITIONAL_MODULES_PLACEHOLDER, sbPOM.ToString())
                                                .Replace(InternalConst.POM.POM_PARENT_NAME_PLACEHOLDER, JobManager.RuntimeFolder + " Master Project")
                                                .Replace(InternalConst.POM.POM_ARTIFACTID_PLACEHOLDER, JobManager.RuntimeFolder);
             var pomProjectName = Path.Combine(sourceFolder, JobManager.RuntimeFolder + ".xml");
             File.WriteAllText(pomProjectName, pomProject);
+            var projectsList = Path.Combine(sourceFolder, JobManager.RuntimeFolder + ".list");
+            File.WriteAllText(projectsList, sbArtifacts.ToString());
             appendToConsole($"Master POM created in {pomProjectName}");
+            appendToConsole($"Master list created in {projectsList}");
         }
 
         public static bool Execute(string sourceFolder, string pomProjectTemplateFile, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
