@@ -129,22 +129,31 @@ jobs:
       - name: Install local file to be used within Javadoc plugin of generated POM
         run: mvn install:install-file -Dfile=./bin/net5.0/JCOBridge.jar -DgroupId=JCOBridge -DartifactId=JCOBridge -Dversion=2.4.6 -Dpackaging=jar -DgeneratePom=true
 
+      - name: Extract net5.0 list
+        run: echo "NET_5_0_FILE_LIST=$(cat ./netreflected/net5.0.list)" >> $GITHUB_ENV
+
       - name: Publish net5.0 to Apache Maven Central
-        run: mvn --file ./netreflected/net5.0.xml --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy
+        run: for f in $NET_5_0_FILE_LIST; do mvn --file ./netreflected/$f --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy; done 
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-          
+ 
+      - name: Extract net6.0 list
+        run: echo "NET_6_0_FILE_LIST=$(cat ./netreflected/net6.0.list)" >> $GITHUB_ENV
+ 
       - name: Publish net6.0 to Apache Maven Central
-        run: mvn --file ./netreflected/net6.0.xml --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy
+        run: for f in $NET_6_0_FILE_LIST; do mvn --file ./netreflected/$f --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy; done 
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}        
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}       
 
+      - name: Extract net461 list
+        run: echo "NET_461_FILE_LIST=$(cat ./netreflected/net461.list)" >> $GITHUB_ENV
+ 
       - name: Publish net461 to Apache Maven Central
-        run: mvn --file ./netreflected/net461.xml --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy
+        run: for f in $NET_461_FILE_LIST; do mvn --file ./netreflected/$f --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy; done 
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
