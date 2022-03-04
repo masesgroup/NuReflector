@@ -192,7 +192,7 @@ public class RequestDelegateRouteBuilderExtensions extends NetObject  {
         }
     }
 
-    public static IRouteBuilder MapRoute(IRouteBuilder builder, java.lang.String template, RequestDelegate handler) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.ObjectDisposedException, system.InvalidOperationException, system.RankException, system.ArrayTypeMismatchException, system.OutOfMemoryException, system.FormatException, system.globalization.CultureNotFoundException, microsoft.aspnetcore.routing.RouteCreationException {
+    public static IRouteBuilder MapRoute(IRouteBuilder builder, java.lang.String template, RequestDelegate handler) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.ObjectDisposedException, system.InvalidOperationException, system.RankException, system.ArrayTypeMismatchException, system.globalization.CultureNotFoundException, system.OutOfMemoryException, microsoft.aspnetcore.routing.RouteCreationException {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {

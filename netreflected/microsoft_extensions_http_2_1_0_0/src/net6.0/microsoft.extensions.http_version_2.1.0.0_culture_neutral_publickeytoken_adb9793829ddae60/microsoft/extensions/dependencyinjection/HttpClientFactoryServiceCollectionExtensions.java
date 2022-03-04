@@ -149,7 +149,7 @@ public class HttpClientFactoryServiceCollectionExtensions extends NetObject  {
     
     // Methods section
     
-    public static IHttpClientBuilder AddHttpClient(IServiceCollection services, java.lang.String name) throws Throwable {
+    public static IHttpClientBuilder AddHttpClient(IServiceCollection services, java.lang.String name) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.InvalidOperationException, system.PlatformNotSupportedException, system.ArrayTypeMismatchException, system.IndexOutOfRangeException, system.NotSupportedException, system.globalization.CultureNotFoundException, system.ObjectDisposedException {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -160,7 +160,7 @@ public class HttpClientFactoryServiceCollectionExtensions extends NetObject  {
         }
     }
 
-    public static IServiceCollection AddHttpClient(IServiceCollection services) throws Throwable {
+    public static IServiceCollection AddHttpClient(IServiceCollection services) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.InvalidOperationException, system.PlatformNotSupportedException, system.ArrayTypeMismatchException, system.IndexOutOfRangeException, system.NotSupportedException, system.globalization.CultureNotFoundException, system.ObjectDisposedException {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {

@@ -11,6 +11,7 @@
   <name>Microsoft.Azure.CosmosDB.BulkExecutor net461 Master Project</name>
 
   <modules>
+    <module>newtonsoft_json_6_0_8_0/src/net461.xml</module>
     <module>system_net_http_winhttphandler_4_5_0_0/src/net461.xml</module>
     <module>system_io_4_3_0_0/src/net461.xml</module>
     <module>system_runtime_4_3_0_0/src/net461.xml</module>

@@ -12,6 +12,7 @@
 
   <modules>
     <module>microsoft_rest_clientruntime_2_3_20_0/src/net461.xml</module>
+    <module>newtonsoft_json_6_0_8_0/src/net461.xml</module>
     <module>microsoft_rest_clientruntime_2_3_17_0/src/net461.xml</module>
     <module>microsoft_rest_clientruntime_azure_3_3_18_0/src/net461.xml</module>
     <module>microsoft_azure_cognitiveservices_vision_computervision_7_0_1_0/src/net461.xml</module>

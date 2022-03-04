@@ -11,6 +11,7 @@
   <name>Microsoft.Azure.CognitiveServices.Search.VisualSearch net461 Master Project</name>
 
   <modules>
+    <module>newtonsoft_json_6_0_8_0/src/net461.xml</module>
     <module>microsoft_rest_clientruntime_2_3_18_0/src/net461.xml</module>
     <module>microsoft_rest_clientruntime_2_3_17_0/src/net461.xml</module>
     <module>microsoft_rest_clientruntime_azure_3_3_18_0/src/net461.xml</module>

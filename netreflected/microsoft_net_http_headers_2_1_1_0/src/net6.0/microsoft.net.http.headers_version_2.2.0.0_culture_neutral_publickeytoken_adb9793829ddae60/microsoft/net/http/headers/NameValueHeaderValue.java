@@ -179,7 +179,7 @@ public class NameValueHeaderValue extends NetObject  {
         }
     }
 
-    public StringSegment GetUnescapedValue() throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException {
+    public StringSegment GetUnescapedValue() throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -223,7 +223,7 @@ public class NameValueHeaderValue extends NetObject  {
         }
     }
 
-    public void SetAndEscapeValue(StringSegment value) throws Throwable, system.InvalidOperationException, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.globalization.CultureNotFoundException, system.PlatformNotSupportedException, system.FormatException {
+    public void SetAndEscapeValue(StringSegment value) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {

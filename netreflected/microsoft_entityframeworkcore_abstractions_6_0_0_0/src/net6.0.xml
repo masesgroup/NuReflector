@@ -213,7 +213,7 @@ Provides abstractions and attributes that are used to configure Entity Framework
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.5.0</version>
+      <version>1.8.6.0</version>
     </dependency>
 
   </dependencies>

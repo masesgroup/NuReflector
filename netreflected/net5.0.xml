@@ -12,15 +12,6 @@
 
   <modules>
     <module>mases.cliparser_net5.0.xml</module>
-    <module>microsoft.extensions.primitives_net5.0.xml</module>
-    <module>graphql.entityframework_net5.0.xml</module>
-    <module>oracle.entityframeworkcore_net5.0.xml</module>
-    <module>ibm.entityframeworkcore_net5.0.xml</module>
-    <module>pomelo.entityframeworkcore.mysql_net5.0.xml</module>
-    <module>npgsql.entityframeworkcore.postgresql_net5.0.xml</module>
-    <module>microsoft.entityframeworkcore.inmemory_net5.0.xml</module>
-    <module>microsoft.entityframeworkcore.sqlserver_net5.0.xml</module>
-    <module>microsoft.entityframeworkcore.sqlserver.nettopologysuite_net5.0.xml</module>
     <module>serilog.sinks.seq_net5.0.xml</module>
     <module>microsoft.azure.signalr_net5.0.xml</module>
     <module>microsoft.azure.functions.worker_net5.0.xml</module>

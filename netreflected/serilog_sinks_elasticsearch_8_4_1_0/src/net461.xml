@@ -213,7 +213,7 @@ Package Description
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net461</artifactId>
-      <version>1.8.5.0</version>
+      <version>1.8.6.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

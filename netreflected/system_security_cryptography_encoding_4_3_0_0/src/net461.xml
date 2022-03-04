@@ -219,7 +219,7 @@ When using NuGet 3.x this package requires at least version 3.4.
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net461</artifactId>
-      <version>1.8.5.0</version>
+      <version>1.8.6.0</version>
     </dependency>
 
   </dependencies>

@@ -198,7 +198,7 @@ public class HeaderUtilities extends NetObject  {
         }
     }
 
-    public static StringSegment EscapeAsQuotedString(StringSegment input) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException {
+    public static StringSegment EscapeAsQuotedString(StringSegment input) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -220,7 +220,7 @@ public class HeaderUtilities extends NetObject  {
         }
     }
 
-    public static StringSegment UnescapeAsQuotedString(StringSegment input) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.FormatException {
+    public static StringSegment UnescapeAsQuotedString(StringSegment input) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -231,7 +231,7 @@ public class HeaderUtilities extends NetObject  {
         }
     }
 
-    public static java.lang.String FormatDate(DateTimeOffset dateTime, boolean quoted) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException {
+    public static java.lang.String FormatDate(DateTimeOffset dateTime, boolean quoted) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -241,7 +241,7 @@ public class HeaderUtilities extends NetObject  {
         }
     }
 
-    public static java.lang.String FormatDate(DateTimeOffset dateTime) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.FormatException {
+    public static java.lang.String FormatDate(DateTimeOffset dateTime) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {

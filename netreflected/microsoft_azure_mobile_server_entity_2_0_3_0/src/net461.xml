@@ -212,7 +212,7 @@ This package is part of the Azure Mobile .NET Server SDK and contains Entity Fra
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net461</artifactId>
-      <version>1.8.5.0</version>
+      <version>1.8.6.0</version>
     </dependency>
 
   </dependencies>

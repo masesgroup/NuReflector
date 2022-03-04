@@ -215,7 +215,7 @@ This client library enables client applications to perform bulk operations in Az
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net461</artifactId>
-      <version>1.8.5.0</version>
+      <version>1.8.6.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

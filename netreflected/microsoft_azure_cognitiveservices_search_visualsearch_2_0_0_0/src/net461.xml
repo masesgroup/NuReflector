@@ -212,7 +212,7 @@ This client library provides access to the Microsoft Cognitive Services Image Vi
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net461</artifactId>
-      <version>1.8.5.0</version>
+      <version>1.8.6.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
@@ -223,6 +223,11 @@ This client library provides access to the Microsoft Cognitive Services Image Vi
       <groupId>com.masesgroup</groupId> 
       <artifactId>microsoft.rest.clientruntime.azure_net461</artifactId>
       <version>3.3.18.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.masesgroup</groupId> 
+      <artifactId>newtonsoft.json_net461</artifactId>
+      <version>6.0.8.0-SNAPSHOT</version>
     </dependency>
 
   </dependencies>
