@@ -449,6 +449,24 @@ namespace MASES.NuReflector
                             return false;
                         }
 
+                        List<string> items = new List<string>();
+                        AppendToConsole(hierarchyLevel, $"Extracting all elements from {libItemToAnalyze.TargetFramework} of {packageId}:{packageVersion}");
+                        foreach (var folder in libItemToAnalyze.Items)
+                        {
+                            if (!folder.EndsWith(".dll")) continue; // filter only DLL
+                            var file = Path.Combine(tempFolder, Path.GetFileName(folder));
+                            file = file.Replace('\\', '/');
+                            var res = packageReader.ExtractFile(folder, file, logger);
+                            AppendToConsole(hierarchyLevel, $"Exported assembly {res}");
+                            items.Add(file);
+                        }
+
+                        if (items.Count == 0)
+                        {
+                            AppendToConsole(hierarchyLevel, $"No items found in package {packageId}");
+                            return false;
+                        }
+
                         foreach (var depItem in packageReader.GetPackageDependencies())
                         {
                             if (depItem.TargetFramework.CheckFramework() && depItem.TargetFramework.Version == version)
@@ -541,24 +559,6 @@ namespace MASES.NuReflector
 
                         if (executeReflection)
                         {
-                            List<string> items = new List<string>();
-                            AppendToConsole(hierarchyLevel, $"Analyzing {libItemToAnalyze.TargetFramework} of {packageId}:{packageVersion}");
-                            foreach (var folder in libItemToAnalyze.Items)
-                            {
-                                if (!folder.EndsWith(".dll")) continue; // filter only DLL
-                                var file = Path.Combine(tempFolder, Path.GetFileName(folder));
-                                file = file.Replace('\\', '/');
-                                var res = packageReader.ExtractFile(folder, file, logger);
-                                AppendToConsole(hierarchyLevel, $"Exported assembly {res}");
-                                items.Add(file);
-                            }
-
-                            if (items.Count == 0)
-                            {
-                                AppendToConsole(hierarchyLevel, $"No items found in package {packageId}");
-                                return false;
-                            }
-
                             if (pkgStored == null)
                             {
                                 pkgStored = new PackageDefinition()
