@@ -58,7 +58,7 @@ namespace MASES.NuReflectorCLI
 
         static void Main(string[] args)
         {
-            Reflector.SetHandler(appendToConsole, endOperation);
+            Reflector.SetHandler(AppendToConsole, EndOperation);
 
             if (args.Length == 0)
             {
@@ -79,12 +79,12 @@ namespace MASES.NuReflectorCLI
             }
         }
 
-        static void appendToConsole(string format, params object[] args)
+        private static void AppendToConsole(string format, params object[] args)
         {
             Console.WriteLine(format, args);
         }
 
-        static void endOperation(object sender, EndOperationEventArgs args)
+        private static void EndOperation(object sender, EndOperationEventArgs args)
         {
             Console.WriteLine(args.Report);
             if (args.Failed) Environment.Exit(-1);
