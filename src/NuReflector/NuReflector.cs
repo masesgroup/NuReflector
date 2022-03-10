@@ -264,7 +264,7 @@ namespace MASES.NuReflector
         public static bool Execute(int hierarchyLevel, string sourceFolder, string pomProjectTemplateFile, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
         {
             IList<PackageIdentity> parsedPackages = new List<PackageIdentity>();
-            if (Generator.Execute(hierarchyLevel, parsedPackages, sourceFolder, pomTemplateFile, packageId, feed, packageVersion, usePreRelease))
+            if (Generator.Execute(hierarchyLevel, parsedPackages, null, sourceFolder, pomTemplateFile, packageId, feed, packageVersion, usePreRelease))
             {
                 StringBuilder sb = new StringBuilder();
                 foreach (var item in parsedPackages)
@@ -327,10 +327,10 @@ namespace MASES.NuReflector
             readonly POMBuilderEventArgs POMArg = null;
             readonly string ReflectorEngineVersion = JobManager.EngineVersion.ToString();
 
-            public static bool Execute(int hierarchyLevel, IList<PackageIdentity> parsedPackaged, string sourceFolder, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
+            public static bool Execute(int hierarchyLevel, IList<PackageIdentity> parsedPackaged, string rootFolder, string sourceFolder, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
             {
                 var generator = new Generator(sourceFolder, pomTemplateFile, packageId, feed, packageVersion, usePreRelease);
-                return generator.DownloadAndPrepare(hierarchyLevel, parsedPackaged, packageId, feed, packageVersion, usePreRelease);
+                return generator.DownloadAndPrepare(hierarchyLevel, parsedPackaged, rootFolder, packageId, feed, packageVersion, usePreRelease);
             }
 
             public Generator(string sourceFolder, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
@@ -369,12 +369,12 @@ namespace MASES.NuReflector
                 };
             }
 
-            public bool DownloadAndPrepare(int hierarchyLevel, IList<PackageIdentity> parsedPackages, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
+            public bool DownloadAndPrepare(int hierarchyLevel, IList<PackageIdentity> parsedPackages, string rootFolder, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
             {
-                return DownloadAndPrepare(hierarchyLevel, parsedPackages, packageId, feed, packageVersion == null ? null : new NuGetVersion(packageVersion), usePreRelease);
+                return DownloadAndPrepare(hierarchyLevel, parsedPackages, rootFolder, packageId, feed, packageVersion == null ? null : new NuGetVersion(packageVersion), usePreRelease);
             }
 
-            public bool DownloadAndPrepare(int hierarchyLevel, IList<PackageIdentity> parsedPackages, string packageId, string feed = InternalConst.DefaultFeed, NuGetVersion packageVersion = null, bool usePreRelease = false)
+            public bool DownloadAndPrepare(int hierarchyLevel, IList<PackageIdentity> parsedPackages, string rootFolder, string packageId, string feed = InternalConst.DefaultFeed, NuGetVersion packageVersion = null, bool usePreRelease = false)
             {
                 ILogger logger = NullLogger.Instance;
                 CancellationToken cancellationToken = CancellationToken.None;
@@ -424,7 +424,7 @@ namespace MASES.NuReflector
 #else
                     var tempPath = Path.GetTempPath();
 #endif
-                    tempFolder = Path.Combine(tempPath, packageId);
+                    tempFolder = rootFolder == null ? Path.Combine(tempPath, packageId) : rootFolder;
 
                     StringBuilder dependencies = new StringBuilder();
 
@@ -459,7 +459,7 @@ namespace MASES.NuReflector
                                     AppendToConsole(hierarchyLevel, $"Analyzing dependency package {packItem.Id} {nuVersion}");
                                     try
                                     {
-                                        if (Execute(hierarchyLevel + 1, parsedPackages, SourceFolder, POMTemplateFile, packItem.Id, feed, nuVersion.Version.ToString(), nuVersion.IsPrerelease))
+                                        if (Execute(hierarchyLevel + 1, parsedPackages, tempFolder, SourceFolder, POMTemplateFile, packItem.Id, feed, nuVersion.Version.ToString(), nuVersion.IsPrerelease))
                                         {
                                             dependencies.AppendLine(string.Format(InternalConst.POM.POMDependencyTemplate,
                                                                                   packItem.Id.ToLowerInvariant(),
@@ -546,7 +546,7 @@ namespace MASES.NuReflector
                             foreach (var folder in libItemToAnalyze.Items)
                             {
                                 if (!folder.EndsWith(".dll")) continue; // filter only DLL
-                                var file = Path.Combine(tempFolder, folder);
+                                var file = Path.Combine(tempFolder, Path.GetFileName(folder));
                                 file = file.Replace('\\', '/');
                                 var res = packageReader.ExtractFile(folder, file, logger);
                                 AppendToConsole(hierarchyLevel, $"Exported assembly {res}");
