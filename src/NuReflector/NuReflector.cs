@@ -335,6 +335,7 @@ namespace MASES.NuReflector
                     EnableInterfaceInheritance = true,
                     EnableRefOutParameters = true,
                     AvoidReportAndStatistics = true,
+                    AvoidDisableInternalNamespace = true,
                 };
 
                 POMArg = new POMBuilderEventArgs()
