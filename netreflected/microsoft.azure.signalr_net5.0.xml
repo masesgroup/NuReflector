@@ -11,7 +11,7 @@
   <name>Microsoft.Azure.SignalR net5.0 Master Project</name>
 
   <modules>
-    <module>microsoft_azure_signalr_1_15_2_0/src/net5.0.xml</module>
+    <module>microsoft_azure_signalr_1_16_0_0/src/net5.0.xml</module>
 
   </modules>
 

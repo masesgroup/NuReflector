@@ -12,7 +12,7 @@
 
   <modules>
     <module>entityframework_6_0_0_0/src/net461.xml</module>
-    <module>z_entityframework_extensions_6_13_13_0/src/net461.xml</module>
+    <module>z_entityframework_extensions_6_13_14_0/src/net461.xml</module>
 
   </modules>
 
