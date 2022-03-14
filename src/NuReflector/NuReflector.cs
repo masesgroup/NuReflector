@@ -479,13 +479,7 @@ namespace MASES.NuReflector
                             }
                         }
 
-                        var destFolder = Path.Combine(SourceFolder, ToFolder(packageId, packageVersion));
 
-                        if (JobManager.IsReflected(packageId))
-                        {
-                            Cleanup(hierarchyLevel, destFolder);
-                            return false;
-                        }
 
                         List<string> items = new List<string>();
                         AppendToConsole(hierarchyLevel, $"Extracting all elements from {libItemToAnalyze.TargetFramework} of {packageId}:{packageVersion}");
@@ -502,6 +496,14 @@ namespace MASES.NuReflector
                         if (items.Count == 0)
                         {
                             AppendToConsole(hierarchyLevel, $"No items found in package {packageId}");
+                            return false;
+                        }
+
+                        var destFolder = Path.Combine(SourceFolder, ToFolder(packageId, packageVersion));
+
+                        if (JobManager.IsReflected(packageId)) // moved here because the assembly shall be extracted, but the sw avoids its reflection
+                        {
+                            Cleanup(hierarchyLevel, destFolder);
                             return false;
                         }
 
