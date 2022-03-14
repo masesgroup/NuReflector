@@ -11,7 +11,6 @@
   <name>net5.0 Master Project</name>
 
   <modules>
-    <module>mases.cliparser_net5.0.xml</module>
     <module>serilog.sinks.seq_net5.0.xml</module>
     <module>microsoft.azure.signalr_net5.0.xml</module>
     <module>microsoft.azure.functions.worker_net5.0.xml</module>

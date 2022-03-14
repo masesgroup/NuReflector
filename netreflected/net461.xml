@@ -11,7 +11,6 @@
   <name>net461 Master Project</name>
 
   <modules>
-    <module>mases.cliparser_net461.xml</module>
     <module>microsoft.extensions.primitives_net461.xml</module>
     <module>microsoft.extensions.options_net461.xml</module>
     <module>newtonsoft.json_net461.xml</module>

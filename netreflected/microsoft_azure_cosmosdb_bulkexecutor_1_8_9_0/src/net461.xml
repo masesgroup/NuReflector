@@ -219,6 +219,11 @@ This client library enables client applications to perform bulk operations in Az
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
+      <artifactId>newtonsoft.json_net461</artifactId>
+      <version>9.0.1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.masesgroup</groupId> 
       <artifactId>microsoft.azure.documentdb_net461</artifactId>
       <version>2.5.1.0-SNAPSHOT</version>
     </dependency>
