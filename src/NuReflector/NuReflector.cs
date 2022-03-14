@@ -479,17 +479,22 @@ namespace MASES.NuReflector
                             }
                         }
 
-
-
                         List<string> items = new List<string>();
                         AppendToConsole(hierarchyLevel, $"Extracting all elements from {libItemToAnalyze.TargetFramework} of {packageId}:{packageVersion}");
-                        foreach (var folder in libItemToAnalyze.Items)
+                        foreach (var libItem in libItemToAnalyze.Items)
                         {
-                            if (!folder.EndsWith(".dll")) continue; // filter only DLL
-                            var file = Path.Combine(tempFolder, Path.GetFileName(folder));
+                            if (!libItem.EndsWith(".dll")) continue; // filter only DLL
+                            var file = Path.Combine(tempFolder, Path.GetFileName(libItem));
                             file = file.Replace('\\', '/');
-                            var res = packageReader.ExtractFile(folder, file, logger);
-                            AppendToConsole(hierarchyLevel, $"Exported assembly {res}");
+                            if (!File.Exists(file))
+                            {
+                                var res = packageReader.ExtractFile(libItem, file, logger);
+                                AppendToConsole(hierarchyLevel, $"Exported assembly {res}");
+                            }
+                            else
+                            {
+                                AppendToConsole(hierarchyLevel, $"Using previous stored file {file}");
+                            }
                             items.Add(file);
                         }
 
