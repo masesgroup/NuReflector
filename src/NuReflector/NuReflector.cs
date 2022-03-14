@@ -66,7 +66,7 @@ namespace MASES.NuReflector
 
         static Reflector()
         {
-            JobManager.ErrorReporting = ErrorReportingType.Both;
+            JobManager.ReportException = true;
             JobManager.SetHandler(AppendToConsoleEngine, EndOperationEngine);
             arguments = PrepareArguments();
             Parser.Add(arguments);
@@ -298,10 +298,12 @@ namespace MASES.NuReflector
 
         static bool CheckFramework(this NuGetFramework framework)
         {
-            return framework == NuGetFramework.AnyFramework
-#if NETSTARDAND_FALLBACK
-                                || framework.Framework == InternalConst.Framework.NetStandardRuntime // .NETStandard fallback to .NET 6
+            Version maxNetStandardVersion = framework.Version;
+#if NETFRAMEWORK
+            maxNetStandardVersion = new Version(2, 0, 0, 0); // .NETStandard fallback for .NET 48 is netstandard2.0 
 #endif
+            return framework == NuGetFramework.AnyFramework
+                                || (framework.Framework == InternalConst.Framework.NetStandardRuntime && framework.Version <= maxNetStandardVersion)
                                 || (framework.Framework == JobManager.RuntimeName
                                     && framework.Version.Major == InternalConst.Framework.Version.Major
                                     && framework.Version >= InternalConst.Framework.Version);
@@ -449,23 +451,7 @@ namespace MASES.NuReflector
                             return false;
                         }
 
-                        List<string> items = new List<string>();
-                        AppendToConsole(hierarchyLevel, $"Extracting all elements from {libItemToAnalyze.TargetFramework} of {packageId}:{packageVersion}");
-                        foreach (var folder in libItemToAnalyze.Items)
-                        {
-                            if (!folder.EndsWith(".dll")) continue; // filter only DLL
-                            var file = Path.Combine(tempFolder, Path.GetFileName(folder));
-                            file = file.Replace('\\', '/');
-                            var res = packageReader.ExtractFile(folder, file, logger);
-                            AppendToConsole(hierarchyLevel, $"Exported assembly {res}");
-                            items.Add(file);
-                        }
-
-                        if (items.Count == 0)
-                        {
-                            AppendToConsole(hierarchyLevel, $"No items found in package {packageId}");
-                            return false;
-                        }
+                        AppendToConsole(hierarchyLevel, $"Latest is {libItemToAnalyze.TargetFramework} of {packageId}:{packageVersion}... Getting dependencies...");
 
                         foreach (var depItem in packageReader.GetPackageDependencies())
                         {
@@ -485,7 +471,7 @@ namespace MASES.NuReflector
                                                                                   nuVersion.Version.ToString() + (Staging == POMStagingType.Release ? string.Empty : "-SNAPSHOT")));
                                         }
                                     }
-                                    catch (Exception e)
+                                    catch (FileLoadException e) // trap only FileLoadException because it can mean the assembly cannot be loaded
                                     {
                                         AppendToConsole(hierarchyLevel, $"Analyzing dependency package {packItem.Id} {nuVersion} failed with error {e.Message}");
                                     }
@@ -494,6 +480,30 @@ namespace MASES.NuReflector
                         }
 
                         var destFolder = Path.Combine(SourceFolder, ToFolder(packageId, packageVersion));
+
+                        if (JobManager.IsReflected(packageId))
+                        {
+                            Cleanup(hierarchyLevel, destFolder);
+                            return false;
+                        }
+
+                        List<string> items = new List<string>();
+                        AppendToConsole(hierarchyLevel, $"Extracting all elements from {libItemToAnalyze.TargetFramework} of {packageId}:{packageVersion}");
+                        foreach (var folder in libItemToAnalyze.Items)
+                        {
+                            if (!folder.EndsWith(".dll")) continue; // filter only DLL
+                            var file = Path.Combine(tempFolder, Path.GetFileName(folder));
+                            file = file.Replace('\\', '/');
+                            var res = packageReader.ExtractFile(folder, file, logger);
+                            AppendToConsole(hierarchyLevel, $"Exported assembly {res}");
+                            items.Add(file);
+                        }
+
+                        if (items.Count == 0)
+                        {
+                            AppendToConsole(hierarchyLevel, $"No items found in package {packageId}");
+                            return false;
+                        }
 
                         bool cleanupFolder = false;
                         bool executeReflection = true;
@@ -518,7 +528,7 @@ namespace MASES.NuReflector
 #endif
                                 )
                             {
-                                AppendToConsole(hierarchyLevel, $"Avoid reflection for package {packageId} {packageVersion}: {content}");
+                                AppendToConsole(hierarchyLevel, $"Avoid reflection for package {packageId} {packageVersion} -> ReflectorEngine: {pkgStored.ReflectorEngineVersion} PackageVersion: {pkgStored.PackageVersion} Net5Done: {pkgStored.Net5Done} Net6Done: {pkgStored.Net6Done} NetFrameworkDone: {pkgStored.NetFrameworkDone}");
                                 executeReflection = false;
                             }
 
@@ -543,18 +553,7 @@ namespace MASES.NuReflector
 
                         if (cleanupFolder)
                         {
-                            var folderToDelete = Path.Combine(destFolder, "src", JobManager.RuntimeFolder);
-                            if (Directory.Exists(folderToDelete))
-                            {
-                                try
-                                {
-                                    Directory.Delete(folderToDelete, true);
-                                }
-                                catch (Exception e)
-                                {
-                                    AppendToConsole(hierarchyLevel, $"Failed to remove package folder {folderToDelete}: {e.Message}");
-                                }
-                            }
+                            Cleanup(hierarchyLevel, destFolder);
                         }
 
                         if (executeReflection)
@@ -605,9 +604,9 @@ namespace MASES.NuReflector
 
                         var desc = packageReader.NuspecReader.GetDescription();
                         StringBuilder descBuilder = new StringBuilder(string.Format(InternalConst.POM.POMDescriptionTemplate,
-                                                                                        InternalConst.DefaultSite,
-                                                                                        packageId.ToLowerInvariant(),
-                                                                                        packageVersion.Version.ToString()));
+                                                                                    InternalConst.DefaultSite,
+                                                                                    packageId.ToLowerInvariant(),
+                                                                                    packageVersion.Version.ToString()));
                         if (!string.IsNullOrEmpty(desc))
                         {
                             descBuilder.AppendLine(desc.Replace("\"", "&quot;")
@@ -624,6 +623,22 @@ namespace MASES.NuReflector
                 }
 
                 return true;
+            }
+
+            public void Cleanup(int hierarchyLevel, string folder)
+            {
+                var folderToDelete = Path.Combine(folder, "src", JobManager.RuntimeFolder);
+                if (Directory.Exists(folderToDelete))
+                {
+                    try
+                    {
+                        Directory.Delete(folderToDelete, true);
+                    }
+                    catch (Exception e)
+                    {
+                        AppendToConsole(hierarchyLevel, $"Failed to remove package folder {folderToDelete}: {e.Message}");
+                    }
+                }
             }
         }
     }
