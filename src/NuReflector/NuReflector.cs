@@ -601,6 +601,11 @@ namespace MASES.NuReflector
                                 AppendToConsole(hierarchyLevel, $"Error for package {packageId} {packageVersion}: {sb.ToString()}");
                                 throw;
                             }
+                            catch (TypeLoadException ex)
+                            {
+                                AppendToConsole(hierarchyLevel, $"Error for package {packageId} {packageVersion}: {ex}");
+                                throw;
+                            }
 
                             pkgStored.ReflectorEngineVersion = ReflectorEngineVersion;
 #if NETCOREAPP3_1
