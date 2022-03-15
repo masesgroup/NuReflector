@@ -14,7 +14,7 @@
     <TargetFrameworks>net461;net5.0;net6.0</TargetFrameworks>
     <OutputPath>..\..\bin\</OutputPath>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/masesgroup/NuReflector/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/masesgroup/NuReflector</RepositoryUrl>
     <PackageReleaseNotes>https://github.com/masesgroup/NuReflector/releases</PackageReleaseNotes>
