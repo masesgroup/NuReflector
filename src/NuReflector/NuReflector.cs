@@ -578,7 +578,29 @@ namespace MASES.NuReflector
                             reflectArg.SourceFolder = destFolder;
                             reflectArg.AssemblyNames = items.ToArray();
 
-                            JobManager.RunJob(reflectArg, true);
+                            try
+                            {
+                                JobManager.RunJob(reflectArg, true);
+                            }
+                            catch (System.Reflection.ReflectionTypeLoadException ex)
+                            {
+                                StringBuilder sb = new StringBuilder();
+                                foreach (Exception exSub in ex.LoaderExceptions)
+                                {
+                                    sb.AppendLine(exSub.Message);
+                                    if (exSub is FileNotFoundException exFileNotFound)
+                                    {
+                                        if (!string.IsNullOrEmpty(exFileNotFound.FusionLog))
+                                        {
+                                            sb.AppendLine("Fusion Log:");
+                                            sb.AppendLine(exFileNotFound.FusionLog);
+                                        }
+                                    }
+                                    sb.AppendLine();
+                                }
+                                AppendToConsole(hierarchyLevel, $"Error for package {packageId} {packageVersion}: {sb.ToString()}");
+                                throw;
+                            }
 
                             pkgStored.ReflectorEngineVersion = ReflectorEngineVersion;
 #if NETCOREAPP3_1
