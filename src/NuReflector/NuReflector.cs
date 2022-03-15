@@ -601,7 +601,7 @@ namespace MASES.NuReflector
                                 AppendToConsole(hierarchyLevel, $"Error for package {packageId} {packageVersion}: {sb.ToString()}");
                                 throw;
                             }
-                            catch (TypeLoadException ex)
+                            catch (Exception ex)
                             {
                                 AppendToConsole(hierarchyLevel, $"Error for package {packageId} {packageVersion}: {ex}");
                                 throw;
