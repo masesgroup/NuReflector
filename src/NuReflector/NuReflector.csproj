@@ -14,11 +14,11 @@
     <TargetFrameworks>net461;net5.0;net6.0</TargetFrameworks>
     <OutputPath>..\..\bin\</OutputPath>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/masesgroup/NuReflector/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/masesgroup/NuReflector</RepositoryUrl>
     <PackageReleaseNotes>https://github.com/masesgroup/NuReflector/releases</PackageReleaseNotes>
-    <PackageLicense>LICENSE</PackageLicense>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIcon>JCOB128x128.png</PackageIcon>
     <PackageTags>nureflector jvm-enabled-language kotlin java scala reflection dotnet clr netcore bridge jcobridge class framework csharp nuget</PackageTags>
     <PackageId>MASES.NuReflector</PackageId>
@@ -54,7 +54,7 @@
     <None Include="..\Common\NuReflector.snk" Link="NuReflector.snk" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MASES.JCOReflectorEngine" Version="1.8.6">
+    <PackageReference Include="MASES.JCOReflectorEngine" Version="1.9.3">
         <IncludeAssets>All</IncludeAssets>
         <PrivateAssets>None</PrivateAssets>
     </PackageReference>

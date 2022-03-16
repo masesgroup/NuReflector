@@ -66,9 +66,9 @@ namespace MASES.NuReflector
 
         static Reflector()
         {
-            JobManager.ErrorReporting = ErrorReportingType.Both;
-            JobManager.SetHandler(appendToConsole, endOperation);
-            arguments = prepareArguments();
+            JobManager.ReportException = true;
+            JobManager.SetHandler(AppendToConsoleEngine, EndOperationEngine);
+            arguments = PrepareArguments();
             Parser.Add(arguments);
         }
 
@@ -86,20 +86,39 @@ namespace MASES.NuReflector
             EndOperationHandler = endOperationHandler;
         }
 
-        static void appendToConsole(string format, params object[] args)
+        static void AppendToConsoleEngine(string format, params object[] args)
         {
+            format = preFormatString + format;
             AppendToConsoleHandler?.Invoke(format, args);
         }
 
         static bool propagateInCaseOfError = false;
+        static void EndOperationEngine(object sender, EndOperationEventArgs args)
+        {
+            bool execute = !args.Failed || propagateInCaseOfError;
+            if (execute) EndOperationHandler?.Invoke(sender, args);
+        }
+        static string preFormatString = string.Empty;
+        static void AppendToConsole(int hierarchyLevel, string format, params object[] args)
+        {
+            preFormatString = string.Empty;
+            for (int i = 0; i < hierarchyLevel; i++)
+            {
+                preFormatString += "   ";
+            }
+            preFormatString += $"{hierarchyLevel} ";
+            format = preFormatString + format;
+            AppendToConsoleHandler?.Invoke(format, args);
+        }
+
         static void endOperation(object sender, EndOperationEventArgs args)
         {
             bool execute = !args.Failed || propagateInCaseOfError;
             if (execute) EndOperationHandler?.Invoke(sender, args);
         }
 
-        static IArgumentMetadata[] arguments = null;
-        static IArgumentMetadata[] prepareArguments()
+        static readonly IArgumentMetadata[] arguments = null;
+        static IArgumentMetadata[] PrepareArguments()
         {
             return new IArgumentMetadata[]
             {
@@ -197,7 +216,7 @@ namespace MASES.NuReflector
             Generator.Staging = lastParsedArguments.Get<POMStagingType>(CLIParam.POMStaging);
 
             List<string> parsedPackages = new List<string>();
-
+            int hierarchyLevel = 0;
             if (lastParsedArguments.Exist(CLIParam.PackagesFile))
             {
                 var fileName = lastParsedArguments.Get<string>(CLIParam.PackagesFile);
@@ -206,7 +225,7 @@ namespace MASES.NuReflector
 
                 foreach (var item in packages.Packages)
                 {
-                    if (Execute(sourceFolder, pomProjectTemplateFile, pomTemplateFile, item.PackageId, feed, item.PackageVersion, item.PreRelease))
+                    if (Execute(hierarchyLevel, sourceFolder, pomProjectTemplateFile, pomTemplateFile, item.PackageId, feed, item.PackageVersion, item.PreRelease))
                     {
                         parsedPackages.Add(item.PackageId);
                     }
@@ -214,7 +233,7 @@ namespace MASES.NuReflector
             }
             else if (!string.IsNullOrEmpty(packageId))
             {
-                if (Execute(sourceFolder, pomProjectTemplateFile, pomTemplateFile, packageId, feed, packageVersion, prerelease))
+                if (Execute(hierarchyLevel, sourceFolder, pomProjectTemplateFile, pomTemplateFile, packageId, feed, packageVersion, prerelease))
                 {
                     parsedPackages.Add(packageId);
                 }
@@ -238,14 +257,14 @@ namespace MASES.NuReflector
             File.WriteAllText(pomProjectName, pomProject);
             var projectsList = Path.Combine(sourceFolder, JobManager.RuntimeFolder + ".list");
             File.WriteAllText(projectsList, sbArtifacts.ToString());
-            appendToConsole($"Master POM created in {pomProjectName}");
-            appendToConsole($"Master list created in {projectsList}");
+            AppendToConsole(hierarchyLevel, $"Master POM created in {pomProjectName}");
+            AppendToConsole(hierarchyLevel, $"Master list created in {projectsList}");
         }
 
-        public static bool Execute(string sourceFolder, string pomProjectTemplateFile, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
+        public static bool Execute(int hierarchyLevel, string sourceFolder, string pomProjectTemplateFile, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
         {
             IList<PackageIdentity> parsedPackages = new List<PackageIdentity>();
-            if (Generator.Execute(parsedPackages, sourceFolder, pomTemplateFile, packageId, feed, packageVersion, usePreRelease))
+            if (Generator.Execute(hierarchyLevel, parsedPackages, null, sourceFolder, pomTemplateFile, packageId, feed, packageVersion, usePreRelease))
             {
                 StringBuilder sb = new StringBuilder();
                 foreach (var item in parsedPackages)
@@ -258,10 +277,10 @@ namespace MASES.NuReflector
                                                    .Replace(InternalConst.POM.POM_ARTIFACTID_PLACEHOLDER, packageId.ToLowerInvariant());
                 var pomProjectName = Path.Combine(sourceFolder, packageId.ToLowerInvariant() + "_" + JobManager.RuntimeFolder + ".xml");
                 File.WriteAllText(pomProjectName, pomProject);
-                appendToConsole($"Master package POM created in {pomProjectName}");
+                AppendToConsole(hierarchyLevel, $"Master package POM created in {pomProjectName}");
                 return true;
             }
-            appendToConsole($"Failed to parse {packageId}");
+            AppendToConsole(hierarchyLevel, $"Failed to parse {packageId}");
             return false;
         }
 
@@ -279,12 +298,14 @@ namespace MASES.NuReflector
 
         static bool CheckFramework(this NuGetFramework framework)
         {
-            return framework == NuGetFramework.AnyFramework
-#if NETSTARDAND_FALLBACK
-                                || framework.Framework == InternalConst.Framework.NetStandardRuntime // .NETStandard fallback to .NET 6
+            Version maxNetStandardVersion = framework.Version;
+#if NETFRAMEWORK
+            maxNetStandardVersion = new Version(2, 0, 0, 0); // .NETStandard fallback for .NET 48 is netstandard2.0 
 #endif
-                                || (framework.Framework == JobManager.RuntimeName 
-                                    && framework.Version.Major == InternalConst.Framework.Version.Major 
+            return framework == NuGetFramework.AnyFramework
+                                || (framework.Framework == InternalConst.Framework.NetStandardRuntime && framework.Version <= maxNetStandardVersion)
+                                || (framework.Framework == JobManager.RuntimeName
+                                    && framework.Version.Major == InternalConst.Framework.Version.Major
                                     && framework.Version >= InternalConst.Framework.Version);
         }
 
@@ -308,10 +329,10 @@ namespace MASES.NuReflector
             readonly POMBuilderEventArgs POMArg = null;
             readonly string ReflectorEngineVersion = JobManager.EngineVersion.ToString();
 
-            public static bool Execute(IList<PackageIdentity> parsedPackaged, string sourceFolder, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
+            public static bool Execute(int hierarchyLevel, IList<PackageIdentity> parsedPackaged, string rootFolder, string sourceFolder, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
             {
                 var generator = new Generator(sourceFolder, pomTemplateFile, packageId, feed, packageVersion, usePreRelease);
-                return generator.DownloadAndPrepare(parsedPackaged, packageId, feed, packageVersion, usePreRelease);
+                return generator.DownloadAndPrepare(hierarchyLevel, parsedPackaged, rootFolder, packageId, feed, packageVersion, usePreRelease);
             }
 
             public Generator(string sourceFolder, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
@@ -335,6 +356,7 @@ namespace MASES.NuReflector
                     EnableInterfaceInheritance = true,
                     EnableRefOutParameters = true,
                     AvoidReportAndStatistics = true,
+                    AvoidDisableInternalNamespace = true,
                 };
 
                 POMArg = new POMBuilderEventArgs()
@@ -349,12 +371,12 @@ namespace MASES.NuReflector
                 };
             }
 
-            public bool DownloadAndPrepare(IList<PackageIdentity> parsedPackages, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
+            public bool DownloadAndPrepare(int hierarchyLevel, IList<PackageIdentity> parsedPackages, string rootFolder, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
             {
-                return DownloadAndPrepare(parsedPackages, packageId, feed, packageVersion == null ? null : new NuGetVersion(packageVersion), usePreRelease);
+                return DownloadAndPrepare(hierarchyLevel, parsedPackages, rootFolder, packageId, feed, packageVersion == null ? null : new NuGetVersion(packageVersion), usePreRelease);
             }
 
-            public bool DownloadAndPrepare(IList<PackageIdentity> parsedPackages, string packageId, string feed = InternalConst.DefaultFeed, NuGetVersion packageVersion = null, bool usePreRelease = false)
+            public bool DownloadAndPrepare(int hierarchyLevel, IList<PackageIdentity> parsedPackages, string rootFolder, string packageId, string feed = InternalConst.DefaultFeed, NuGetVersion packageVersion = null, bool usePreRelease = false)
             {
                 ILogger logger = NullLogger.Instance;
                 CancellationToken cancellationToken = CancellationToken.None;
@@ -364,7 +386,7 @@ namespace MASES.NuReflector
                 FindPackageByIdResource resource = repository.GetResource<FindPackageByIdResource>();
                 if (packageVersion == null)
                 {
-                    appendToConsole($"Searching latest version of package {packageId}");
+                    AppendToConsole(hierarchyLevel, $"Searching latest version of package {packageId}");
                     Version version = new Version();
                     var tsk = resource.GetAllVersionsAsync(packageId, cache, logger, cancellationToken);
                     tsk.Wait();
@@ -381,7 +403,7 @@ namespace MASES.NuReflector
 
                 using (MemoryStream packageStream = new MemoryStream())
                 {
-                    appendToConsole($"Downloading package {packageId} {packageVersion}");
+                    AppendToConsole(hierarchyLevel, $"Downloading package {packageId} {packageVersion}");
 
                     var tsk = resource.CopyNupkgToStreamAsync(
                         packageId,
@@ -394,7 +416,7 @@ namespace MASES.NuReflector
 
                     if (!tsk.Result)
                     {
-                        appendToConsole($"Failed to download package {packageId}:{packageVersion}");
+                        AppendToConsole(hierarchyLevel, $"Failed to download package {packageId}:{packageVersion}");
                         return false;
                     }
 
@@ -404,7 +426,7 @@ namespace MASES.NuReflector
 #else
                     var tempPath = Path.GetTempPath();
 #endif
-                    tempFolder = Path.Combine(tempPath, packageId);
+                    tempFolder = rootFolder == null ? Path.Combine(tempPath, packageId) : rootFolder;
 
                     StringBuilder dependencies = new StringBuilder();
 
@@ -417,7 +439,7 @@ namespace MASES.NuReflector
                             if (libItem.TargetFramework.CheckFramework() && libItem.TargetFramework.Version > version)
                             {
                                 if (libItem.HasEmptyFolder) continue;
-                                appendToConsole($"Storing temporary {libItem.TargetFramework} of {packageId}:{packageVersion}");
+                                AppendToConsole(hierarchyLevel, $"Storing temporary {libItem.TargetFramework} of {packageId}:{packageVersion}");
                                 version = libItem.TargetFramework.Version;
                                 libItemToAnalyze = libItem;
                             }
@@ -425,9 +447,11 @@ namespace MASES.NuReflector
 
                         if (libItemToAnalyze == null)
                         {
-                            appendToConsole($"No items found in package {packageId} which match Framework criteria");
+                            AppendToConsole(hierarchyLevel, $"No items found in package {packageId} which match Framework criteria");
                             return false;
                         }
+
+                        AppendToConsole(hierarchyLevel, $"Latest is {libItemToAnalyze.TargetFramework} of {packageId}:{packageVersion}... Getting dependencies...");
 
                         foreach (var depItem in packageReader.GetPackageDependencies())
                         {
@@ -436,10 +460,10 @@ namespace MASES.NuReflector
                                 foreach (var packItem in depItem.Packages)
                                 {
                                     var nuVersion = packItem.VersionRange.IsMaxInclusive ? packItem.VersionRange.MaxVersion : packItem.VersionRange.MinVersion;
-                                    appendToConsole($"Analyzing dependency package {packItem.Id} {nuVersion}");
+                                    AppendToConsole(hierarchyLevel, $"Analyzing dependency package {packItem.Id} {nuVersion}");
                                     try
                                     {
-                                        if (Execute(parsedPackages, SourceFolder, POMTemplateFile, packItem.Id, feed, nuVersion.Version.ToString(), nuVersion.IsPrerelease))
+                                        if (Execute(hierarchyLevel + 1, parsedPackages, tempFolder, SourceFolder, POMTemplateFile, packItem.Id, feed, nuVersion.Version.ToString(), nuVersion.IsPrerelease))
                                         {
                                             dependencies.AppendLine(string.Format(InternalConst.POM.POMDependencyTemplate,
                                                                                   packItem.Id.ToLowerInvariant(),
@@ -447,15 +471,46 @@ namespace MASES.NuReflector
                                                                                   nuVersion.Version.ToString() + (Staging == POMStagingType.Release ? string.Empty : "-SNAPSHOT")));
                                         }
                                     }
-                                    catch (Exception e)
+                                    catch (FileLoadException e) // trap only FileLoadException because it can mean the assembly cannot be loaded
                                     {
-                                        appendToConsole($"Analyzing dependency package {packItem.Id} {nuVersion} failed with error {e.Message}");
+                                        AppendToConsole(hierarchyLevel, $"Analyzing dependency package {packItem.Id} {nuVersion} failed with error {e.Message}");
                                     }
                                 }
                             }
                         }
 
+                        List<string> items = new List<string>();
+                        AppendToConsole(hierarchyLevel, $"Extracting all elements from {libItemToAnalyze.TargetFramework} of {packageId}:{packageVersion}");
+                        foreach (var libItem in libItemToAnalyze.Items)
+                        {
+                            if (!libItem.EndsWith(".dll")) continue; // filter only DLL
+                            var file = Path.Combine(tempFolder, Path.GetFileName(libItem));
+                            file = file.Replace('\\', '/');
+                            if (!File.Exists(file))
+                            {
+                                var res = packageReader.ExtractFile(libItem, file, logger);
+                                AppendToConsole(hierarchyLevel, $"Exported assembly {res}");
+                            }
+                            else
+                            {
+                                AppendToConsole(hierarchyLevel, $"Using previous stored file {file}");
+                            }
+                            items.Add(file);
+                        }
+
+                        if (items.Count == 0)
+                        {
+                            AppendToConsole(hierarchyLevel, $"No items found in package {packageId}");
+                            return false;
+                        }
+
                         var destFolder = Path.Combine(SourceFolder, ToFolder(packageId, packageVersion));
+
+                        if (JobManager.IsReflected(packageId)) // moved here because the assembly shall be extracted, but the sw avoids its reflection
+                        {
+                            Cleanup(hierarchyLevel, destFolder);
+                            return false;
+                        }
 
                         bool cleanupFolder = false;
                         bool executeReflection = true;
@@ -465,7 +520,7 @@ namespace MASES.NuReflector
                         {
                             var content = File.ReadAllText(packageIdentityFile);
                             pkgStored = JsonConvert.DeserializeObject<PackageDefinition>(content);
-                            if (pkgStored.ReflectorEngineVersion == ReflectorEngineVersion 
+                            if (pkgStored.ReflectorEngineVersion == ReflectorEngineVersion
                                 && packageVersion.Version <= Version.Parse(pkgStored.PackageVersion)
 #if NETCOREAPP3_1
 #error Not supported due to missing JCOReflector Maven Artifact
@@ -480,7 +535,7 @@ namespace MASES.NuReflector
 #endif
                                 )
                             {
-                                appendToConsole($"Already updated package {packageId} {packageVersion}");
+                                AppendToConsole(hierarchyLevel, $"Avoid reflection for package {packageId} {packageVersion} -> ReflectorEngine: {pkgStored.ReflectorEngineVersion} PackageVersion: {pkgStored.PackageVersion} Net5Done: {pkgStored.Net5Done} Net6Done: {pkgStored.Net6Done} NetFrameworkDone: {pkgStored.NetFrameworkDone}");
                                 executeReflection = false;
                             }
 
@@ -498,47 +553,18 @@ namespace MASES.NuReflector
 #endif
                                 )
                             {
-                                appendToConsole($"Already updated package {packageId} {packageVersion}");
+                                AppendToConsole(hierarchyLevel, $"Cleanup folder for package {packageId} {packageVersion}");
                                 cleanupFolder = true;
                             }
                         }
 
                         if (cleanupFolder)
                         {
-                            var folderToDelete = Path.Combine(destFolder, "src", JobManager.RuntimeFolder);
-                            if (Directory.Exists(folderToDelete))
-                            {
-                                try
-                                {
-                                    Directory.Delete(folderToDelete, true);
-                                }
-                                catch (Exception e)
-                                {
-                                    appendToConsole($"Failed to remove package folder {folderToDelete}: {e.Message}");
-                                }
-                            }
+                            Cleanup(hierarchyLevel, destFolder);
                         }
 
                         if (executeReflection)
                         {
-                            List<string> items = new List<string>();
-                            appendToConsole($"Analyzing {libItemToAnalyze.TargetFramework} of {packageId}:{packageVersion}");
-                            foreach (var folder in libItemToAnalyze.Items)
-                            {
-                                if (!folder.EndsWith(".dll")) continue; // filter only DLL
-                                var file = Path.Combine(tempFolder, folder);
-                                file = file.Replace('\\', '/');
-                                var res = packageReader.ExtractFile(folder, file, logger);
-                                appendToConsole($"Exported assembly {res}");
-                                items.Add(file);
-                            }
-
-                            if (items.Count == 0)
-                            {
-                                appendToConsole($"No items found in package {packageId}");
-                                return false;
-                            }
-
                             if (pkgStored == null)
                             {
                                 pkgStored = new PackageDefinition()
@@ -552,7 +578,34 @@ namespace MASES.NuReflector
                             reflectArg.SourceFolder = destFolder;
                             reflectArg.AssemblyNames = items.ToArray();
 
-                            JobManager.RunJob(reflectArg, true);
+                            try
+                            {
+                                JobManager.RunJob(reflectArg, true);
+                            }
+                            catch (System.Reflection.ReflectionTypeLoadException ex)
+                            {
+                                StringBuilder sb = new StringBuilder();
+                                foreach (Exception exSub in ex.LoaderExceptions)
+                                {
+                                    sb.AppendLine(exSub.Message);
+                                    if (exSub is FileNotFoundException exFileNotFound)
+                                    {
+                                        if (!string.IsNullOrEmpty(exFileNotFound.FusionLog))
+                                        {
+                                            sb.AppendLine("Fusion Log:");
+                                            sb.AppendLine(exFileNotFound.FusionLog);
+                                        }
+                                    }
+                                    sb.AppendLine();
+                                }
+                                AppendToConsole(hierarchyLevel, $"Error for package {packageId} {packageVersion}: {sb.ToString()}");
+                                throw;
+                            }
+                            catch (Exception ex)
+                            {
+                                AppendToConsole(hierarchyLevel, $"Error for package {packageId} {packageVersion}: {ex}");
+                                throw;
+                            }
 
                             pkgStored.ReflectorEngineVersion = ReflectorEngineVersion;
 #if NETCOREAPP3_1
@@ -585,9 +638,9 @@ namespace MASES.NuReflector
 
                         var desc = packageReader.NuspecReader.GetDescription();
                         StringBuilder descBuilder = new StringBuilder(string.Format(InternalConst.POM.POMDescriptionTemplate,
-                                                                                        InternalConst.DefaultSite,
-                                                                                        packageId.ToLowerInvariant(),
-                                                                                        packageVersion.Version.ToString()));
+                                                                                    InternalConst.DefaultSite,
+                                                                                    packageId.ToLowerInvariant(),
+                                                                                    packageVersion.Version.ToString()));
                         if (!string.IsNullOrEmpty(desc))
                         {
                             descBuilder.AppendLine(desc.Replace("\"", "&quot;")
@@ -604,6 +657,22 @@ namespace MASES.NuReflector
                 }
 
                 return true;
+            }
+
+            public void Cleanup(int hierarchyLevel, string folder)
+            {
+                var folderToDelete = Path.Combine(folder, "src", JobManager.RuntimeFolder);
+                if (Directory.Exists(folderToDelete))
+                {
+                    try
+                    {
+                        Directory.Delete(folderToDelete, true);
+                    }
+                    catch (Exception e)
+                    {
+                        AppendToConsole(hierarchyLevel, $"Failed to remove package folder {folderToDelete}: {e.Message}");
+                    }
+                }
             }
         }
     }
