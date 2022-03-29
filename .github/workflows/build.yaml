@@ -51,7 +51,10 @@ jobs:
     runs-on: windows-2022
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:   
+    steps:
+      - name: Check LongPathsEnabled
+        run: (Get-ItemProperty "HKLM:System\CurrentControlSet\Control\FileSystem").LongPathsEnabled
+        
       # Runs a set of commands using the runners shell
       # Support longpaths
       - name: Support long paths
