@@ -20,7 +20,6 @@
 			{"PackageId":"Serilog.Sinks.AzureDocumentDb"},
 			{"PackageId":"AutoFixture.AutoMoq"},
 			{"PackageId":"Autofac.Extras.Moq"},
-			{"PackageId":"AutoMapper.Collection.EntityFramework"},
 			{"PackageId":"Microsoft.Azure.Cosmos"},
 			{"PackageId":"Microsoft.Azure.SignalR"},
 			{"PackageId":"Microsoft.Azure.Functions.Worker"},
