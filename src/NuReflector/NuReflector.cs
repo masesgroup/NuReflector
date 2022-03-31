@@ -104,7 +104,7 @@ namespace MASES.NuReflector
 #if DEBUG
             catch (Exception ex)
             {
-                Console.WriteLine($"Failed loaging from {fileName}: {ex}");
+                Console.WriteLine($"Failed loading from {fileName}: {ex}");
 #else
             catch
             {
@@ -271,6 +271,21 @@ namespace MASES.NuReflector
                 var packages = JsonConvert.DeserializeObject<PackagesDefinition>(content);
 
                 var cmdArgs = Environment.GetCommandLineArgs();
+                var processToRun = cmdArgs[0];
+#if NET5_0 || NET6_0
+                if (processToRun.EndsWith("dll"))
+                {
+                    var tstProc = Path.ChangeExtension(processToRun, "exe");
+                    if (File.Exists(tstProc))
+                    {
+                        processToRun = tstProc;
+                    }
+                    else
+                    {
+                        processToRun = "dotnet " + processToRun;
+                    }
+                }
+#endif
                 List<string> newArgs = new();
                 for (int i = 1; i < cmdArgs.Length; i++)
                 {
@@ -301,7 +316,7 @@ namespace MASES.NuReflector
                         arguments += " -" + CLIParam.PreRelease + " 1";
                     }
                     AppendToConsole(hierarchyLevel, $"Starting child process for {item.PackageId}:{item.PackageVersion}");
-                    var retCode = LaunchProcess(Environment.CurrentDirectory, cmdArgs[0], arguments);
+                    var retCode = LaunchProcess(Environment.CurrentDirectory, processToRun, arguments);
                     if (retCode != 0)
                     {
                         throw new InvalidOperationException($"Sub process associated to {item.PackageId}:{item.PackageVersion} returned {retCode}");
