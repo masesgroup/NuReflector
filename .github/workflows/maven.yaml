@@ -149,10 +149,10 @@ jobs:
           MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}       
 
-      - name: Extract net461 list
-        run: echo "NET_461_FILE_LIST=$(cat ./netreflected/net461.list)" >> $GITHUB_ENV
+      - name: Extract net462 list
+        run: echo "NET_461_FILE_LIST=$(cat ./netreflected/net462.list)" >> $GITHUB_ENV
  
-      - name: Publish net461 to Apache Maven Central
+      - name: Publish net462 to Apache Maven Central
         run: for f in $NET_461_FILE_LIST; do mvn --file ./netreflected/$f --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy; done 
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
