@@ -75,7 +75,7 @@ namespace MASES.NuReflector
             arguments = PrepareArguments();
             Parser.Add(arguments);
 
-            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;   
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
         }
 
         private static System.Reflection.Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
@@ -315,7 +315,7 @@ namespace MASES.NuReflector
                     {
                         arguments += " -" + CLIParam.PreRelease + " 1";
                     }
-                    AppendToConsole(hierarchyLevel, $"Starting child process for {item.PackageId}:{item.PackageVersion}");
+                    AppendToConsole(hierarchyLevel, $"Starting child process for {item.PackageId}:{item.PackageVersion} in {Environment.CurrentDirectory}: {processToRun} {arguments}");
                     var retCode = LaunchProcess(Environment.CurrentDirectory, processToRun, arguments);
                     if (retCode != 0)
                     {
@@ -575,7 +575,7 @@ namespace MASES.NuReflector
 #if DEBUG
                     var tempPath = @"D:\TEMPPackage";
 #else
-                    var tempPath = Path.GetTempPath();
+                    var tempPath = Path.Combine(Path.GetTempPath(), JobManager.RuntimeFolder);
 #endif
                     currentWorkingFolder = rootFolder ?? Path.Combine(tempPath, packageId);
 
