@@ -25,6 +25,8 @@
 using MASES.JCOReflectorEngine;
 using MASES.NuReflector;
 using System;
+using System.Reflection;
+using System.Text;
 
 namespace MASES.NuReflectorCLI
 {
@@ -72,6 +74,34 @@ namespace MASES.NuReflectorCLI
             try
             {
                 Reflector.Execute(args);
+            }
+            catch (ReflectionTypeLoadException rtle)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine(rtle.Message);
+                if (rtle.InnerException != null)
+                {
+                    sb.AppendLine($"InnerException: {rtle.InnerException.Message}");
+                }
+                if (rtle.Types != null)
+                {
+                    sb.AppendLine("Types:");
+                    foreach (var item in rtle.Types)
+                    {
+                        sb.AppendLine($"  {item}");
+                    }
+                }
+                if (rtle.LoaderExceptions != null)
+                {
+                    sb.AppendLine("LoaderExceptions:");
+                    foreach (var item in rtle.LoaderExceptions)
+                    {
+                        sb.AppendLine($"  {item.Message}");
+                    }
+                }
+                showHelp(sb.ToString());
+                Environment.ExitCode = -1;
+                return;
             }
             catch (Exception e)
             {
