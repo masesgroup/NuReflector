@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+	<LangVersion>latest</LangVersion>
     <PackageType>DotnetTool</PackageType>
     <OutputType>Exe</OutputType>
     <AssemblyName>MASES.NuReflectorCLI</AssemblyName>

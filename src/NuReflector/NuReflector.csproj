@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+	<LangVersion>latest</LangVersion>
     <AssemblyName>MASES.NuReflector</AssemblyName>
     <RootNamespace>MASES.NuReflector</RootNamespace>
     <Title>NuReflector - a reflector engine for NuGet packages</Title>

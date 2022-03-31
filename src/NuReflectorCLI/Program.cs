@@ -56,7 +56,11 @@ namespace MASES.NuReflectorCLI
             }
             Console.WriteLine();
 #if !GITHUB_ACTIONS
-            Console.WriteLine(Reflector.GetArgumentHelp());
+            try
+            {
+                Console.WriteLine(Reflector.GetArgumentHelp());
+            }
+            catch { }
 #endif
         }
 
