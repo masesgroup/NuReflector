@@ -25,6 +25,12 @@ references:
   commentId: F:MASES.NuReflector.Reflector.CLIParam.CommonSourceFolder
   fullName: MASES.NuReflector.Reflector.CLIParam.CommonSourceFolder
   nameWithType: Reflector.CLIParam.CommonSourceFolder
+- uid: MASES.NuReflector.Reflector.CLIParam.NoPOM
+  name: NoPOM
+  href: api/MASES.NuReflector.Reflector.CLIParam.html#MASES_NuReflector_Reflector_CLIParam_NoPOM
+  commentId: F:MASES.NuReflector.Reflector.CLIParam.NoPOM
+  fullName: MASES.NuReflector.Reflector.CLIParam.NoPOM
+  nameWithType: Reflector.CLIParam.NoPOM
 - uid: MASES.NuReflector.Reflector.CLIParam.NuGetFeed
   name: NuGetFeed
   href: api/MASES.NuReflector.Reflector.CLIParam.html#MASES_NuReflector_Reflector_CLIParam_NuGetFeed
@@ -73,12 +79,12 @@ references:
   commentId: F:MASES.NuReflector.Reflector.CLIParam.PreRelease
   fullName: MASES.NuReflector.Reflector.CLIParam.PreRelease
   nameWithType: Reflector.CLIParam.PreRelease
-- uid: MASES.NuReflector.Reflector.Execute(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)
-  name: Execute(String, String, String, String, String, String, Boolean)
-  href: api/MASES.NuReflector.Reflector.html#MASES_NuReflector_Reflector_Execute_System_String_System_String_System_String_System_String_System_String_System_String_System_Boolean_
-  commentId: M:MASES.NuReflector.Reflector.Execute(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)
-  fullName: MASES.NuReflector.Reflector.Execute(System.String, System.String, System.String, System.String, System.String, System.String, System.Boolean)
-  nameWithType: Reflector.Execute(String, String, String, String, String, String, Boolean)
+- uid: MASES.NuReflector.Reflector.Execute(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)
+  name: Execute(Int32, String, String, String, String, String, String, Boolean)
+  href: api/MASES.NuReflector.Reflector.html#MASES_NuReflector_Reflector_Execute_System_Int32_System_String_System_String_System_String_System_String_System_String_System_String_System_Boolean_
+  commentId: M:MASES.NuReflector.Reflector.Execute(System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)
+  fullName: MASES.NuReflector.Reflector.Execute(System.Int32, System.String, System.String, System.String, System.String, System.String, System.String, System.Boolean)
+  nameWithType: Reflector.Execute(Int32, String, String, String, String, String, String, Boolean)
 - uid: MASES.NuReflector.Reflector.Execute(System.String[])
   name: Execute(String[])
   href: api/MASES.NuReflector.Reflector.html#MASES_NuReflector_Reflector_Execute_System_String___
