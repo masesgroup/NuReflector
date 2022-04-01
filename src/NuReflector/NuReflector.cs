@@ -34,6 +34,7 @@ using NuGet.Protocol.Core.Types;
 using NuGet.Versioning;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -57,6 +58,7 @@ namespace MASES.NuReflector
             public const string POMProjectTemplateFile = "POMProjectTemplateFile";
             public const string POMTemplateFile = "POMTemplateFile";
             public const string POMStaging = "POMStaging";
+            public const string NoPOM = "NoPOM";
         }
 
         public static readonly Parser Parser = Parser.CreateInstance(new Settings()
@@ -64,12 +66,51 @@ namespace MASES.NuReflector
             DefaultType = ArgumentType.Double
         });
 
+        static string currentWorkingFolder = string.Empty;
+
         static Reflector()
         {
             JobManager.ReportException = true;
             JobManager.SetHandler(AppendToConsoleEngine, EndOperationEngine);
             arguments = PrepareArguments();
             Parser.Add(arguments);
+
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+        }
+
+        private static System.Reflection.Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+#if DEBUG
+            Console.WriteLine($"Failed to resolve {args.Name} from {args.RequestingAssembly}");
+#endif
+            System.Reflection.AssemblyName assName = new System.Reflection.AssemblyName(args.Name);
+            string fileName = string.Empty;
+            if (args.Name.EndsWith(".dll")) // process only DLL
+            {
+                fileName = Path.Combine(currentWorkingFolder, args.Name);
+            }
+            else if (!assName.Name.EndsWith("resources"))
+            {
+                fileName = Path.Combine(currentWorkingFolder, assName.Name + ".dll");
+            }
+            else return null;
+#if DEBUG
+            Console.WriteLine($"Loading from {fileName}");
+#endif
+            try
+            {
+                return System.Reflection.Assembly.LoadFile(fileName);
+            }
+#if DEBUG
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed loading from {fileName}: {ex}");
+#else
+            catch
+            {
+#endif
+                return null;
+            }
         }
 
         static appendToConsoleHandler AppendToConsoleHandler;
@@ -106,7 +147,6 @@ namespace MASES.NuReflector
             {
                 preFormatString += "   ";
             }
-            preFormatString += $"{hierarchyLevel} ";
             format = preFormatString + format;
             AppendToConsoleHandler?.Invoke(format, args);
         }
@@ -144,10 +184,10 @@ namespace MASES.NuReflector
                     Default = null,
                     Help = "The package name to be reflected, otherwise the latest version will be used.",
                 },
-                new ArgumentMetadata<bool>()
+                new ArgumentMetadata<object>()
                 {
                     Name = CLIParam.PreRelease,
-                    Default = false,
+                    Type = ArgumentType.Single,
                     Help = "Find pre release version.",
                 },
                 new ArgumentMetadata<string>()
@@ -174,6 +214,12 @@ namespace MASES.NuReflector
                     Default = POMStagingType.Snapshot,
                     Help = "The source POM template to use when generating the super-project POM for the package.",
                 },
+                new ArgumentMetadata<object>()
+                {
+                    Name = CLIParam.NoPOM,
+                    Type = ArgumentType.Single,
+                    Help = "Do not generate Master POM and file list. Used in combination with PackagesFile option.",
+                },
             };
         }
 
@@ -184,10 +230,11 @@ namespace MASES.NuReflector
             var feed = lastParsedArguments.Get<string>(CLIParam.NuGetFeed);
             var packageId = lastParsedArguments.Get<string>(CLIParam.PackageId);
             var packageVersion = lastParsedArguments.Get<string>(CLIParam.PackageVersion);
-            var prerelease = lastParsedArguments.Get<bool>(CLIParam.PreRelease);
+            var prerelease = lastParsedArguments.Exist(CLIParam.PreRelease);
             var sourceFolder = lastParsedArguments.Get<string>(CLIParam.CommonSourceFolder);
             sourceFolder = Path.Combine(JobManager.RootFolder, sourceFolder);
             var pomTemplateFile = lastParsedArguments.Get<string>(CLIParam.POMTemplateFile);
+            var noPOM = lastParsedArguments.Exist(CLIParam.NoPOM);
             if (string.IsNullOrEmpty(pomTemplateFile))
             {
                 pomTemplateFile = Path.GetTempFileName();
@@ -215,7 +262,7 @@ namespace MASES.NuReflector
 
             Generator.Staging = lastParsedArguments.Get<POMStagingType>(CLIParam.POMStaging);
 
-            List<string> parsedPackages = new List<string>();
+            List<string> parsedPackages = new();
             int hierarchyLevel = 0;
             if (lastParsedArguments.Exist(CLIParam.PackagesFile))
             {
@@ -223,12 +270,63 @@ namespace MASES.NuReflector
                 var content = File.ReadAllText(fileName);
                 var packages = JsonConvert.DeserializeObject<PackagesDefinition>(content);
 
+                var cmdArgs = Environment.GetCommandLineArgs();
+                var processToRun = cmdArgs[0];
+#if NET5_0 || NET6_0
+                if (processToRun.EndsWith("dll"))
+                {
+                    var tstProc = Path.ChangeExtension(processToRun, "exe");
+                    if (File.Exists(tstProc))
+                    {
+                        processToRun = tstProc;
+                    }
+                    else
+                    {
+                        processToRun = "dotnet " + processToRun;
+                    }
+                }
+#endif
+                List<string> newArgs = new();
+                for (int i = 1; i < cmdArgs.Length; i++)
+                {
+                    if (cmdArgs[i].Contains(CLIParam.PackagesFile))
+                    {
+                        i++;
+                    }
+                    else newArgs.Add(cmdArgs[i]);
+                }
+
+                StringBuilder sb = new();
+                foreach (var item in newArgs)
+                {
+                    sb.AppendFormat("{0} ", item);
+                }
+
+                string newArgsStr = sb.ToString();
+
                 foreach (var item in packages.Packages)
                 {
-                    if (Execute(hierarchyLevel, sourceFolder, pomProjectTemplateFile, pomTemplateFile, item.PackageId, feed, item.PackageVersion, item.PreRelease))
+                    var arguments = newArgsStr + "-NoPOM " + "-" + CLIParam.PackageId + " " + item.PackageId;
+                    if (!string.IsNullOrEmpty(item.PackageVersion))
                     {
-                        parsedPackages.Add(item.PackageId);
+                        arguments += " -" + CLIParam.PackageVersion + " " + item.PackageVersion;
                     }
+                    if (item.PreRelease)
+                    {
+                        arguments += " -" + CLIParam.PreRelease + " 1";
+                    }
+                    AppendToConsole(hierarchyLevel, $"Starting child process for {item.PackageId}:{item.PackageVersion} in {Environment.CurrentDirectory}: {processToRun} {arguments}");
+                    var retCode = LaunchProcess(Environment.CurrentDirectory, processToRun, arguments);
+                    if (retCode != 0)
+                    {
+                        throw new InvalidOperationException($"Sub process associated to {item.PackageId}:{item.PackageVersion} returned {retCode}");
+                    }
+
+                    parsedPackages.Add(item.PackageId);
+                    //if (Execute(hierarchyLevel, sourceFolder, pomProjectTemplateFile, pomTemplateFile, item.PackageId, feed, item.PackageVersion, item.PreRelease))
+                    //{
+                    //    parsedPackages.Add(item.PackageId);
+                    //}
                 }
             }
             else if (!string.IsNullOrEmpty(packageId))
@@ -240,25 +338,79 @@ namespace MASES.NuReflector
             }
             else throw new ArgumentException("Neighter PackageId nor PackagesFile found in command line.");
 
-            // now build the Maven super project and master list of artifacts projects
-            StringBuilder sbPOM = new StringBuilder();
-            StringBuilder sbArtifacts = new StringBuilder();
-            foreach (var item in parsedPackages)
+            if (!noPOM)
             {
-                var module = item.ToLowerInvariant() + "_" + JobManager.RuntimeFolder + ".xml";
-                sbPOM.AppendLine(string.Format(InternalConst.POM.POMModuleTemplate, module));
-                sbArtifacts.AppendFormat("{0} ", module);
+                // now build the Maven super project and master list of artifacts projects
+                StringBuilder sbPOM = new();
+                StringBuilder sbArtifacts = new();
+                foreach (var item in parsedPackages)
+                {
+                    var module = item.ToLowerInvariant() + "_" + JobManager.RuntimeFolder + ".xml";
+                    sbPOM.AppendLine(string.Format(InternalConst.POM.POMModuleTemplate, module));
+                    sbArtifacts.AppendFormat("{0} ", module);
+                }
+                var pomProjectTemplate = File.ReadAllText(pomProjectTemplateFile);
+                var pomProject = pomProjectTemplate.Replace(InternalConst.POM.POM_ADDITIONAL_MODULES_PLACEHOLDER, sbPOM.ToString())
+                                                   .Replace(InternalConst.POM.POM_PARENT_NAME_PLACEHOLDER, JobManager.RuntimeFolder + " Master Project")
+                                                   .Replace(InternalConst.POM.POM_ARTIFACTID_PLACEHOLDER, JobManager.RuntimeFolder);
+                var pomProjectName = Path.Combine(sourceFolder, JobManager.RuntimeFolder + ".xml");
+                File.WriteAllText(pomProjectName, pomProject);
+                var projectsList = Path.Combine(sourceFolder, JobManager.RuntimeFolder + ".list");
+                File.WriteAllText(projectsList, sbArtifacts.ToString());
+                AppendToConsole(hierarchyLevel, $"Master POM created in {pomProjectName}");
+                AppendToConsole(hierarchyLevel, $"Master list created in {projectsList}");
             }
-            var pomProjectTemplate = File.ReadAllText(pomProjectTemplateFile);
-            var pomProject = pomProjectTemplate.Replace(InternalConst.POM.POM_ADDITIONAL_MODULES_PLACEHOLDER, sbPOM.ToString())
-                                               .Replace(InternalConst.POM.POM_PARENT_NAME_PLACEHOLDER, JobManager.RuntimeFolder + " Master Project")
-                                               .Replace(InternalConst.POM.POM_ARTIFACTID_PLACEHOLDER, JobManager.RuntimeFolder);
-            var pomProjectName = Path.Combine(sourceFolder, JobManager.RuntimeFolder + ".xml");
-            File.WriteAllText(pomProjectName, pomProject);
-            var projectsList = Path.Combine(sourceFolder, JobManager.RuntimeFolder + ".list");
-            File.WriteAllText(projectsList, sbArtifacts.ToString());
-            AppendToConsole(hierarchyLevel, $"Master POM created in {pomProjectName}");
-            AppendToConsole(hierarchyLevel, $"Master list created in {projectsList}");
+        }
+
+        static int LaunchProcess(string workingDir, string processToLaunch, string arguments)
+        {
+            var tmpDirectory = Environment.CurrentDirectory;
+            try
+            {
+                Environment.CurrentDirectory = workingDir;
+                ProcessStartInfo startInfo = new()
+                {
+                    FileName = processToLaunch,
+                    Arguments = arguments,
+                    CreateNoWindow = true,
+                    WorkingDirectory = workingDir
+                };
+                startInfo.RedirectStandardOutput = true;
+                startInfo.RedirectStandardError = true;
+                startInfo.UseShellExecute = false;
+                using (var proc = Process.Start(startInfo))
+                {
+                    proc.ErrorDataReceived += Proc_ErrorDataReceived;
+                    proc.BeginErrorReadLine();
+                    proc.OutputDataReceived += Proc_OutputDataReceived;
+                    proc.BeginOutputReadLine();
+
+                    try
+                    {
+                        proc.WaitForExit();
+                        return proc.ExitCode;
+                    }
+                    finally
+                    {
+                        proc.ErrorDataReceived -= Proc_ErrorDataReceived;
+                        proc.OutputDataReceived -= Proc_OutputDataReceived;
+                    }
+                }
+            }
+            finally
+            {
+                Environment.CurrentDirectory = tmpDirectory;
+            }
+        }
+
+        private static void Proc_OutputDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            AppendToConsole(1, e.Data);
+        }
+
+        private static void Proc_ErrorDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            AppendToConsole(1, e.Data);
         }
 
         public static bool Execute(int hierarchyLevel, string sourceFolder, string pomProjectTemplateFile, string pomTemplateFile, string packageId, string feed = InternalConst.DefaultFeed, string packageVersion = null, bool usePreRelease = false)
@@ -420,13 +572,12 @@ namespace MASES.NuReflector
                         return false;
                     }
 
-                    string tempFolder = string.Empty;
 #if DEBUG
                     var tempPath = @"D:\TEMPPackage";
 #else
-                    var tempPath = Path.GetTempPath();
+                    var tempPath = Path.Combine(Path.GetTempPath(), JobManager.RuntimeFolder);
 #endif
-                    tempFolder = rootFolder == null ? Path.Combine(tempPath, packageId) : rootFolder;
+                    currentWorkingFolder = rootFolder ?? Path.Combine(tempPath, packageId);
 
                     StringBuilder dependencies = new StringBuilder();
 
@@ -455,15 +606,17 @@ namespace MASES.NuReflector
 
                         foreach (var depItem in packageReader.GetPackageDependencies())
                         {
+                            AppendToConsole(hierarchyLevel, $"Analyzing dependency package {depItem.TargetFramework}");
                             if (depItem.TargetFramework.CheckFramework() && depItem.TargetFramework.Version == version)
                             {
                                 foreach (var packItem in depItem.Packages)
                                 {
+                                    AppendToConsole(hierarchyLevel, $"Analyzing dependency package {packItem.Id} {packItem.VersionRange}");
                                     var nuVersion = packItem.VersionRange.IsMaxInclusive ? packItem.VersionRange.MaxVersion : packItem.VersionRange.MinVersion;
-                                    AppendToConsole(hierarchyLevel, $"Analyzing dependency package {packItem.Id} {nuVersion}");
+                                    AppendToConsole(hierarchyLevel, $"Selected dependency package {packItem.Id} {nuVersion}");
                                     try
                                     {
-                                        if (Execute(hierarchyLevel + 1, parsedPackages, tempFolder, SourceFolder, POMTemplateFile, packItem.Id, feed, nuVersion.Version.ToString(), nuVersion.IsPrerelease))
+                                        if (Execute(hierarchyLevel + 1, parsedPackages, currentWorkingFolder, SourceFolder, POMTemplateFile, packItem.Id, feed, nuVersion.Version.ToString(), nuVersion.IsPrerelease))
                                         {
                                             dependencies.AppendLine(string.Format(InternalConst.POM.POMDependencyTemplate,
                                                                                   packItem.Id.ToLowerInvariant(),
@@ -484,7 +637,7 @@ namespace MASES.NuReflector
                         foreach (var libItem in libItemToAnalyze.Items)
                         {
                             if (!libItem.EndsWith(".dll")) continue; // filter only DLL
-                            var file = Path.Combine(tempFolder, Path.GetFileName(libItem));
+                            var file = Path.Combine(currentWorkingFolder, Path.GetFileName(libItem));
                             file = file.Replace('\\', '/');
                             if (!File.Exists(file))
                             {

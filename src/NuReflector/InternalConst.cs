@@ -64,7 +64,7 @@ namespace MASES.NuReflector
 #elif NET6_0
             public static Version Version = new Version(6, 0, 0);
 #elif NETFRAMEWORK
-            public static Version Version = new Version(4, 5, 0);
+            public static Version Version = new Version(4, 0, 0);
 #else
 #error Unable to identify .NET engine
 #endif
