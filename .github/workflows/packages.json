@@ -3,7 +3,6 @@
 			{"PackageId":"Microsoft.Extensions.Options"},
 			{"PackageId":"Newtonsoft.Json"},
 			{"PackageId":"Oracle.EntityFrameworkCore"},
-			{"PackageId":"IBM.EntityFrameworkCore"},
 			{"PackageId":"Pomelo.EntityFrameworkCore.MySql"},
 			{"PackageId":"EntityFramework.Firebird"},
 			{"PackageId":"MySql.EntityFrameworkCore"},
