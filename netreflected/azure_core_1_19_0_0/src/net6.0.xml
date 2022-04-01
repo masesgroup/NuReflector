@@ -213,7 +213,7 @@ This is the implementation of the Azure Client Pipeline
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.6.0</version>
+      <version>1.10.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
@@ -222,43 +222,8 @@ This is the implementation of the Azure Client Pipeline
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
-      <artifactId>system.buffers_net6.0</artifactId>
-      <version>4.5.1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.diagnostics.diagnosticsource_net6.0</artifactId>
-      <version>4.6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.memory_net6.0</artifactId>
-      <version>4.5.4.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
       <artifactId>system.memory.data_net6.0</artifactId>
       <version>1.0.2.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.numerics.vectors_net6.0</artifactId>
-      <version>4.5.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.text.encodings.web_net6.0</artifactId>
-      <version>4.7.2.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.text.json_net6.0</artifactId>
-      <version>4.6.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.threading.tasks.extensions_net6.0</artifactId>
-      <version>4.5.2.0-SNAPSHOT</version>
     </dependency>
 
   </dependencies>

@@ -213,27 +213,12 @@ Oracle Data Provider for .NET (ODP.NET) Core is an ADO.NET driver that provides 
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.6.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.diagnostics.performancecounter_net6.0</artifactId>
-      <version>6.0.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.directoryservices_net6.0</artifactId>
-      <version>5.0.0.0-SNAPSHOT</version>
+      <version>1.10.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
       <artifactId>system.directoryservices.protocols_net6.0</artifactId>
       <version>5.0.1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.text.json_net6.0</artifactId>
-      <version>6.0.0.0-SNAPSHOT</version>
     </dependency>
 
   </dependencies>

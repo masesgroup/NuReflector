@@ -12,7 +12,6 @@
 
   <modules>
     <module>microsoft_extensions_dependencyinjection_abstractions_6_0_0_0/src/net6.0.xml</module>
-    <module>system_runtime_compilerservices_unsafe_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_primitives_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_options_6_0_0_0/src/net6.0.xml</module>
 

@@ -11,10 +11,7 @@
   <name>Serilog.Sinks.AzureAnalytics net6.0 Master Project</name>
 
   <modules>
-    <module>microsoft_csharp_4_5_0_0/src/net6.0.xml</module>
     <module>newtonsoft_json_12_0_1_0/src/net6.0.xml</module>
-    <module>system_threading_4_3_0_0/src/net6.0.xml</module>
-    <module>system_collections_nongeneric_4_3_0_0/src/net6.0.xml</module>
     <module>serilog_2_8_0_0/src/net6.0.xml</module>
     <module>serilog_sinks_azureanalytics_2019_1_20_0/src/net6.0.xml</module>
 

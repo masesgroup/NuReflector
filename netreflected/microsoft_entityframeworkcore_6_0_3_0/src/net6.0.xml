@@ -126,6 +126,7 @@ Microsoft.EntityFrameworkCore.DbSet
             <configuration>
               <sources>
                 <source>./net6.0/jcoreflectorgenerated</source>
+                <source>./net6.0/microsoft.entityframeworkcore_version_6.0.3.0_culture_neutral_publickeytoken_adb9793829ddae60</source>
 
               </sources>
             </configuration>
@@ -216,7 +217,7 @@ Microsoft.EntityFrameworkCore.DbSet
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.6.0</version>
+      <version>1.10.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
@@ -236,16 +237,6 @@ Microsoft.EntityFrameworkCore.DbSet
     <dependency>
       <groupId>com.masesgroup</groupId> 
       <artifactId>microsoft.extensions.logging_net6.0</artifactId>
-      <version>6.0.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.collections.immutable_net6.0</artifactId>
-      <version>6.0.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.diagnostics.diagnosticsource_net6.0</artifactId>
       <version>6.0.0.0-SNAPSHOT</version>
     </dependency>
 

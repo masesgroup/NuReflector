@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/Microsoft.Azure.Functions.Worker.Core/lib/net5.0/Microsoft.Azure.Functions.Worker.Core.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net5.0/Microsoft.Azure.Functions.Worker/Microsoft.Azure.Functions.Worker.Core.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/Microsoft.Azure.Functions.Worker.Core/lib/net5.0/Microsoft.Azure.Functions.Worker.Core.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net5.0/Microsoft.Azure.Functions.Worker/Microsoft.Azure.Functions.Worker.Core.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

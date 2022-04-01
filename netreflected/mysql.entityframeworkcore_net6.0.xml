@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.masesgroup</groupId>
+  <artifactId>mysql.entityframeworkcore</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>MySql.EntityFrameworkCore net6.0 Master Project</name>
+
+  <modules>
+    <module>bouncycastle_netcore_1_8_5_0/src/net6.0.xml</module>
+    <module>google_protobuf_3_14_0_0/src/net6.0.xml</module>
+    <module>k4os_compression_lz4_1_2_6_0/src/net6.0.xml</module>
+    <module>k4os_hash_xxhash_1_0_6_0/src/net6.0.xml</module>
+    <module>k4os_compression_lz4_streams_1_2_6_0/src/net6.0.xml</module>
+    <module>mysql_data_8_0_28_0/src/net6.0.xml</module>
+    <module>microsoft_entityframeworkcore_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_primitives_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_caching_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_dependencyinjection_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_logging_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_options_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_caching_memory_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_dependencyinjection_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_logging_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_entityframeworkcore_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_configuration_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_entityframeworkcore_relational_6_0_0_0/src/net6.0.xml</module>
+    <module>mysql_entityframeworkcore_6_0_0_0/src/net6.0.xml</module>
+
+  </modules>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <name>Central Repository OSSRH</name>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+</project>

@@ -217,12 +217,7 @@ Microsoft.Extensions.Primitives.StringSegment
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net5.0</artifactId>
-      <version>1.8.5.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.runtime.compilerservices.unsafe_net5.0</artifactId>
-      <version>6.0.0.0-SNAPSHOT</version>
+      <version>1.10.0.0</version>
     </dependency>
 
   </dependencies>

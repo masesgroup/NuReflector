@@ -15,13 +15,12 @@
     <module>microsoft.extensions.primitives_net6.0.xml</module>
     <module>microsoft.extensions.options_net6.0.xml</module>
     <module>newtonsoft.json_net6.0.xml</module>
-    <module>graphql.entityframework_net6.0.xml</module>
     <module>oracle.entityframeworkcore_net6.0.xml</module>
-    <module>ibm.entityframeworkcore_net6.0.xml</module>
     <module>pomelo.entityframeworkcore.mysql_net6.0.xml</module>
     <module>entityframework.firebird_net6.0.xml</module>
-    <module>mysql.data.entityframeworkcore_net6.0.xml</module>
+    <module>mysql.entityframeworkcore_net6.0.xml</module>
     <module>npgsql.entityframeworkcore.postgresql_net6.0.xml</module>
+    <module>microsoft.entityframeworkcore.sqlite_net6.0.xml</module>
     <module>microsoft.entityframeworkcore.inmemory_net6.0.xml</module>
     <module>microsoft.entityframeworkcore.sqlserver_net6.0.xml</module>
     <module>microsoft.entityframeworkcore.sqlserver.nettopologysuite_net6.0.xml</module>
@@ -32,11 +31,11 @@
     <module>serilog.sinks.azuredocumentdb_net6.0.xml</module>
     <module>autofixture.automoq_net6.0.xml</module>
     <module>autofac.extras.moq_net6.0.xml</module>
-    <module>automapper.collection.entityframework_net6.0.xml</module>
     <module>microsoft.azure.cosmos_net6.0.xml</module>
-    <module>microsoft.azure.signalr_net6.0.xml</module>
+    <module>microsoft.azure.functions.worker_net6.0.xml</module>
     <module>microsoft.azure.management.redis_net6.0.xml</module>
     <module>microsoft.azure.cognitiveservices.vision.computervision_net6.0.xml</module>
+    <module>microsoft.azure.cognitiveservices.vision.contentmoderator_net6.0.xml</module>
     <module>microsoft.azure.cognitiveservices.vision.customvision.prediction_net6.0.xml</module>
     <module>microsoft.azure.cognitiveservices.vision.customvision.training_net6.0.xml</module>
     <module>microsoft.azure.cognitiveservices.contentmoderator_net6.0.xml</module>

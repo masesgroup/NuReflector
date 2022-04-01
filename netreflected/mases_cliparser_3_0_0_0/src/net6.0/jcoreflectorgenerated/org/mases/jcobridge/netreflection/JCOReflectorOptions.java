@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/MASES.CLIParser/lib/netstandard2.0/MASES.CLIParser.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net6.0/MASES.CLIParser/MASES.CLIParser.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/MASES.CLIParser/lib/netstandard2.0/MASES.CLIParser.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net6.0/MASES.CLIParser/MASES.CLIParser.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/Elasticsearch.Net/lib/netstandard2.1/Elasticsearch.Net.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Serilog.Sinks.Elasticsearch/Elasticsearch.Net.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/Elasticsearch.Net/lib/netstandard2.1/Elasticsearch.Net.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Serilog.Sinks.Elasticsearch/Elasticsearch.Net.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

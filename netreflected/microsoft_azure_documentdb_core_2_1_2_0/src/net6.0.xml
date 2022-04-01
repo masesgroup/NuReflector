@@ -213,37 +213,7 @@ This client library enables client applications targeting .NET Core to connect t
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.6.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.collections.nongeneric_net6.0</artifactId>
-      <version>4.0.1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.collections.specialized_net6.0</artifactId>
-      <version>4.0.1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.dynamic.runtime_net6.0</artifactId>
-      <version>4.0.11.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.linq.queryable_net6.0</artifactId>
-      <version>4.0.1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.net.webheadercollection_net6.0</artifactId>
-      <version>4.0.1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.runtime.serialization.primitives_net6.0</artifactId>
-      <version>4.1.1.0-SNAPSHOT</version>
+      <version>1.10.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

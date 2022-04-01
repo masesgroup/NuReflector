@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/EntityFramework.Firebird/lib/netstandard2.1/EntityFramework.Firebird.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net6.0/EntityFramework.Firebird/EntityFramework.Firebird.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/EntityFramework.Firebird/lib/netstandard2.1/EntityFramework.Firebird.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net6.0/EntityFramework.Firebird/EntityFramework.Firebird.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

@@ -11,32 +11,9 @@
   <name>Serilog.Sinks.AzureDocumentDb net6.0 Master Project</name>
 
   <modules>
-    <module>system_threading_4_0_11_0/src/net6.0.xml</module>
-    <module>system_collections_nongeneric_4_0_1_0/src/net6.0.xml</module>
-    <module>system_collections_specialized_4_0_1_0/src/net6.0.xml</module>
-    <module>system_linq_4_1_0_0/src/net6.0.xml</module>
-    <module>system_objectmodel_4_0_12_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_4_0_1_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_ilgeneration_4_0_1_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_lightweight_4_0_1_0/src/net6.0.xml</module>
-    <module>system_reflection_typeextensions_4_1_0_0/src/net6.0.xml</module>
-    <module>system_linq_expressions_4_1_0_0/src/net6.0.xml</module>
-    <module>system_dynamic_runtime_4_0_11_0/src/net6.0.xml</module>
-    <module>system_linq_queryable_4_0_1_0/src/net6.0.xml</module>
-    <module>system_net_webheadercollection_4_0_1_0/src/net6.0.xml</module>
-    <module>system_runtime_serialization_primitives_4_1_1_0/src/net6.0.xml</module>
-    <module>microsoft_csharp_4_0_1_0/src/net6.0.xml</module>
-    <module>system_text_regularexpressions_4_1_0_0/src/net6.0.xml</module>
-    <module>system_io_filesystem_primitives_4_0_1_0/src/net6.0.xml</module>
-    <module>system_threading_tasks_extensions_4_0_0_0/src/net6.0.xml</module>
-    <module>system_xml_readerwriter_4_0_11_0/src/net6.0.xml</module>
-    <module>system_xml_xdocument_4_0_11_0/src/net6.0.xml</module>
     <module>newtonsoft_json_9_0_1_0/src/net6.0.xml</module>
     <module>microsoft_azure_documentdb_core_2_1_2_0/src/net6.0.xml</module>
-    <module>microsoft_csharp_4_5_0_0/src/net6.0.xml</module>
     <module>newtonsoft_json_11_0_2_0/src/net6.0.xml</module>
-    <module>system_threading_4_3_0_0/src/net6.0.xml</module>
-    <module>system_collections_nongeneric_4_3_0_0/src/net6.0.xml</module>
     <module>serilog_2_7_1_0/src/net6.0.xml</module>
     <module>serilog_sinks_azuredocumentdb_4_0_0_0/src/net6.0.xml</module>
 

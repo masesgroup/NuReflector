@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/Newtonsoft.Json/lib/netstandard1.3/Newtonsoft.Json.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Microsoft.Azure.Cosmos/Newtonsoft.Json.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/Newtonsoft.Json/lib/netstandard1.3/Newtonsoft.Json.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Microsoft.Azure.Cosmos/Newtonsoft.Json.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

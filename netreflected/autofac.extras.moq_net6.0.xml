@@ -11,39 +11,9 @@
   <name>Autofac.Extras.Moq net6.0 Master Project</name>
 
   <modules>
-    <module>system_threading_4_3_0_0/src/net6.0.xml</module>
-    <module>system_collections_concurrent_4_3_0_0/src/net6.0.xml</module>
-    <module>system_buffers_4_5_1_0/src/net6.0.xml</module>
-    <module>system_numerics_vectors_4_4_0_0/src/net6.0.xml</module>
-    <module>system_runtime_compilerservices_unsafe_4_5_3_0/src/net6.0.xml</module>
-    <module>system_memory_4_5_4_0/src/net6.0.xml</module>
-    <module>system_diagnostics_diagnosticsource_4_7_1_0/src/net6.0.xml</module>
     <module>autofac_6_0_0_0/src/net6.0.xml</module>
-    <module>system_appcontext_4_1_0_0/src/net6.0.xml</module>
-    <module>system_threading_4_0_11_0/src/net6.0.xml</module>
-    <module>system_collections_nongeneric_4_0_1_0/src/net6.0.xml</module>
-    <module>system_collections_specialized_4_0_1_0/src/net6.0.xml</module>
-    <module>system_linq_4_1_0_0/src/net6.0.xml</module>
-    <module>system_objectmodel_4_0_12_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_4_0_1_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_ilgeneration_4_0_1_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_lightweight_4_0_1_0/src/net6.0.xml</module>
-    <module>system_reflection_typeextensions_4_1_0_0/src/net6.0.xml</module>
-    <module>system_linq_expressions_4_1_0_0/src/net6.0.xml</module>
-    <module>system_dynamic_runtime_4_0_11_0/src/net6.0.xml</module>
-    <module>system_io_filesystem_primitives_4_0_1_0/src/net6.0.xml</module>
-    <module>system_text_regularexpressions_4_1_0_0/src/net6.0.xml</module>
-    <module>system_threading_tasks_extensions_4_0_0_0/src/net6.0.xml</module>
-    <module>system_xml_readerwriter_4_0_11_0/src/net6.0.xml</module>
-    <module>system_xml_xmldocument_4_0_1_0/src/net6.0.xml</module>
-    <module>system_xml_xmlserializer_4_0_11_0/src/net6.0.xml</module>
     <module>castle_core_4_0_0_0/src/net6.0.xml</module>
-    <module>system_collections_concurrent_4_0_12_0/src/net6.0.xml</module>
-    <module>system_linq_queryable_4_0_1_0/src/net6.0.xml</module>
     <module>moq_4_7_0_0/src/net6.0.xml</module>
-    <module>system_componentmodel_4_0_1_0/src/net6.0.xml</module>
-    <module>system_componentmodel_primitives_4_1_0_0/src/net6.0.xml</module>
-    <module>system_componentmodel_typeconverter_4_1_0_0/src/net6.0.xml</module>
     <module>autofac_extras_moq_6_1_0_0/src/net6.0.xml</module>
 
   </modules>

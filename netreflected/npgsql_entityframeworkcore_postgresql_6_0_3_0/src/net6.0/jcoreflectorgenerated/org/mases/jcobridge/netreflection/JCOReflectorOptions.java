@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/Npgsql.EntityFrameworkCore.PostgreSQL/lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL/Npgsql.EntityFrameworkCore.PostgreSQL.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/Npgsql.EntityFrameworkCore.PostgreSQL/lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL/Npgsql.EntityFrameworkCore.PostgreSQL.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

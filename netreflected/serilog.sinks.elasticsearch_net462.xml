@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.masesgroup</groupId>
+  <artifactId>serilog.sinks.elasticsearch</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>Serilog.Sinks.Elasticsearch net462 Master Project</name>
+
+  <modules>
+    <module>serilog_2_8_0_0/src/net462.xml</module>
+    <module>serilog_formatting_elasticsearch_8_4_1_0/src/net462.xml</module>
+    <module>microsoft_csharp_4_6_0_0/src/net462.xml</module>
+    <module>system_buffers_4_5_0_0/src/net462.xml</module>
+    <module>system_diagnostics_diagnosticsource_4_5_1_0/src/net462.xml</module>
+    <module>elasticsearch_net_7_8_1_0/src/net462.xml</module>
+    <module>serilog_2_0_0_0/src/net462.xml</module>
+    <module>serilog_formatting_compact_1_0_0_0/src/net462.xml</module>
+    <module>serilog_2_5_0_0/src/net462.xml</module>
+    <module>serilog_sinks_file_4_0_0_0/src/net462.xml</module>
+    <module>serilog_sinks_periodicbatching_2_1_1_0/src/net462.xml</module>
+    <module>serilog_sinks_elasticsearch_8_4_1_0/src/net462.xml</module>
+
+  </modules>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <name>Central Repository OSSRH</name>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+</project>

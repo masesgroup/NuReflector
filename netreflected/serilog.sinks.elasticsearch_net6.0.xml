@@ -11,32 +11,13 @@
   <name>Serilog.Sinks.Elasticsearch net6.0 Master Project</name>
 
   <modules>
-    <module>system_threading_4_3_0_0/src/net6.0.xml</module>
-    <module>system_collections_nongeneric_4_3_0_0/src/net6.0.xml</module>
     <module>serilog_2_8_0_0/src/net6.0.xml</module>
     <module>serilog_formatting_elasticsearch_8_4_1_0/src/net6.0.xml</module>
-    <module>microsoft_csharp_4_6_0_0/src/net6.0.xml</module>
-    <module>system_buffers_4_5_0_0/src/net6.0.xml</module>
-    <module>system_diagnostics_diagnosticsource_4_5_1_0/src/net6.0.xml</module>
     <module>elasticsearch_net_7_8_1_0/src/net6.0.xml</module>
-    <module>system_linq_4_1_0_0/src/net6.0.xml</module>
-    <module>system_threading_4_0_11_0/src/net6.0.xml</module>
-    <module>system_objectmodel_4_0_12_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_4_0_1_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_ilgeneration_4_0_1_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_lightweight_4_0_1_0/src/net6.0.xml</module>
-    <module>system_reflection_typeextensions_4_1_0_0/src/net6.0.xml</module>
-    <module>system_linq_expressions_4_1_0_0/src/net6.0.xml</module>
-    <module>system_dynamic_runtime_4_0_11_0/src/net6.0.xml</module>
-    <module>microsoft_csharp_4_0_1_0/src/net6.0.xml</module>
-    <module>system_text_regularexpressions_4_1_0_0/src/net6.0.xml</module>
     <module>serilog_2_0_0_0/src/net6.0.xml</module>
     <module>serilog_formatting_compact_1_0_0_0/src/net6.0.xml</module>
-    <module>system_collections_nongeneric_4_0_1_0/src/net6.0.xml</module>
     <module>serilog_2_5_0_0/src/net6.0.xml</module>
-    <module>system_io_filesystem_primitives_4_0_1_0/src/net6.0.xml</module>
     <module>serilog_sinks_file_4_0_0_0/src/net6.0.xml</module>
-    <module>system_collections_concurrent_4_0_12_0/src/net6.0.xml</module>
     <module>serilog_sinks_periodicbatching_2_1_1_0/src/net6.0.xml</module>
     <module>serilog_sinks_elasticsearch_8_4_1_0/src/net6.0.xml</module>
 

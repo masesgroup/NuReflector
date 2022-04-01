@@ -213,57 +213,12 @@ Moq is the most popular and friendly mocking framework for .NET
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.6.0</version>
+      <version>1.10.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
       <artifactId>castle.core_net6.0</artifactId>
       <version>4.0.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.collections.concurrent_net6.0</artifactId>
-      <version>4.0.12.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.linq_net6.0</artifactId>
-      <version>4.1.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.linq.expressions_net6.0</artifactId>
-      <version>4.1.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.linq.queryable_net6.0</artifactId>
-      <version>4.0.1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.reflection.emit_net6.0</artifactId>
-      <version>4.0.1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.reflection.emit.ilgeneration_net6.0</artifactId>
-      <version>4.0.1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.reflection.typeextensions_net6.0</artifactId>
-      <version>4.1.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.text.regularexpressions_net6.0</artifactId>
-      <version>4.1.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.threading_net6.0</artifactId>
-      <version>4.0.11.0-SNAPSHOT</version>
     </dependency>
 
   </dependencies>

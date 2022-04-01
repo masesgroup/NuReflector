@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/K4os.Hash.xxHash/lib/netstandard2.0/K4os.Hash.xxHash.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net6.0/MySql.EntityFrameworkCore/K4os.Hash.xxHash.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/K4os.Hash.xxHash/lib/netstandard2.0/K4os.Hash.xxHash.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net6.0/MySql.EntityFrameworkCore/K4os.Hash.xxHash.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

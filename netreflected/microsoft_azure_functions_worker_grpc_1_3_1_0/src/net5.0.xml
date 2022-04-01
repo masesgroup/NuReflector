@@ -212,7 +212,7 @@ This library provides gRPC support for Azure Functions .NET Worker communication
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net5.0</artifactId>
-      <version>1.8.6.0</version>
+      <version>1.10.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
@@ -226,6 +226,11 @@ This library provides gRPC support for Azure Functions .NET Worker communication
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
+      <artifactId>google.protobuf_net5.0</artifactId>
+      <version>3.15.8.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.masesgroup</groupId> 
       <artifactId>grpc.net.client_net5.0</artifactId>
       <version>2.37.0.0-SNAPSHOT</version>
     </dependency>
@@ -233,6 +238,16 @@ This library provides gRPC support for Azure Functions .NET Worker communication
       <groupId>com.masesgroup</groupId> 
       <artifactId>grpc.net.clientfactory_net5.0</artifactId>
       <version>2.37.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.masesgroup</groupId> 
+      <artifactId>microsoft.extensions.hosting_net5.0</artifactId>
+      <version>5.0.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.masesgroup</groupId> 
+      <artifactId>microsoft.extensions.hosting.abstractions_net5.0</artifactId>
+      <version>5.0.0.0-SNAPSHOT</version>
     </dependency>
 
   </dependencies>

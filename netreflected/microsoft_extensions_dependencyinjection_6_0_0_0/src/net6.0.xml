@@ -213,16 +213,11 @@ Default implementation of dependency injection for Microsoft.Extensions.Dependen
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.6.0</version>
+      <version>1.10.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
       <artifactId>microsoft.extensions.dependencyinjection.abstractions_net6.0</artifactId>
-      <version>6.0.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.runtime.compilerservices.unsafe_net6.0</artifactId>
       <version>6.0.0.0-SNAPSHOT</version>
     </dependency>
 

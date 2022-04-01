@@ -214,32 +214,7 @@ Entity Framework 6 (EF6) is a tried and tested object-relational mapper for .NET
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.6.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>microsoft.csharp_net6.0</artifactId>
-      <version>4.7.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.codedom_net6.0</artifactId>
-      <version>4.7.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.componentmodel.annotations_net6.0</artifactId>
-      <version>4.7.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.configuration.configurationmanager_net6.0</artifactId>
-      <version>4.7.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.data.sqlclient_net6.0</artifactId>
-      <version>4.8.1.0-SNAPSHOT</version>
+      <version>1.10.0.0</version>
     </dependency>
 
   </dependencies>

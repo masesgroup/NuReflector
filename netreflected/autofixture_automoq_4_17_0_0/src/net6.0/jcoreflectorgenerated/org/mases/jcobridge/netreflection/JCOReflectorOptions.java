@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/AutoFixture.AutoMoq/lib/netstandard2.0/AutoFixture.AutoMoq.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net6.0/AutoFixture.AutoMoq/AutoFixture.AutoMoq.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/AutoFixture.AutoMoq/lib/netstandard2.0/AutoFixture.AutoMoq.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net6.0/AutoFixture.AutoMoq/AutoFixture.AutoMoq.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

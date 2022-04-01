@@ -11,28 +11,6 @@
   <name>Microsoft.Azure.Management.Redis net6.0 Master Project</name>
 
   <modules>
-    <module>system_linq_4_3_0_0/src/net6.0.xml</module>
-    <module>system_threading_4_3_0_0/src/net6.0.xml</module>
-    <module>system_objectmodel_4_3_0_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_4_3_0_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_ilgeneration_4_3_0_0/src/net6.0.xml</module>
-    <module>system_reflection_emit_lightweight_4_3_0_0/src/net6.0.xml</module>
-    <module>system_reflection_typeextensions_4_3_0_0/src/net6.0.xml</module>
-    <module>system_linq_expressions_4_3_0_0/src/net6.0.xml</module>
-    <module>system_dynamic_runtime_4_3_0_0/src/net6.0.xml</module>
-    <module>microsoft_csharp_4_3_0_0/src/net6.0.xml</module>
-    <module>system_collections_nongeneric_4_3_0_0/src/net6.0.xml</module>
-    <module>system_collections_specialized_4_3_0_0/src/net6.0.xml</module>
-    <module>system_componentmodel_4_3_0_0/src/net6.0.xml</module>
-    <module>system_componentmodel_primitives_4_3_0_0/src/net6.0.xml</module>
-    <module>system_componentmodel_typeconverter_4_3_0_0/src/net6.0.xml</module>
-    <module>system_runtime_serialization_primitives_4_3_0_0/src/net6.0.xml</module>
-    <module>system_runtime_serialization_formatters_4_3_0_0/src/net6.0.xml</module>
-    <module>system_io_filesystem_primitives_4_3_0_0/src/net6.0.xml</module>
-    <module>system_text_regularexpressions_4_3_0_0/src/net6.0.xml</module>
-    <module>system_threading_tasks_extensions_4_3_0_0/src/net6.0.xml</module>
-    <module>system_xml_readerwriter_4_3_0_0/src/net6.0.xml</module>
-    <module>system_xml_xmldocument_4_3_0_0/src/net6.0.xml</module>
     <module>newtonsoft_json_10_0_3_0/src/net6.0.xml</module>
     <module>microsoft_rest_clientruntime_2_3_20_0/src/net6.0.xml</module>
     <module>microsoft_rest_clientruntime_2_3_19_0/src/net6.0.xml</module>

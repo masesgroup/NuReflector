@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/Microsoft.Extensions.DependencyInjection/lib/net6.0/Microsoft.Extensions.DependencyInjection.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Oracle.EntityFrameworkCore/Microsoft.Extensions.DependencyInjection.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/Microsoft.Extensions.DependencyInjection/lib/net6.0/Microsoft.Extensions.DependencyInjection.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Oracle.EntityFrameworkCore/Microsoft.Extensions.DependencyInjection.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

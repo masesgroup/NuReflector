@@ -136,7 +136,7 @@ When using NuGet 3.x this package requires at least version 3.4.
             <configuration>
               <sources>
                 <source>./net6.0/jcoreflectorgenerated</source>
-                <source>./net6.0/system.runtime.caching_version_4.0.1.0_culture_neutral_publickeytoken_b03f5f7f11d50a3a</source>
+                <source>./net6.0/system.runtime.caching_version_4.0.0.0_culture_neutral_publickeytoken_b03f5f7f11d50a3a</source>
 
               </sources>
             </configuration>
@@ -227,12 +227,7 @@ When using NuGet 3.x this package requires at least version 3.4.
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.6.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.configuration.configurationmanager_net6.0</artifactId>
-      <version>4.6.0.0-SNAPSHOT</version>
+      <version>1.10.0.0</version>
     </dependency>
 
   </dependencies>

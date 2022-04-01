@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/Microsoft.Azure.CognitiveServices.Search.VideoSearch/lib/netstandard1.4/Microsoft.Azure.CognitiveServices.Search.VideoSearch.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Microsoft.Azure.CognitiveServices.Search.VideoSearch/Microsoft.Azure.CognitiveServices.Search.VideoSearch.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/Microsoft.Azure.CognitiveServices.Search.VideoSearch/lib/netstandard1.4/Microsoft.Azure.CognitiveServices.Search.VideoSearch.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Microsoft.Azure.CognitiveServices.Search.VideoSearch/Microsoft.Azure.CognitiveServices.Search.VideoSearch.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

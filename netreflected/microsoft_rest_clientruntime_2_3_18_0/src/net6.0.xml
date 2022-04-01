@@ -122,6 +122,7 @@ Infrastructure for error handling, tracing, and HttpClient pipeline configuratio
             <configuration>
               <sources>
                 <source>./net6.0/jcoreflectorgenerated</source>
+                <source>./net6.0/microsoft.rest.clientruntime_version_2.0.0.0_culture_neutral_publickeytoken_31bf3856ad364e35</source>
 
               </sources>
             </configuration>
@@ -212,7 +213,7 @@ Infrastructure for error handling, tracing, and HttpClient pipeline configuratio
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.6.0</version>
+      <version>1.10.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

@@ -122,6 +122,7 @@ PostgreSQL/Npgsql provider for Entity Framework Core.
             <configuration>
               <sources>
                 <source>./net6.0/jcoreflectorgenerated</source>
+                <source>./net6.0/npgsql.entityframeworkcore.postgresql_version_6.0.3.0_culture_neutral_publickeytoken_5d8b90d52f46fda7</source>
 
               </sources>
             </configuration>
@@ -212,7 +213,7 @@ PostgreSQL/Npgsql provider for Entity Framework Core.
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.6.0</version>
+      <version>1.10.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

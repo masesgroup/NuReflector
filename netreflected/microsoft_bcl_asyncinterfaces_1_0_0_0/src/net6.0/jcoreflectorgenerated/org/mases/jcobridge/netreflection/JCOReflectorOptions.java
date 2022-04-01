@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/Microsoft.Bcl.AsyncInterfaces/lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Microsoft.Azure.Cosmos/Microsoft.Bcl.AsyncInterfaces.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/Microsoft.Bcl.AsyncInterfaces/lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Microsoft.Azure.Cosmos/Microsoft.Bcl.AsyncInterfaces.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

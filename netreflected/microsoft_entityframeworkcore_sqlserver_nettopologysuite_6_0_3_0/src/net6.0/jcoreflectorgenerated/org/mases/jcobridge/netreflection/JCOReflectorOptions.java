@@ -39,9 +39,9 @@ package org.mases.jcobridge.netreflection;
  */
 public class JCOReflectorOptions {
     /**
-     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll"
+     * AssemblyNames: "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll"
      */
-    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll" };
+    public static final String[] AssemblyNames = new String[] { "C:/Users/runneradmin/AppData/Local/Temp/net6.0/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll" };
     /**
      * CreateExceptionThrownClause: true
      */

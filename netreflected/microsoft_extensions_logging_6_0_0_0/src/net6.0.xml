@@ -213,7 +213,7 @@ Logging infrastructure default implementation for Microsoft.Extensions.Logging.
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.8.6.0</version>
+      <version>1.10.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 
@@ -233,11 +233,6 @@ Logging infrastructure default implementation for Microsoft.Extensions.Logging.
     <dependency>
       <groupId>com.masesgroup</groupId> 
       <artifactId>microsoft.extensions.options_net6.0</artifactId>
-      <version>6.0.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.masesgroup</groupId> 
-      <artifactId>system.diagnostics.diagnosticsource_net6.0</artifactId>
       <version>6.0.0.0-SNAPSHOT</version>
     </dependency>
 

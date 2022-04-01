@@ -39,7 +39,6 @@ import java.util.ArrayList;
 
 // Import section
 import system.net.http.DelegatingHandler;
-import system.net.http.HttpMessageHandler;
 
 
 /**
@@ -151,17 +150,7 @@ public class RetryAfterDelegatingHandler extends DelegatingHandler  {
         }
     }
 
-    public RetryAfterDelegatingHandler(DelegatingHandler innerHandler) throws Throwable, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentNullException, system.ArgumentException, system.ArgumentOutOfRangeException, system.FormatException, system.diagnostics.tracing.EventSourceException, system.ObjectDisposedException, system.InvalidOperationException {
-        try {
-            // add reference to assemblyName.dll file
-            addReference(JCOReflector.getUseFullAssemblyName() ? assemblyFullName : assemblyShortName);
-            setJCOInstance((JCObject)classType.NewObject(innerHandler == null ? null : innerHandler.getJCOInstance()));
-        } catch (JCNativeException jcne) {
-            throw translateException(jcne);
-        }
-    }
-
-    public RetryAfterDelegatingHandler(HttpMessageHandler innerHandler) throws Throwable, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.InvalidOperationException, system.ArrayTypeMismatchException, system.ArgumentNullException, system.ArgumentException, system.FormatException, system.ArgumentOutOfRangeException, system.diagnostics.tracing.EventSourceException, system.OutOfMemoryException, system.ObjectDisposedException {
+    public RetryAfterDelegatingHandler(DelegatingHandler innerHandler) throws Throwable, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.InvalidOperationException, system.ArrayTypeMismatchException, system.ArgumentNullException, system.ArgumentException, system.FormatException, system.ArgumentOutOfRangeException, system.diagnostics.tracing.EventSourceException, system.OutOfMemoryException, system.ObjectDisposedException {
         try {
             // add reference to assemblyName.dll file
             addReference(JCOReflector.getUseFullAssemblyName() ? assemblyFullName : assemblyShortName);
