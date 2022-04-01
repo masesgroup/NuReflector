@@ -75,11 +75,11 @@ jobs:
           
       - run: nuget pack src\NuReflectorCLI\NuReflectorCLI.nuspec -OutputDirectory .\bin
 
-      - name: Reflect and Build net5.0 Maven POM files
-        run: dotnet bin\net5.0\MASES.NuReflectorCLI.dll -PackagesFile .github\workflows\packages.json
-
       - name: Reflect and Build net6.0 Maven POM files
         run: dotnet bin\net6.0\MASES.NuReflectorCLI.dll -PackagesFile .github\workflows\packages.json
+
+      - name: Reflect and Build net5.0 Maven POM files
+        run: dotnet bin\net5.0\MASES.NuReflectorCLI.dll -PackagesFile .github\workflows\packages.json
         
       - name: Reflect and Build net462 Maven POM files
         run: .\bin\net462\MASES.NuReflectorCLI -PackagesFile .github\workflows\packages_net462.json
