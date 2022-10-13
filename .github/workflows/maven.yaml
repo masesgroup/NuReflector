@@ -98,14 +98,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       # Install .NET SDKs
-      - name: Setup .NET Core 3.1
-        uses: actions/setup-dotnet@v1
-        with:
-           dotnet-version: 3.1.x
-      - name: Setup .NET 5.0
-        uses: actions/setup-dotnet@v1
-        with:
-           dotnet-version: 5.0.x
+
       - name: Setup .NET 6.0
         uses: actions/setup-dotnet@v1
         with:
@@ -130,18 +123,8 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
 
       - name: Install local file to be used within Javadoc plugin of generated POM
-        run: mvn install:install-file -Dfile=./bin/net5.0/JCOBridge.jar -DgroupId=JCOBridge -DartifactId=JCOBridge -Dversion=2.4.6 -Dpackaging=jar -DgeneratePom=true
+        run: mvn install:install-file -Dfile=./bin/net6.0/JCOBridge.jar -DgroupId=JCOBridge -DartifactId=JCOBridge -Dversion=2.4.14 -Dpackaging=jar -DgeneratePom=true
 
-      - name: Extract net5.0 list
-        run: echo "NET_5_0_FILE_LIST=$(cat ./netreflected/net5.0.list)" >> $GITHUB_ENV
-
-      - name: Publish net5.0 to Apache Maven Central
-        run: for f in $NET_5_0_FILE_LIST; do mvn --file ./netreflected/$f --no-transfer-progress --batch-mode -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }} deploy; done 
-        env:
-          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
-          MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
- 
       - name: Extract net6.0 list
         run: echo "NET_6_0_FILE_LIST=$(cat ./netreflected/net6.0.list)" >> $GITHUB_ENV
  
