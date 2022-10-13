@@ -11,14 +11,14 @@
   <name>Serilog.Sinks.Seq net462 Master Project</name>
 
   <modules>
-    <module>serilog_2_10_0_0/src/net462.xml</module>
+    <module>serilog_2_12_0_0/src/net462.xml</module>
     <module>serilog_2_8_0_0/src/net462.xml</module>
     <module>serilog_formatting_compact_1_1_0_0/src/net462.xml</module>
-    <module>serilog_2_5_0_0/src/net462.xml</module>
-    <module>serilog_sinks_file_4_0_0_0/src/net462.xml</module>
+    <module>serilog_2_10_0_0/src/net462.xml</module>
+    <module>serilog_sinks_file_5_0_0_0/src/net462.xml</module>
     <module>serilog_2_0_0_0/src/net462.xml</module>
-    <module>serilog_sinks_periodicbatching_2_3_0_0/src/net462.xml</module>
-    <module>serilog_sinks_seq_5_1_1_0/src/net462.xml</module>
+    <module>serilog_sinks_periodicbatching_3_1_0_0/src/net462.xml</module>
+    <module>serilog_sinks_seq_5_2_1_0/src/net462.xml</module>
 
   </modules>
 

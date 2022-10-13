@@ -13,9 +13,9 @@
   <modules>
     <module>system_runtime_compilerservices_unsafe_4_5_3_0/src/net462.xml</module>
     <module>system_threading_tasks_extensions_4_5_4_0/src/net462.xml</module>
-    <module>firebirdsql_data_firebirdclient_8_5_4_0/src/net462.xml</module>
+    <module>firebirdsql_data_firebirdclient_9_0_2_0/src/net462.xml</module>
     <module>entityframework_6_4_4_0/src/net462.xml</module>
-    <module>entityframework_firebird_8_5_4_0/src/net462.xml</module>
+    <module>entityframework_firebird_9_0_2_0/src/net462.xml</module>
 
   </modules>
 

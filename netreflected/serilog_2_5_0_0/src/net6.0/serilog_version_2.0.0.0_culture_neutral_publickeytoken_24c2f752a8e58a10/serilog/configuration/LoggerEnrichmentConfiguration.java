@@ -39,11 +39,8 @@ import java.util.ArrayList;
 
 // Import section
 import serilog.LoggerConfiguration;
-import serilog.core.LoggingLevelSwitch;
-import serilog.events.LogEventLevel;
 import serilog.core.ILogEventEnricher;
 import serilog.core.ILogEventEnricherImplementation;
-import serilog.configuration.LoggerEnrichmentConfiguration;
 
 
 /**
@@ -175,7 +172,7 @@ public class LoggerEnrichmentConfiguration extends NetObject  {
         }
     }
 
-    public LoggerConfiguration WithProperty(java.lang.String name, NetObject value, boolean destructureObjects) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.ObjectDisposedException, system.InvalidOperationException, system.RankException, system.ArrayTypeMismatchException {
+    public LoggerConfiguration WithProperty(java.lang.String name, NetObject value, boolean destructureObjects) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {

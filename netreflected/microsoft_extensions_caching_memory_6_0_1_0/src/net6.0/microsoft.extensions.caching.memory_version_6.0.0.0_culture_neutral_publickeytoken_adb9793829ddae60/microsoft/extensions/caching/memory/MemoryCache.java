@@ -170,7 +170,7 @@ public class MemoryCache extends NetObject implements AutoCloseable {
         }
     }
 
-    public void Compact(double percentage) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.diagnostics.tracing.EventSourceException, system.OutOfMemoryException, system.PlatformNotSupportedException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.NotSupportedException, system.ArrayTypeMismatchException, system.IndexOutOfRangeException {
+    public void Compact(double percentage) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.diagnostics.tracing.EventSourceException, system.OutOfMemoryException, system.PlatformNotSupportedException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.NotSupportedException, system.ArrayTypeMismatchException, system.IndexOutOfRangeException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -217,7 +217,7 @@ public class MemoryCache extends NetObject implements AutoCloseable {
     
     // Properties section
     
-    public int getCount() throws Throwable, system.ArgumentNullException, system.ArgumentException, system.diagnostics.tracing.EventSourceException, system.OutOfMemoryException, system.PlatformNotSupportedException {
+    public int getCount() throws Throwable, system.ArgumentNullException, system.ArgumentException, system.diagnostics.tracing.EventSourceException, system.OutOfMemoryException, system.PlatformNotSupportedException, system.ArgumentOutOfRangeException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {

@@ -214,7 +214,7 @@ Entity Framework is Microsoft&amp;apos;s recommended data access technology for 
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net462</artifactId>
-      <version>1.10.0.0</version>
+      <version>1.11.0.0</version>
     </dependency>
 
   </dependencies>

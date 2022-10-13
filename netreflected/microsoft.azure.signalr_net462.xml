@@ -92,7 +92,7 @@
     <module>microsoft_identitymodel_tokens_5_5_0_0/src/net462.xml</module>
     <module>microsoft_identitymodel_jsonwebtokens_5_5_0_0/src/net462.xml</module>
     <module>system_identitymodel_tokens_jwt_5_5_0_0/src/net462.xml</module>
-    <module>microsoft_azure_signalr_protocols_1_16_0_0/src/net462.xml</module>
+    <module>microsoft_azure_signalr_protocols_1_18_3_0/src/net462.xml</module>
     <module>microsoft_aspnetcore_http_features_2_1_0_0/src/net462.xml</module>
     <module>microsoft_aspnetcore_connections_abstractions_2_1_0_0/src/net462.xml</module>
     <module>microsoft_aspnetcore_http_connections_common_1_0_0_0/src/net462.xml</module>
@@ -123,7 +123,7 @@
     <module>system_threading_channels_4_5_0_0/src/net462.xml</module>
     <module>microsoft_aspnetcore_signalr_core_1_0_0_0/src/net462.xml</module>
     <module>microsoft_aspnetcore_signalr_1_0_0_0/src/net462.xml</module>
-    <module>microsoft_azure_signalr_1_16_0_0/src/net462.xml</module>
+    <module>microsoft_azure_signalr_1_18_3_0/src/net462.xml</module>
 
   </modules>
 

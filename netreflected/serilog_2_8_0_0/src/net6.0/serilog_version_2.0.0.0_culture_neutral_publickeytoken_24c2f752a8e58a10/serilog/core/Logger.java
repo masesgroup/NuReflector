@@ -45,6 +45,7 @@ import serilog.ILogger;
 import serilog.ILoggerImplementation;
 import serilog.core.ILogEventEnricher;
 import serilog.core.ILogEventEnricherImplementation;
+import system.threading.tasks.ValueTask;
 import serilog.events.LogEvent;
 import serilog.core.ILogEventSink;
 import serilog.core.ILogEventSinkImplementation;
@@ -210,7 +211,18 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Debug(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public ValueTask DisposeAsync() throws Throwable {
+        if (classInstance == null)
+            throw new UnsupportedOperationException("classInstance is null.");
+        try {
+            JCObject objDisposeAsync = (JCObject)classInstance.Invoke("DisposeAsync");
+            return new ValueTask(objDisposeAsync);
+        } catch (JCNativeException jcne) {
+            throw translateException(jcne);
+        }
+    }
+
+    public void Debug(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -220,7 +232,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Debug(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Debug(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -230,7 +242,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Debug(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Debug(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -240,7 +252,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Debug(java.lang.String messageTemplate) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Debug(java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -260,7 +272,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Error(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Error(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -270,7 +282,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Error(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Error(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -280,7 +292,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Error(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Error(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -290,7 +302,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Error(java.lang.String messageTemplate) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Error(java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -300,7 +312,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Fatal(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Fatal(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -310,7 +322,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Fatal(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Fatal(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -320,7 +332,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Fatal(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Fatal(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -330,7 +342,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Fatal(java.lang.String messageTemplate) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Fatal(java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -340,7 +352,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Information(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Information(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -350,7 +362,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Information(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Information(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -360,7 +372,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Information(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Information(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -370,7 +382,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Information(java.lang.String messageTemplate) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Information(java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -380,7 +392,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Verbose(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Verbose(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -390,7 +402,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Verbose(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Verbose(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -400,7 +412,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Verbose(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Verbose(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -410,7 +422,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Verbose(java.lang.String messageTemplate) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Verbose(java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -420,7 +432,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Warning(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Warning(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -430,7 +442,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Warning(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Warning(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -440,7 +452,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Warning(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Warning(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -450,7 +462,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Warning(java.lang.String messageTemplate) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Warning(java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -470,7 +482,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.ObjectDisposedException, system.InvalidOperationException, system.RankException, system.ArrayTypeMismatchException, system.FormatException {
+    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentNullException, system.ArgumentException, system.InvalidTimeZoneException, system.security.SecurityException, system.UnauthorizedAccessException, system.io.IOException, system.OverflowException, system.InvalidOperationException, system.FormatException, system.IndexOutOfRangeException, system.NotSupportedException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -480,7 +492,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -490,7 +502,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Write(LogEventLevel level, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.FormatException, system.IndexOutOfRangeException {
+    public void Write(LogEventLevel level, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.security.SecurityException, system.ArgumentNullException, system.OverflowException, system.FormatException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -500,7 +512,7 @@ public class Logger extends NetObject implements serilog.core.ILogEventSink, Aut
         }
     }
 
-    public void Write(LogEventLevel level, java.lang.String messageTemplate) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
+    public void Write(LogEventLevel level, java.lang.String messageTemplate) throws Throwable, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {

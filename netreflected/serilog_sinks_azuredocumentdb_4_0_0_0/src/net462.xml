@@ -211,7 +211,7 @@ Write Serilog events to Azure DocumentDB
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net462</artifactId>
-      <version>1.10.0.0</version>
+      <version>1.11.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

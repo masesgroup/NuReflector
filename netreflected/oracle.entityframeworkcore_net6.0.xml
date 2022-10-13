@@ -11,21 +11,21 @@
   <name>Oracle.EntityFrameworkCore net6.0 Master Project</name>
 
   <modules>
-    <module>microsoft_entityframeworkcore_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_entityframeworkcore_abstractions_6_0_3_0/src/net6.0.xml</module>
     <module>microsoft_extensions_primitives_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_caching_abstractions_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_dependencyinjection_abstractions_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_logging_abstractions_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_options_6_0_0_0/src/net6.0.xml</module>
-    <module>microsoft_extensions_caching_memory_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_caching_memory_6_0_1_0/src/net6.0.xml</module>
     <module>microsoft_extensions_dependencyinjection_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_logging_6_0_0_0/src/net6.0.xml</module>
-    <module>microsoft_entityframeworkcore_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_entityframeworkcore_6_0_3_0/src/net6.0.xml</module>
     <module>microsoft_extensions_configuration_abstractions_6_0_0_0/src/net6.0.xml</module>
-    <module>microsoft_entityframeworkcore_relational_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_entityframeworkcore_relational_6_0_3_0/src/net6.0.xml</module>
     <module>system_directoryservices_protocols_5_0_1_0/src/net6.0.xml</module>
-    <module>oracle_manageddataaccess_core_3_21_50_0/src/net6.0.xml</module>
-    <module>oracle_entityframeworkcore_6_21_5_0/src/net6.0.xml</module>
+    <module>oracle_manageddataaccess_core_3_21_61_0/src/net6.0.xml</module>
+    <module>oracle_entityframeworkcore_6_21_61_0/src/net6.0.xml</module>
 
   </modules>
 

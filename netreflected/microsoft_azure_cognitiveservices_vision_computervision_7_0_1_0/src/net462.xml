@@ -211,7 +211,7 @@ This client library provides access to the Microsoft Cognitive Services Computer
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net462</artifactId>
-      <version>1.10.0.0</version>
+      <version>1.11.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

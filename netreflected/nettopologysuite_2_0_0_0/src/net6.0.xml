@@ -214,7 +214,7 @@ This package references GeoAPI.
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net6.0</artifactId>
-      <version>1.10.0.0</version>
+      <version>1.11.0.0</version>
     </dependency>
 
   </dependencies>

@@ -153,7 +153,7 @@ public class Log extends NetObject  {
     
     // Methods section
     
-    public static boolean BindProperty(java.lang.String propertyName, NetObject value, boolean destructureObjects, JCORefOut<LogEventProperty> property) throws Throwable, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.InvalidOperationException, system.ArgumentException, system.ArgumentOutOfRangeException, system.ArgumentNullException {
+    public static boolean BindProperty(java.lang.String propertyName, NetObject value, boolean destructureObjects, JCORefOut<LogEventProperty> property) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -173,7 +173,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static ILogger ForContext(ILogEventEnricher enricher) throws Throwable, system.ArgumentOutOfRangeException, system.ArgumentException, system.ArgumentNullException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException, system.InvalidOperationException, system.PlatformNotSupportedException, system.FormatException {
+    public static ILogger ForContext(ILogEventEnricher enricher) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -184,7 +184,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static ILogger ForContext(ILogEventEnricher[] enrichers) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.ObjectDisposedException, system.InvalidOperationException, system.RankException, system.ArrayTypeMismatchException, system.FormatException {
+    public static ILogger ForContext(ILogEventEnricher[] enrichers) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -195,7 +195,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static ILogger ForContext(java.lang.String propertyName, NetObject value, boolean destructureObjects) throws Throwable, system.ArgumentOutOfRangeException, system.ArgumentException, system.ArgumentNullException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException, system.InvalidOperationException, system.PlatformNotSupportedException, system.FormatException, system.NotSupportedException {
+    public static ILogger ForContext(java.lang.String propertyName, NetObject value, boolean destructureObjects) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -206,7 +206,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static ILogger ForContext(NetType source) throws Throwable, system.ArgumentOutOfRangeException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.FormatException, system.NotSupportedException {
+    public static ILogger ForContext(NetType source) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -227,7 +227,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Debug(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Debug(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -237,7 +237,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Debug(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Debug(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -247,7 +247,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Debug(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Debug(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -257,7 +257,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Debug(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.ArgumentOutOfRangeException, system.InvalidOperationException {
+    public static void Debug(java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -267,7 +267,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Error(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Error(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -277,7 +277,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Error(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Error(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -287,7 +287,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Error(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Error(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -297,7 +297,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Error(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.ArgumentOutOfRangeException, system.InvalidOperationException {
+    public static void Error(java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -307,7 +307,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Fatal(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Fatal(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -317,7 +317,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Fatal(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Fatal(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -327,7 +327,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Fatal(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Fatal(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -337,7 +337,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Fatal(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.ArgumentOutOfRangeException, system.InvalidOperationException {
+    public static void Fatal(java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -347,7 +347,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Information(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Information(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -357,7 +357,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Information(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Information(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -367,7 +367,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Information(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Information(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -377,7 +377,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Information(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.ArgumentOutOfRangeException, system.InvalidOperationException {
+    public static void Information(java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -387,7 +387,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Verbose(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Verbose(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -397,7 +397,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Verbose(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Verbose(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -407,7 +407,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Verbose(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Verbose(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -417,7 +417,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Verbose(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.ArgumentOutOfRangeException, system.InvalidOperationException {
+    public static void Verbose(java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -427,7 +427,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Warning(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Warning(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -437,7 +437,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Warning(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Warning(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -447,7 +447,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Warning(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Warning(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -457,7 +457,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Warning(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.ArgumentOutOfRangeException, system.InvalidOperationException {
+    public static void Warning(java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -477,7 +477,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public static void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -487,7 +487,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -497,7 +497,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Write(LogEventLevel level, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Write(LogEventLevel level, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -507,7 +507,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void Write(LogEventLevel level, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public static void Write(LogEventLevel level, java.lang.String messageTemplate) throws Throwable {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {

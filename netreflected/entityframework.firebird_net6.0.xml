@@ -11,9 +11,9 @@
   <name>EntityFramework.Firebird net6.0 Master Project</name>
 
   <modules>
-    <module>firebirdsql_data_firebirdclient_8_5_4_0/src/net6.0.xml</module>
+    <module>firebirdsql_data_firebirdclient_9_0_2_0/src/net6.0.xml</module>
     <module>entityframework_6_4_4_0/src/net6.0.xml</module>
-    <module>entityframework_firebird_8_5_4_0/src/net6.0.xml</module>
+    <module>entityframework_firebird_9_0_2_0/src/net6.0.xml</module>
 
   </modules>
 

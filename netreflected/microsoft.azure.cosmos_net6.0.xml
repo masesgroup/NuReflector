@@ -16,7 +16,7 @@
     <module>azure_core_1_19_0_0/src/net6.0.xml</module>
     <module>microsoft_bcl_hashcode_1_1_0_0/src/net6.0.xml</module>
     <module>newtonsoft_json_10_0_2_0/src/net6.0.xml</module>
-    <module>microsoft_azure_cosmos_3_26_1_0/src/net6.0.xml</module>
+    <module>microsoft_azure_cosmos_3_31_0_0/src/net6.0.xml</module>
 
   </modules>
 

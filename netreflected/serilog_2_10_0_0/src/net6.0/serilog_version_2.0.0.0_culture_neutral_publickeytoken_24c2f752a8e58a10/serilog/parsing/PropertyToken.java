@@ -144,7 +144,7 @@ public class PropertyToken extends MessageTemplateToken  {
     public PropertyToken() throws Throwable {
     }
 
-    public PropertyToken(java.lang.String propertyName, java.lang.String rawText, java.lang.String formatObsolete, Destructuring destructuringObsolete) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.InvalidOperationException, system.PlatformNotSupportedException, system.ArrayTypeMismatchException, system.IndexOutOfRangeException, system.NotSupportedException, system.ObjectDisposedException, system.RankException {
+    public PropertyToken(java.lang.String propertyName, java.lang.String rawText, java.lang.String formatObsolete, Destructuring destructuringObsolete) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.ObjectDisposedException, system.InvalidOperationException, system.RankException, system.ArrayTypeMismatchException {
         try {
             // add reference to assemblyName.dll file
             addReference(JCOReflector.getUseFullAssemblyName() ? assemblyFullName : assemblyShortName);

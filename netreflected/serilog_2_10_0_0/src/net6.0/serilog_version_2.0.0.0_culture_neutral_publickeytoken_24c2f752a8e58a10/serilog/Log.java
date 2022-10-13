@@ -45,6 +45,7 @@ import serilog.ILogger;
 import serilog.ILoggerImplementation;
 import serilog.core.ILogEventEnricher;
 import serilog.core.ILogEventEnricherImplementation;
+import system.threading.tasks.ValueTask;
 import serilog.events.LogEvent;
 
 
@@ -184,7 +185,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static ILogger ForContext(ILogEventEnricher[] enrichers) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.ObjectDisposedException, system.InvalidOperationException, system.RankException, system.ArrayTypeMismatchException, system.FormatException {
+    public static ILogger ForContext(ILogEventEnricher[] enrichers) throws Throwable, system.ArgumentException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.InvalidOperationException, system.ArgumentOutOfRangeException, system.IndexOutOfRangeException, system.FormatException {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
@@ -206,12 +207,23 @@ public class Log extends NetObject  {
         }
     }
 
-    public static ILogger ForContext(NetType source) throws Throwable, system.ArgumentOutOfRangeException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.FormatException, system.NotSupportedException {
+    public static ILogger ForContext(NetType source) throws Throwable, system.ArgumentOutOfRangeException, system.ArgumentException, system.ArgumentNullException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.FormatException {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {
             JCObject objForContext = (JCObject)classType.Invoke("ForContext", source == null ? null : source.getJCOInstance());
             return new ILoggerImplementation(objForContext);
+        } catch (JCNativeException jcne) {
+            throw translateException(jcne);
+        }
+    }
+
+    public static ValueTask CloseAndFlushAsync() throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.NotSupportedException, system.ArgumentNullException, system.ObjectDisposedException, system.InvalidOperationException, system.RankException, system.ArrayTypeMismatchException {
+        if (classType == null)
+            throw new UnsupportedOperationException("classType is null.");
+        try {
+            JCObject objCloseAndFlushAsync = (JCObject)classType.Invoke("CloseAndFlushAsync");
+            return new ValueTask(objCloseAndFlushAsync);
         } catch (JCNativeException jcne) {
             throw translateException(jcne);
         }
@@ -532,7 +544,7 @@ public class Log extends NetObject  {
         }
     }
 
-    public static void setLogger(ILogger Logger) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.InvalidOperationException, system.PlatformNotSupportedException, system.ArrayTypeMismatchException, system.IndexOutOfRangeException, system.NotSupportedException, system.globalization.CultureNotFoundException, system.ObjectDisposedException {
+    public static void setLogger(ILogger Logger) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.InvalidOperationException, system.PlatformNotSupportedException, system.ArrayTypeMismatchException, system.IndexOutOfRangeException, system.NotSupportedException, system.ObjectDisposedException, system.RankException {
         if (classType == null)
             throw new UnsupportedOperationException("classType is null.");
         try {

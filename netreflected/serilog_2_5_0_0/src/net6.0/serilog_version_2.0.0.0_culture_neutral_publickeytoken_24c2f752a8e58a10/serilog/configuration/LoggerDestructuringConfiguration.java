@@ -172,7 +172,7 @@ public class LoggerDestructuringConfiguration extends NetObject  {
         }
     }
 
-    public LoggerConfiguration ToMaximumDepth(int maximumDestructuringDepth) throws Throwable, system.ArgumentOutOfRangeException {
+    public LoggerConfiguration ToMaximumDepth(int maximumDestructuringDepth) throws Throwable, system.ArgumentException, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.InvalidOperationException, system.PlatformNotSupportedException, system.ArrayTypeMismatchException, system.IndexOutOfRangeException, system.NotSupportedException, system.globalization.CultureNotFoundException, system.ObjectDisposedException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {

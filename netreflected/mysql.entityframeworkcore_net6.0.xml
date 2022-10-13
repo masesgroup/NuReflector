@@ -11,25 +11,25 @@
   <name>MySql.EntityFrameworkCore net6.0 Master Project</name>
 
   <modules>
-    <module>bouncycastle_netcore_1_8_5_0/src/net6.0.xml</module>
-    <module>google_protobuf_3_14_0_0/src/net6.0.xml</module>
+    <module>google_protobuf_3_19_4_0/src/net6.0.xml</module>
     <module>k4os_compression_lz4_1_2_6_0/src/net6.0.xml</module>
     <module>k4os_hash_xxhash_1_0_6_0/src/net6.0.xml</module>
     <module>k4os_compression_lz4_streams_1_2_6_0/src/net6.0.xml</module>
-    <module>mysql_data_8_0_28_0/src/net6.0.xml</module>
-    <module>microsoft_entityframeworkcore_abstractions_6_0_0_0/src/net6.0.xml</module>
+    <module>portable_bouncycastle_1_9_0_0/src/net6.0.xml</module>
+    <module>mysql_data_8_0_31_0/src/net6.0.xml</module>
+    <module>microsoft_entityframeworkcore_abstractions_6_0_7_0/src/net6.0.xml</module>
     <module>microsoft_extensions_primitives_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_caching_abstractions_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_dependencyinjection_abstractions_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_logging_abstractions_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_options_6_0_0_0/src/net6.0.xml</module>
-    <module>microsoft_extensions_caching_memory_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_extensions_caching_memory_6_0_1_0/src/net6.0.xml</module>
     <module>microsoft_extensions_dependencyinjection_6_0_0_0/src/net6.0.xml</module>
     <module>microsoft_extensions_logging_6_0_0_0/src/net6.0.xml</module>
-    <module>microsoft_entityframeworkcore_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_entityframeworkcore_6_0_7_0/src/net6.0.xml</module>
     <module>microsoft_extensions_configuration_abstractions_6_0_0_0/src/net6.0.xml</module>
-    <module>microsoft_entityframeworkcore_relational_6_0_0_0/src/net6.0.xml</module>
-    <module>mysql_entityframeworkcore_6_0_0_0/src/net6.0.xml</module>
+    <module>microsoft_entityframeworkcore_relational_6_0_7_0/src/net6.0.xml</module>
+    <module>mysql_entityframeworkcore_6_0_7_0/src/net6.0.xml</module>
 
   </modules>
 

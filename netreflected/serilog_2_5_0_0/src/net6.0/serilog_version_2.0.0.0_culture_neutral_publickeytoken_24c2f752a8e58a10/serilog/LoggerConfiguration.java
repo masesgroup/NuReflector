@@ -176,7 +176,7 @@ public class LoggerConfiguration extends NetObject  {
     
     // Properties section
     
-    public LoggerAuditSinkConfiguration getAuditTo() throws Throwable, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArgumentException, system.ArrayTypeMismatchException {
+    public LoggerAuditSinkConfiguration getAuditTo() throws Throwable, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArgumentException, system.ArrayTypeMismatchException, system.InvalidOperationException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -198,22 +198,12 @@ public class LoggerConfiguration extends NetObject  {
         }
     }
 
-    public LoggerEnrichmentConfiguration getEnrich() throws Throwable {
+    public LoggerEnrichmentConfiguration getEnrich() throws Throwable, system.ArgumentOutOfRangeException, system.ArgumentNullException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArgumentException, system.ArrayTypeMismatchException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
             JCObject val = (JCObject)classInstance.Get("Enrich");
             return new LoggerEnrichmentConfiguration(val);
-        } catch (JCNativeException jcne) {
-            throw translateException(jcne);
-        }
-    }
-
-    public void setEnrich(LoggerEnrichmentConfiguration Enrich) throws Throwable {
-        if (classInstance == null)
-            throw new UnsupportedOperationException("classInstance is null.");
-        try {
-            classInstance.Set("Enrich", Enrich == null ? null : Enrich.getJCOInstance());
         } catch (JCNativeException jcne) {
             throw translateException(jcne);
         }

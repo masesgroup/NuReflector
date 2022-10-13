@@ -445,7 +445,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.InvalidTimeZoneException, system.security.SecurityException, system.UnauthorizedAccessException, system.io.IOException, system.OverflowException {
+    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.InvalidTimeZoneException, system.security.SecurityException, system.UnauthorizedAccessException, system.io.IOException, system.OverflowException {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {

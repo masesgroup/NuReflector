@@ -212,7 +212,7 @@ Exposes all the Elasticsearch API endpoints but leaves you in control of buildin
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net462</artifactId>
-      <version>1.10.0.0</version>
+      <version>1.11.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.masesgroup</groupId> 

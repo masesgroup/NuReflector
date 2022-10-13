@@ -117,73 +117,73 @@ public interface ILogger extends IJCOBridgeReflected {
 
     // Methods section
     
-    public boolean BindProperty(java.lang.String propertyName, NetObject value, boolean destructureObjects, JCORefOut<LogEventProperty> property) throws Throwable, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.InvalidOperationException, system.ArgumentException, system.ArgumentOutOfRangeException, system.NotSupportedException, system.ArgumentNullException;
+    public boolean BindProperty(java.lang.String propertyName, NetObject value, boolean destructureObjects, JCORefOut<LogEventProperty> property) throws Throwable;
 
     public boolean IsEnabled(LogEventLevel level) throws Throwable;
 
-    public ILogger ForContext(ILogEventEnricher enricher) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException, system.InvalidOperationException, system.FormatException, system.OverflowException;
+    public ILogger ForContext(ILogEventEnricher enricher) throws Throwable;
 
-    public ILogger ForContext(java.lang.String propertyName, NetObject value, boolean destructureObjects) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException, system.InvalidOperationException, system.FormatException, system.OverflowException;
+    public ILogger ForContext(java.lang.String propertyName, NetObject value, boolean destructureObjects) throws Throwable;
 
-    public ILogger ForContext(NetType source) throws Throwable, system.ArgumentOutOfRangeException, system.ArgumentException, system.ArgumentNullException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException, system.InvalidOperationException, system.PlatformNotSupportedException, system.FormatException, system.NotSupportedException;
+    public ILogger ForContext(NetType source) throws Throwable;
 
-    public void Debug(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Debug(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Debug(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Debug(NetException exception, java.lang.String messageTemplate) throws Throwable;
 
-    public void Debug(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Debug(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Debug(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Debug(java.lang.String messageTemplate) throws Throwable;
 
-    public void Error(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Error(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Error(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Error(NetException exception, java.lang.String messageTemplate) throws Throwable;
 
-    public void Error(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Error(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Error(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Error(java.lang.String messageTemplate) throws Throwable;
 
-    public void Fatal(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Fatal(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Fatal(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Fatal(NetException exception, java.lang.String messageTemplate) throws Throwable;
 
-    public void Fatal(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Fatal(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Fatal(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Fatal(java.lang.String messageTemplate) throws Throwable;
 
-    public void Information(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Information(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Information(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Information(NetException exception, java.lang.String messageTemplate) throws Throwable;
 
-    public void Information(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Information(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Information(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Information(java.lang.String messageTemplate) throws Throwable;
 
-    public void Verbose(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Verbose(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Verbose(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Verbose(NetException exception, java.lang.String messageTemplate) throws Throwable;
 
-    public void Verbose(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Verbose(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Verbose(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Verbose(java.lang.String messageTemplate) throws Throwable;
 
-    public void Warning(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Warning(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Warning(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Warning(NetException exception, java.lang.String messageTemplate) throws Throwable;
 
-    public void Warning(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Warning(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Warning(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Warning(java.lang.String messageTemplate) throws Throwable;
 
     public void Write(LogEvent logEvent) throws Throwable;
 
-    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.InvalidTimeZoneException, system.security.SecurityException, system.UnauthorizedAccessException, system.io.IOException, system.OverflowException;
+    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate) throws Throwable;
 
-    public void Write(LogEventLevel level, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException;
+    public void Write(LogEventLevel level, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable;
 
-    public void Write(LogEventLevel level, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException;
+    public void Write(LogEventLevel level, java.lang.String messageTemplate) throws Throwable;
 
 
     

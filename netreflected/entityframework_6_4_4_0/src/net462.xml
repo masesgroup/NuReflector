@@ -211,7 +211,7 @@ Entity Framework 6 (EF6) is a tried and tested object-relational mapper for .NET
     <dependency>
       <groupId>com.masesgroup</groupId>
       <artifactId>jcoreflector_net462</artifactId>
-      <version>1.10.0.0</version>
+      <version>1.11.0.0</version>
     </dependency>
 
   </dependencies>

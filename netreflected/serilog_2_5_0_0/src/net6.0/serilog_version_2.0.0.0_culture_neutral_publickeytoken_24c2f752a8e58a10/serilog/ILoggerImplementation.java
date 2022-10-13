@@ -142,7 +142,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
 
     // Methods section
     
-    public boolean BindProperty(java.lang.String propertyName, NetObject value, boolean destructureObjects, JCORefOut<LogEventProperty> property) throws Throwable, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.InvalidOperationException, system.ArgumentException, system.ArgumentOutOfRangeException, system.NotSupportedException, system.ArgumentNullException {
+    public boolean BindProperty(java.lang.String propertyName, NetObject value, boolean destructureObjects, JCORefOut<LogEventProperty> property) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -162,7 +162,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public ILogger ForContext(ILogEventEnricher enricher) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException, system.InvalidOperationException, system.FormatException, system.OverflowException {
+    public ILogger ForContext(ILogEventEnricher enricher) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -173,7 +173,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public ILogger ForContext(java.lang.String propertyName, NetObject value, boolean destructureObjects) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException, system.InvalidOperationException, system.FormatException, system.OverflowException {
+    public ILogger ForContext(java.lang.String propertyName, NetObject value, boolean destructureObjects) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -184,7 +184,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public ILogger ForContext(NetType source) throws Throwable, system.ArgumentOutOfRangeException, system.ArgumentException, system.ArgumentNullException, system.IndexOutOfRangeException, system.RankException, system.ArrayTypeMismatchException, system.InvalidOperationException, system.PlatformNotSupportedException, system.FormatException, system.NotSupportedException {
+    public ILogger ForContext(NetType source) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -195,7 +195,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Debug(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Debug(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -205,7 +205,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Debug(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Debug(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -215,7 +215,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Debug(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Debug(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -225,7 +225,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Debug(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Debug(java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -235,7 +235,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Error(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Error(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -245,7 +245,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Error(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Error(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -255,7 +255,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Error(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Error(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -265,7 +265,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Error(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Error(java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -275,7 +275,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Fatal(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Fatal(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -285,7 +285,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Fatal(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Fatal(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -295,7 +295,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Fatal(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Fatal(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -305,7 +305,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Fatal(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Fatal(java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -315,7 +315,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Information(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Information(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -325,7 +325,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Information(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Information(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -335,7 +335,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Information(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Information(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -345,7 +345,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Information(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Information(java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -355,7 +355,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Verbose(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Verbose(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -365,7 +365,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Verbose(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Verbose(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -375,7 +375,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Verbose(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Verbose(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -385,7 +385,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Verbose(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Verbose(java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -395,7 +395,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Warning(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Warning(NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -405,7 +405,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Warning(NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Warning(NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -415,7 +415,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Warning(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Warning(java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -425,7 +425,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Warning(java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Warning(java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -445,7 +445,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.NotSupportedException, system.ArgumentException, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.InvalidOperationException, system.PlatformNotSupportedException, system.IndexOutOfRangeException, system.InvalidTimeZoneException, system.security.SecurityException, system.UnauthorizedAccessException, system.io.IOException, system.OverflowException {
+    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -455,7 +455,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Write(LogEventLevel level, NetException exception, java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -465,7 +465,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Write(LogEventLevel level, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable, system.ArgumentNullException, system.ArgumentOutOfRangeException, system.ArgumentException, system.InvalidOperationException, system.IndexOutOfRangeException, system.PlatformNotSupportedException, system.security.SecurityException, system.OverflowException, system.RankException, system.ArrayTypeMismatchException {
+    public void Write(LogEventLevel level, java.lang.String messageTemplate, NetObject... propertyValues) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
@@ -475,7 +475,7 @@ public class ILoggerImplementation extends NetObject implements ILogger {
         }
     }
 
-    public void Write(LogEventLevel level, java.lang.String messageTemplate) throws Throwable, system.ArgumentNullException, system.ArgumentException, system.InvalidOperationException, system.ArgumentOutOfRangeException {
+    public void Write(LogEventLevel level, java.lang.String messageTemplate) throws Throwable {
         if (classInstance == null)
             throw new UnsupportedOperationException("classInstance is null.");
         try {
