@@ -306,17 +306,17 @@ namespace MASES.NuReflector
 
                 foreach (var item in packages.Packages)
                 {
-                    var arguments = newArgsStr + "-NoPOM " + "-" + CLIParam.PackageId + " " + item.PackageId;
+                    var procArguments = newArgsStr + arguments.ToString(CLIParam.NoPOM, string.Empty) + " " + arguments.ToString(CLIParam.PackageId, item.PackageId);
                     if (!string.IsNullOrEmpty(item.PackageVersion))
                     {
-                        arguments += " -" + CLIParam.PackageVersion + " " + item.PackageVersion;
+                        procArguments += " " + arguments.ToString(CLIParam.PackageVersion, item.PackageVersion);
                     }
                     if (item.PreRelease)
                     {
-                        arguments += " -" + CLIParam.PreRelease + " 1";
+                        procArguments += " " + arguments.ToString(CLIParam.PreRelease, string.Empty);
                     }
-                    AppendToConsole(hierarchyLevel, $"Starting child process for {item.PackageId}:{item.PackageVersion} in {Environment.CurrentDirectory}: {processToRun} {arguments}");
-                    var retCode = LaunchProcess(Environment.CurrentDirectory, processToRun, arguments);
+                    AppendToConsole(hierarchyLevel, $"Starting child process for {item.PackageId}:{item.PackageVersion} in {Environment.CurrentDirectory}: {processToRun} {procArguments}");
+                    var retCode = LaunchProcess(Environment.CurrentDirectory, processToRun, procArguments);
                     if (retCode != 0)
                     {
                         throw new InvalidOperationException($"Sub process associated to {item.PackageId}:{item.PackageVersion} returned {retCode}");
