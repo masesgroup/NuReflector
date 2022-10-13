@@ -26,15 +26,6 @@
     <AssemblyOriginatorKeyFile>..\Common\NuReflector.snk</AssemblyOriginatorKeyFile>
     <PackageReadmeFile>index.md</PackageReadmeFile>
   </PropertyGroup>
-  <!-- Fix start https://github.com/dotnet/sourcelink/issues/572 -->
-  <PropertyGroup>
-    <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-  </PropertyGroup>
-  <ItemGroup>
-    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)" />
-  </ItemGroup>
-  <!-- Fix end -->
   <ItemGroup>
     <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
     <None Include="..\Documentation\index.md" Pack="true" PackagePath="" />

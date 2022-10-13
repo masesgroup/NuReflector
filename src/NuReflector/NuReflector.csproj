@@ -5,7 +5,6 @@
     <RootNamespace>MASES.NuReflector</RootNamespace>
     <Title>NuReflector - a reflector engine for NuGet packages</Title>
     <Description>NuReflector - a reflector engine for NuGet packages</Description>
-    <Copyright>Copyright ©  MASES s.r.l. 2022</Copyright>
     <Product>NuReflector</Product>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <OutputPath>..\..\bin\</OutputPath>
@@ -26,14 +25,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
-  <!-- Fix start https://github.com/dotnet/sourcelink/issues/572 -->
-  <PropertyGroup>
-    <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
-  </PropertyGroup>
-  <ItemGroup>
-    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)" />
-  </ItemGroup>
-  <!-- Fix end -->
+
   <ItemGroup>
     <EmbeddedResource Include="defaultParentPOM.template" />
     <EmbeddedResource Include="defaultPOM.template" />
