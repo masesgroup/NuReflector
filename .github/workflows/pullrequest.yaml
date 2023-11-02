@@ -42,7 +42,7 @@ jobs:
         run: .\bin\net462\MASES.NuReflectorCLI -PackagesFile .github\workflows\packages_net462.json
 
       - name: Clear documentation folder 
-        run: Remove-Item .\docs\* -Recurse -Force -Exclude _config.yml
+        run: Remove-Item .\docs\* -Recurse -Force -Exclude _config.yml,CNAME
 
       - name: Build documentation
         run: |

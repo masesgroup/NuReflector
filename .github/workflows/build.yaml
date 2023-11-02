@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: get_changed_files
-        uses: jitterbit/get-changed-files@v1
+        uses: masesgroup/retrieve-changed-files@v3
         with:
           format: 'csv'
       - id: check_files
@@ -28,17 +28,17 @@ jobs:
           for added_modified_file in "${added_modified_files[@]}"; do
               if [[ $added_modified_file == ".github/workflows/build.yaml"* ]]; then
                 echo "$added_modified_file is myself."
-                echo "::set-output name=run_build_windows::true"
+                echo "run_build_windows=true" >> $GITHUB_OUTPUT
                 break
               fi
               if [[ $added_modified_file == ".github/workflows/packages.json"* ]]; then
                 echo "$added_modified_file: packages list changed."
-                echo "::set-output name=run_build_windows::true"
+                echo "run_build_windows=true" >> $GITHUB_OUTPUT
                 break
               fi
               if [[ $added_modified_file == "src/"* ]]; then
                 echo "$added_modified_file file is under the directory 'src/'."
-                echo "::set-output name=run_build_windows::true"
+                echo "run_build_windows=true" >> $GITHUB_OUTPUT
                 break
               fi
           done
@@ -84,7 +84,7 @@ jobs:
         run: .\bin\net462\MASES.NuReflectorCLI -PackagesFile .github\workflows\packages_net462.json
 
       - name: Clear documentation folder 
-        run: Remove-Item .\docs\* -Recurse -Force -Exclude _config.yml
+        run: Remove-Item .\docs\* -Recurse -Force -Exclude _config.yml,CNAME
 
       - name: Build documentation
         run: |

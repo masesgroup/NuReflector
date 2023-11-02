@@ -36,8 +36,7 @@ jobs:
       run: |
         echo "=============== list changed files ==============="
         git diff --name-only HEAD^ HEAD
-        
-        echo "::set-output name=run_job::false"
+        echo "run_job=false" >> $GITHUB_OUTPUT
         echo "========== check paths of changed files =========="
         git diff --name-only HEAD^ HEAD > files.txt
         while IFS= read -r file
@@ -45,12 +44,12 @@ jobs:
           echo $file
           if [[ $file == ".github/workflows/maven.yaml"* ]]; then
             echo "Recreate Maven was requested"
-            echo "::set-output name=run_job::true"
+            echo "run_job=true" >> $GITHUB_OUTPUT
             break
           fi
           if [[ $file == "netreflected/"* ]]; then
             echo "This file is under the directory 'netreflected/'."
-            echo "::set-output name=run_job::true"
+            echo "run_job=true" >> $GITHUB_OUTPUT
             break
           fi
         echo "This files are not in a source directory no action required"
@@ -60,7 +59,7 @@ jobs:
       if: ${{ github.event.workflow.name == 'CI_WEEKLYBUILD' }}
       id: check_nightly_commit
       run: |
-        echo "::set-output name=run_job::false"
+        echo "run_job=false" >> $GITHUB_OUTPUT
         echo "========== check commits of changes =========="
         git log -1 --pretty=%B HEAD^ HEAD > commit_message.txt
         while IFS= read -r comment
@@ -68,7 +67,7 @@ jobs:
           echo $comment
           if [[ $file == "Update sources after nightly build check"* ]]; then
             echo "Nighly builds generated siomething"
-            echo "::set-output name=run_job::true"
+            echo "run_job=true" >> $GITHUB_OUTPUT
             break
           fi
         done < commit_message.txt
