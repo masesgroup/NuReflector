@@ -9,7 +9,7 @@
     <Description>NuReflector CLI - CLI interface for NuReflector Engine</Description>
     <Product>MASES.NuReflectorCLI</Product>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>..\..\..\bin\</OutputPath>
     <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/masesgroup/NuReflector/</PackageProjectUrl>
@@ -27,8 +27,8 @@
     <PackageReadmeFile>index.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
-    <None Include="..\Documentation\index.md" Pack="true" PackagePath="" />
+    <None Include="..\..\..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="..\..\documentation\index.md" Pack="true" PackagePath="" />
     <None Include="..\Common\JCOB128x128.png" Pack="true" PackagePath="" />
     <None Include="..\Common\NuReflector.snk" Link="NuReflector.snk" />
   </ItemGroup>
