@@ -30,7 +30,7 @@ jobs:
           submodules: 'true'
 
       - name: Compile 
-        run: dotnet build --no-incremental --configuration Release /p:Platform="Any CPU" src\NuReflector.sln
+        run: dotnet build --no-incremental --configuration Release /p:Platform="Any CPU" src\net\NuReflector.sln
 
       - name: Reflect and Build net6.0 Maven POM files
         run: dotnet bin\net6.0\MASES.NuReflectorCLI.dll -PackagesFile .github\workflows\packages.json

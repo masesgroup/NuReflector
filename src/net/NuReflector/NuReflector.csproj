@@ -7,7 +7,7 @@
     <Description>NuReflector - a reflector engine for NuGet packages</Description>
     <Product>NuReflector</Product>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>..\..\..\bin\</OutputPath>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/masesgroup/NuReflector/</PackageProjectUrl>
@@ -31,8 +31,8 @@
     <EmbeddedResource Include="defaultPOM.template" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
-    <None Include="..\..\README.md" Pack="true" PackagePath="" />
+    <None Include="..\..\..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="..\..\..\README.md" Pack="true" PackagePath="" />
     <None Include="..\Common\JCOB128x128.png" Pack="true" PackagePath="" />
     <None Include="..\Common\NuReflector.snk" Link="NuReflector.snk" />
   </ItemGroup>
