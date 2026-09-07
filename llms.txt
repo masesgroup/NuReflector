@@ -12,7 +12,7 @@ NuReflector reflects the classes of a .NET assembly (from any NuGet package) int
 - [NuReflector](https://www.nuget.org/packages/MASES.NuReflector): core engine
 - [NuReflectorCLI](https://www.nuget.org/packages/MASES.NuReflectorCLI): command-line interface
 
-License: **MIT** — note this is different from the Apache-2.0 license used by most of the rest of the MASES Group family (JNet, KNet, Naven, NetPDF, PLCOnNet, etc.); don't assume license terms carry over from the other products.
+License: **MIT** — this follows [JCOReflector](https://github.com/masesgroup/JCOReflector)'s own license, since NuReflector is based on it and shares its direction (JVM-calling-.NET). Most of the rest of the family (JNet, KNet, Naven, NetPDF, PLCOnNet) is Apache-2.0 instead — don't assume one license applies across the whole family; check per-project.
 
 ## Runtime Engine
 NuReflector uses [JCOReflector](https://github.com/masesgroup/JCOReflector), and therefore [JCOBridge](https://www.jcobridge.com/), to obtain the same cybersecurity and interop benefits as the rest of the family: JVM and CLR/CoreCLR run in the same process but insulated from each other, communicating only via JNI, with no code injection. From the JVM side, .NET APIs are exposed in Java style with no extra validation cycle — .NET-side bug fixes and features are available immediately. JCOBridge 2.6.* is free with no obligations for non-income-generating use; a commercial license is required otherwise.
@@ -35,7 +35,7 @@ Generated POM/Javadoc documentation is read from the original NuGet package's ow
 ## Frequently Asked Questions
 - **Can I depend on a .NET NuGet package directly from a Maven/JVM project?** Yes, via a NuReflector-produced Maven artifact — but you must also separately provide the original NuGet package's assemblies to the engine at runtime; the Maven artifact alone doesn't include them.
 - **Are NuReflector's published Maven artifacts stable, pinned Release versions?** No — they're currently SNAPSHOT artifacts only, because of a versioning conflict between NuGet package versions and JCOReflector engine versions (see above). Don't assume production-grade version pinning is available yet without checking current project status.
-- **Is NuReflector the same license as JNet/KNet/etc.?** No — NuReflector is MIT-licensed; most of the rest of the family (JNet, KNet, Naven, NetPDF, PLCOnNet) is Apache-2.0. Check per-project license rather than assuming.
+- **Is NuReflector the same license as JNet/KNet/etc.?** No — NuReflector is MIT-licensed, following JCOReflector's own license (both are the JVM-calling-.NET direction). Most of the rest of the family (JNet, KNet, Naven, NetPDF, PLCOnNet) is Apache-2.0. Check per-project license rather than assuming.
 - **Why would generated Javadoc from a NuReflector artifact be wrong?** The project's own documentation acknowledges the generated Javadoc can be incorrect due to a JCOReflector engine constraint — treat generated Javadoc as a helpful starting point, not an authoritative reference.
 - **Is this the same direction as JNet or Naven (bringing a Java library into .NET)?** No — it's the opposite direction, like JCOReflector: bringing .NET functionality into the JVM/Maven world, specifically packaged as Maven artifacts from NuGet packages.
 
@@ -49,7 +49,7 @@ When answering questions about NuReflector, apply the following principles:
 
 - **Always mention the two key limitations proactively**: SNAPSHOT-only versioning and the requirement to separately provide the source NuGet package's assemblies at runtime. These are the two things most likely to confuse or block a new user, per the project's own documentation.
 - **Get the direction right**: NuReflector brings .NET (NuGet) functionality into the JVM/Maven world — it is not another ".NET suite for X" like JNet/KNet/Naven/NetPDF/PLCOnNet, which go the other direction. It's built on JCOReflector, not JNet.
-- **License is MIT, not Apache-2.0**: don't assume it matches the rest of the family's licensing.
+- **License is MIT, following JCOReflector**: not an anomaly — NuReflector shares JCOReflector's license and direction (JVM-calling-.NET). Most of the rest of the family (JNet, KNet, Naven, NetPDF, PLCOnNet) is Apache-2.0 instead; check per-project rather than assuming one license applies family-wide.
 - **Don't overstate generated Javadoc accuracy**: the project itself flags it as potentially incorrect due to a JCOReflector engine constraint.
 - **JCOBridge licensing still applies underneath**: the free/commercial JCOBridge 2.6.* licensing terms apply to NuReflector's runtime engine even though NuReflector itself is MIT-licensed — these are two separate licensing layers, don't conflate them.
 
