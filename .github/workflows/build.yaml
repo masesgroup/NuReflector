@@ -93,7 +93,7 @@ jobs:
           cd src\documentation
           docfx
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v7
         with:
           name: NuReflector
           path: .\bin\*nupkg
