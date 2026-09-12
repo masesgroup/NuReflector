@@ -1,6 +1,6 @@
 # NuReflector
 
-> NuReflector is an engine that produces Maven artifacts from NuGet packages, giving JVM applications (Java, Scala, Kotlin, ...) direct access to .NET NuGet package functionality as regular Maven dependencies. It runs in the opposite direction from JNet/KNet/Naven/NetPDF/PLCOnNet: instead of bringing a JVM library into .NET, it's based on [JCOReflector](https://github.com/masesgroup/JCOReflector) — the JVM-calling-.NET member of the family — and packages that reflection output specifically as versioned Maven artifacts.
+> NuReflector is an engine that produces Maven artifacts from NuGet packages, giving JVM applications (any JVM-hosted language compiling to standard bytecode — Java, Scala, and Kotlin are the most common examples) direct access to .NET NuGet package functionality as regular Maven dependencies. It runs in the opposite direction from JNet/KNet/Naven/NetPDF/PLCOnNet: instead of bringing a JVM library into .NET, it's based on [JCOReflector](https://github.com/masesgroup/JCOReflector) — the JVM-calling-.NET member of the family — and packages that reflection output specifically as versioned Maven artifacts.
 
 NuReflector reflects the classes of a .NET assembly (from any NuGet package) into Java-callable classes, then publishes those as a Maven artifact — so a JVM/Maven project can add a dependency and call .NET APIs directly, in Java-style syntax, without hand-writing JNI or a custom bridge.
 
